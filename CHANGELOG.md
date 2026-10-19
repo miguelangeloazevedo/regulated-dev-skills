@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-draft.6
+
+- `validation` records the clinical evaluation report and revision behind each need that depends on clinical evidence.
+- `implement` keeps each test run's command and output as a log file and puts its path and hash in the `TR`.
+- `specifications`: at class B and C, a design that relies on a SOUP item waits for that item's requirements and anomaly evaluation (IEC 62304 5.3.3, 5.3.4, 7.1.3).
+- `development-plan`: for software that is not a device, each activity's depth has a reason and the criterion QA/RA used to accept it.
+- README notes the validator's test suite and the JSON report; the count-marker example in `spec/records.md` uses the supported keys.
+
 ## 0.1.0-draft.5
 
 - `requirements`: the risk analysis is re-evaluated against the software requirements at every class (IEC 62304 5.2.4); risk controls become requirements at class B and C (5.2.3).

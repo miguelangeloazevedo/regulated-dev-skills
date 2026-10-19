@@ -114,4 +114,4 @@ Never write a weaker criterion that the item can pass.
 
 ## Derived versus authored
 
-A fact owned elsewhere is generated or checked, not typed. A count in prose carries a marker naming its owner, for example `**12**<!--count:sw-in-sys-4-->`, and the validator recomputes it.
+A fact owned elsewhere is generated or checked, not typed. A count in prose carries a marker naming its owner, for example `**12**<!--count:children-SYS-4-->` (records linking up to `SYS-4`) or `**27**<!--count:records-sw-->` (records of a type), and the validator recomputes it.

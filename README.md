@@ -31,7 +31,7 @@ Scope: EU and US rules. They support your design control work. They do not make 
 Pin a tag: clone it, then install from the clone.
 
 ```bash
-git clone --branch v0.1.0-draft.5 --depth 1 https://github.com/miguelangeloazevedo/regulated-dev-skills ~/rds
+git clone --branch v0.1.0-draft.6 --depth 1 https://github.com/miguelangeloazevedo/regulated-dev-skills ~/rds
 ```
 
 <details open>
@@ -166,7 +166,7 @@ Reverse-engineer candidate records from a codebase that has none, then assess th
 
 ## Status
 
-v0.1, draft. Every skill carries `status: draft` until a named person reviews it; `reviewed_by` lists the models it was tested with, which is not a review. Releases are tagged; install a tag. Regulatory content cites open law and official guidance by article or clause, never reproduces standard text, and carries an `as_of` date. Changes: [CHANGELOG.md](CHANGELOG.md).
+v0.1, draft. Every skill carries `status: draft` until a named person reviews it; `reviewed_by` lists the models it was tested with, which is not a review. Releases are tagged; install a tag. The validator has its own test suite (`tests/`), which runs in CI with both examples on every push; `--report` prints the trace and coverage as JSON for import into another system. Regulatory content cites open law and official guidance by article or clause, never reproduces standard text, and carries an `as_of` date. Changes: [CHANGELOG.md](CHANGELOG.md).
 
 ## Author
 
