@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.0-draft.4
+
+- README: shorter draft notice.
+
 ## 0.1.0-draft.3
 
 - `setup` and `development-plan` ask the QA/RA owner whether the agent is software that must be validated under ISO 13485 4.1.6; the agent never decides it. A validation in progress lets work start.
