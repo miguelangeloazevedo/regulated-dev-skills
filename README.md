@@ -31,7 +31,7 @@ Scope: EU and US rules. They support your design control work. They do not make 
 Pin a tag: clone it, then install from the clone.
 
 ```bash
-git clone --branch v0.1.0-draft.2 --depth 1 https://github.com/miguelangeloazevedo/regulated-dev-skills ~/rds
+git clone --branch v0.1.0-draft.3 --depth 1 https://github.com/miguelangeloazevedo/regulated-dev-skills ~/rds
 ```
 
 <details open>
@@ -91,6 +91,10 @@ For a first change, in this order. Typed commands you type; the others you ask f
 3. `specifications`; `/approve` them. Then `implement` and `unit-verification` per unit, and `verify`.
 4. `traceability` and `configuration-management` throughout; `usability` from the use specification onwards, `validation` at the end.
 5. `/approve` what remains, then `/release`.
+
+### Class A and software that is not a device
+
+The chain is the same; the depth is smaller. At class A, `specifications` ties code to requirements without an architecture, `unit-verification` is not required, and `verify` runs system testing only (see [CLASS-OBLIGATIONS.md](skills/gates/intake/CLASS-OBLIGATIONS.md)). For software that is not a device, the development plan chooses the depth and QA/RA accepts it. The [class A example](examples/minimal-release/README.md) shows the smallest record set that passes the release gate.
 
 ### Words used here
 

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.0-draft.3
+
+- `setup` and `development-plan` ask the QA/RA owner whether the agent is software that must be validated under ISO 13485 4.1.6; the agent never decides it. A validation in progress lets work start.
+- `release` stops while the agent toolchain validation is still open.
+- README: a section on class A and software that is not a device, pointing to the smallest record set that passes the release gate.
+
 ## 0.1.0-draft.2
 
 - Release is refused while any software system has no decided class, whether or not IEC 62304 is claimed; software that is not a device records `none`.
