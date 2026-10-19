@@ -1,0 +1,19 @@
+name: ci
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.9"
+      - run: python3 tools/validate.py repo
+      - name: Validator negative tests
+        run: python3 -m unittest discover -s tests -v
+      - name: Releasable example passes the release gate
+        run: python3 tools/validate.py records examples/minimal-release/quality --roles examples/minimal-release/quality/roles.yml --project examples/minimal-release/AGENTS.md --release --baseline 7c2d1e0
+      - name: Worked example
+        run: python3 tools/validate.py records examples/infusion-rate-check/quality --roles examples/infusion-rate-check/quality/roles.yml --project examples/infusion-rate-check/AGENTS.md --report

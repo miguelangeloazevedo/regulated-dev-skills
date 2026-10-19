@@ -1,0 +1,103 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "argument-hint": {
+      "type": "string"
+    },
+    "description": {
+      "maxLength": 250,
+      "type": "string"
+    },
+    "disable-model-invocation": {
+      "type": "boolean"
+    },
+    "metadata": {
+      "properties": {
+        "as_of": {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "type": "string"
+        },
+        "group": {
+          "enum": [
+            "gates",
+            "lifecycle",
+            "regulated",
+            "extraction"
+          ]
+        },
+        "invocation": {
+          "enum": [
+            "model",
+            "typed"
+          ]
+        },
+        "leading_word": {
+          "minLength": 3,
+          "type": "string"
+        },
+        "neighbours": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 3,
+          "minItems": 1,
+          "type": "array"
+        },
+        "reviewed_by": {
+          "type": "string"
+        },
+        "reviewed_on": {
+          "type": "string"
+        },
+        "role": {
+          "enum": [
+            "chain step",
+            "gate",
+            "run-once setup",
+            "runs inside the chain",
+            "periodic",
+            "standalone"
+          ]
+        },
+        "sources": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "status": {
+          "enum": [
+            "draft",
+            "reviewed",
+            "deprecated"
+          ]
+        }
+      },
+      "required": [
+        "group",
+        "invocation",
+        "role",
+        "leading_word",
+        "neighbours",
+        "status",
+        "reviewed_by",
+        "reviewed_on",
+        "as_of",
+        "sources"
+      ],
+      "type": "object"
+    },
+    "name": {
+      "maxLength": 64,
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "description",
+    "metadata"
+  ],
+  "title": "regulated-dev-skills skill frontmatter (derived from tools/validate.py)",
+  "type": "object"
+}

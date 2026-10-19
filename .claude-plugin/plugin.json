@@ -1,0 +1,38 @@
+{
+  "name": "regulated-dev-skills",
+  "description": "Agent skills for building medical device software, traceable by design.",
+  "version": "0.1.0-draft.1",
+  "license": "Apache-2.0",
+  "skills": [
+    "./skills/gates/setup",
+    "./skills/gates/intake",
+    "./skills/gates/approve",
+    "./skills/gates/release",
+    "./skills/gates/impact",
+    "./skills/gates/status",
+    "./skills/extraction/design-inputs-from-code",
+    "./skills/extraction/hazards-from-code",
+    "./skills/extraction/soup-from-code",
+    "./skills/regulated/traceability",
+    "./skills/regulated/risk",
+    "./skills/regulated/security-diligence",
+    "./skills/regulated/verify",
+    "./skills/regulated/package",
+    "./skills/extraction/gap-assessment",
+    "./skills/lifecycle/user-needs",
+    "./skills/lifecycle/requirements",
+    "./skills/lifecycle/specifications",
+    "./skills/lifecycle/implement",
+    "./skills/lifecycle/unit-verification",
+    "./skills/lifecycle/design-review",
+    "./skills/lifecycle/problem-resolution",
+    "./skills/lifecycle/development-plan",
+    "./skills/regulated/configuration-management",
+    "./skills/lifecycle/usability",
+    "./skills/lifecycle/validation",
+    "./skills/lifecycle/maintenance"
+  ],
+  "author": {
+    "name": "Miguel Azevedo"
+  }
+}

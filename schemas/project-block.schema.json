@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "artefacts_dir": {
+      "type": "string"
+    },
+    "backend": {
+      "enum": [
+        "standalone",
+        "jira",
+        "qity",
+        "notion"
+      ]
+    },
+    "evidence_level": {
+      "enum": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "intake": {
+      "type": "string"
+    },
+    "jurisdictions": {
+      "items": {
+        "enum": [
+          "eu",
+          "us"
+        ]
+      },
+      "type": "array"
+    },
+    "rds_version": {
+      "const": 1
+    },
+    "record_system_validated": {
+      "type": "string"
+    },
+    "roles_file": {
+      "type": "string"
+    },
+    "safety_class": {
+      "description": "A, B, C or none, or a map of software system to one of those; absent while not decided"
+    },
+    "standards": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "rds_version",
+    "backend",
+    "evidence_level",
+    "roles_file",
+    "artefacts_dir",
+    "jurisdictions",
+    "standards"
+  ],
+  "title": "regulated-dev-skills project block (derived from tools/validate.py)",
+  "type": "object",
+  "x-backend-ceiling": {
+    "jira": 2,
+    "notion": 0,
+    "qity": 2,
+    "standalone": 2
+  }
+}

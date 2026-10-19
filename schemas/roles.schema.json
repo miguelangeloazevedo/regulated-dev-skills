@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "approvers": {
+      "additionalProperties": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "propertyNames": {
+        "enum": [
+          "bl",
+          "cls",
+          "cr",
+          "dec",
+          "find",
+          "haz",
+          "plan",
+          "prb",
+          "rc",
+          "rel",
+          "rev",
+          "rmr",
+          "soup",
+          "spec",
+          "sw",
+          "sys",
+          "tc",
+          "tr",
+          "un",
+          "vrp"
+        ]
+      },
+      "type": "object"
+    },
+    "roles": {
+      "additionalProperties": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "roles",
+    "approvers"
+  ],
+  "title": "regulated-dev-skills roles file (derived from tools/validate.py)",
+  "type": "object"
+}

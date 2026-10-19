@@ -1,0 +1,14 @@
+{
+  "name": "regulated-dev-skills",
+  "owner": {
+    "name": "Miguel Azevedo"
+  },
+  "plugins": [
+    {
+      "name": "regulated-dev-skills",
+      "source": "./",
+      "description": "Agent skills for building medical device software, traceable by design."
+    }
+  ],
+  "description": "Agent skills for regulated medical device software and SaMD."
+}

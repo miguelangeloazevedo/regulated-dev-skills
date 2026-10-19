@@ -1,0 +1,15 @@
+roles:
+  engineering: [bob, carol]
+  qa_ra: [alice]
+approvers:
+  cls: [qa_ra]
+  plan: [qa_ra]
+  un: [qa_ra]
+  sys: [qa_ra]
+  sw: [engineering, qa_ra]
+  spec: [engineering]
+  haz: [qa_ra]
+  rc: [qa_ra]
+  tc: [engineering, qa_ra]
+  rmr: [qa_ra]
+  rev: [qa_ra]

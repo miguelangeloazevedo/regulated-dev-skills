@@ -1,0 +1,28 @@
+<!-- docs page for skills/gates/setup/SKILL.md -->
+
+## What it does
+
+Writes the project block and the few files the other skills need. It asks four questions about tooling and records the answers; it does not decide them. What the product is belongs to `intake`.
+
+## When to reach for it
+
+You invoke this by typing `/setup`, and the agent won't reach for it on its own. Set up the project block: backend, evidence level, roles, artefacts.
+
+## Prerequisites
+
+A repository, permission to edit its `AGENTS.md` or `CLAUDE.md`, and an approval under your QMS to use an AI agent on this product.
+
+## What it asks, and what it checks
+
+Four questions about tooling: backend, evidence level, roles file, and where artefacts live. What the product is, and which rules apply, belongs to `intake`. Each answer is a claim; where the host can confirm it, `setup` reads the control back and shows any contradiction.
+
+The leading idea is **measured controls**: an evidence level is only as strong as the controls the host actually enforces.
+
+## It's working if
+
+- The block it writes names a level the host's own settings support.
+- The validator runs in the project from `tools/rds/`.
+
+## Where it fits
+
+Role: run-once setup. Neighbours: [`intake`](../gates/intake.md), because it classifies the product once the tooling is set; [`status`](../gates/status.md), because it reports what setup declared, measured again. For the whole map, see [FLOWS.md](../../FLOWS.md).

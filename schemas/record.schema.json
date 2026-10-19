@@ -1,0 +1,199 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "addresses": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "anchor": {
+      "type": "string"
+    },
+    "anchor_hash": {
+      "type": "string"
+    },
+    "approval": {
+      "properties": {
+        "by": {
+          "type": "string"
+        },
+        "on": {
+          "type": "string"
+        },
+        "ref": {
+          "type": "string"
+        },
+        "revision": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "by",
+        "role",
+        "on",
+        "revision"
+      ],
+      "type": "object"
+    },
+    "authored_by": {
+      "type": "string"
+    },
+    "claims": {
+      "additionalProperties": {
+        "enum": [
+          "observed",
+          "inferred",
+          "proposed"
+        ]
+      },
+      "type": "object"
+    },
+    "commit": {
+      "type": "string"
+    },
+    "derives_from": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "id": {
+      "pattern": "^(VRP|RMR|CLS|PLAN|CR|PRB|REV|REL|UN|SYS|SW|SPEC|TC|TR|HAZ|RC|SOUP|FIND|DEC|BL)-\\d+$",
+      "type": "string"
+    },
+    "implements": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "mitigates": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "origin": {
+      "enum": [
+        "authored",
+        "extraction"
+      ]
+    },
+    "outcome": {
+      "enum": [
+        "pass",
+        "fail",
+        "blocked"
+      ]
+    },
+    "relates_to": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "releases": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "result_of": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "revision": {
+      "type": "string"
+    },
+    "signed_by": {
+      "required": [
+        "by",
+        "role",
+        "on"
+      ],
+      "type": "object"
+    },
+    "specifies": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "in_review",
+        "approved",
+        "superseded",
+        "obsolete"
+      ]
+    },
+    "supersedes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "title": {
+      "type": "string"
+    },
+    "type": {
+      "enum": [
+        "bl",
+        "cls",
+        "cr",
+        "dec",
+        "find",
+        "haz",
+        "plan",
+        "prb",
+        "rc",
+        "rel",
+        "rev",
+        "rmr",
+        "soup",
+        "spec",
+        "sw",
+        "sys",
+        "tc",
+        "tr",
+        "un",
+        "vrp"
+      ]
+    },
+    "validates": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "verifier": {
+      "enum": [
+        "human",
+        "other_family",
+        "same_family_fresh"
+      ]
+    },
+    "verifies": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "id",
+    "type",
+    "title",
+    "status"
+  ],
+  "title": "regulated-dev-skills record frontmatter (derived from tools/validate.py)",
+  "type": "object"
+}
