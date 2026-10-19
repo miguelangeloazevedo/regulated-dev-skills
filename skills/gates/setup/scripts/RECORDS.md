@@ -13,7 +13,7 @@ One record is one markdown file with frontmatter. The chain from need to evidenc
 | Release | `REL` | A release decision with the authorising person |
 | Verification report | `VRP` | A signed report listing results by id and revision hash; a `TR` names it in `covered_by` instead of carrying its own signature |
 | Risk management report | `RMR` | The risk management review and report: plan, overall residual risk, benefit-risk, production and post-production (ISO 14971 9) |
-| Classification | `CLS` | Qualification, device class, software safety class and overlays, per module and jurisdiction. Written by `intake` |
+| Classification | `CLS` | Qualification, device class, software safety class and overlays, per module and jurisdiction, with `recheck_by` (the earliest re-check date of its dated sources). Written by `intake` |
 | User need | `UN` | What someone must be able to do, and why |
 | System requirement | `SYS` | What the system shall do, verifiable at the system boundary |
 | Software requirement | `SW` | What the software shall do, derived from one or more system requirements |

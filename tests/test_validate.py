@@ -116,6 +116,12 @@ class Negative(unittest.TestCase):
         self.assertIn("RDS402", r.stdout)
         self.assertNotIn("IEC 62304 is claimed", r.stdout)
 
+    def test_release_refuses_classification_past_recheck(self):
+        fp = self.d + "/r/" + MIN + "/quality/records/cls/CLS-1.md"
+        _write(fp, _read(fp).replace("as_of: 2026-10-19\n", "as_of: 2026-10-19\nrecheck_by: 2000-01-01\n", 1))
+        r = self.run_cmd(MINCMD)
+        self.assertIn("RDS412", r.stdout)
+
     def test_result_on_wrong_baseline(self):
         r = self.run_cmd(CMD + ["--release", "--baseline", "deadbeef"])
         self.assertIn("RDS404", r.stdout)

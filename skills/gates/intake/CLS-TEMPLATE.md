@@ -10,6 +10,7 @@ title: Classification of <product>
 status: draft
 authored_by: <who drafted>
 as_of: <date>
+recheck_by: <earliest re-check date of any dated source>
 sources: ["<each source with its edition or date>"]
 ---
 

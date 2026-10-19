@@ -14,6 +14,7 @@ unverified requirements, test cases without a result, undecided class while IEC 
 is claimed, SOUP without an evaluated anomaly list at class B and C) into errors.
 """
 import argparse
+import datetime
 import hashlib
 import json
 import os
@@ -438,6 +439,8 @@ def check_records(artefacts, roles_path=None, project_path=None, disp_root=None)
                     err("RDS212", disp, "extracted records need %r" % k)
             if fm.get("status") == "approved" and not fm.get("approval"):
                 err("RDS212", disp, "approved without approval block")
+        if t == "soup" and class_for(project, fm) in ("B", "C") and not fm.get("anomalies_evaluated"):
+            warn("RDS414", disp, "SOUP item has no anomalies_evaluated date at class B or C (62304 7.1.3); release will refuse it")
         if t == "tr":
             if fm.get("verifier") not in VERIFIER_KINDS:
                 err("RDS213", disp, "test result needs verifier in %s" % VERIFIER_KINDS)
@@ -618,6 +621,8 @@ def release_gate(recs, cov, project_path, disp, baseline=None):
             err("RDS402", "project block", "release blocker: no safety class is decided (A, B, C, or none for software that is not a device)%s; a person decides it with /intake" % (", and IEC 62304 is claimed" if claims else ""))
         for rid, r in recs.items():
             fm = r["fm"]
+            if fm.get("type") == "cls" and fm.get("recheck_by") and str(fm.get("recheck_by")) < datetime.date.today().isoformat():
+                err("RDS412", r["disp"], "release blocker: the classification's sources are past their re-check date (%s); check them again and re-approve" % fm.get("recheck_by"))
             if fm.get("type") == "soup" and class_for(proj, fm) in ("B", "C") and not fm.get("anomalies_evaluated"):
                 err("RDS403", r["disp"], "release blocker: SOUP item has no anomalies_evaluated date at class B or C (62304 7.1.3)")
 

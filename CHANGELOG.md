@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-draft.5
+
+- `requirements`: the risk analysis is re-evaluated against the software requirements at every class (IEC 62304 5.2.4); risk controls become requirements at class B and C (5.2.3).
+- `CLS` records carry `recheck_by`, the earliest re-check date of their dated sources; `--release` refuses a classification past it (RDS412).
+- The validator warns during development when a class B or C SOUP item has no anomaly evaluation, instead of only at release (RDS414).
+- `approve` names a concrete read-back for the host reference (for example `gh pr view`); `hazards-from-code` lists the search terms it used.
+- `spec/backends.md`: shorter description of the backends.
+
 ## 0.1.0-draft.4
 
 - README: shorter draft notice.

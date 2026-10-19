@@ -25,7 +25,7 @@ An adapter states, for each action, whether it is supported, and what it cannot 
 | `qity` | Jira projects with [Qity](https://www.qity.be)'s Design Control for Jira and Document Control for Jira | The apps' own approval, copied by reference | 2 |
 | `notion` | Notion pages and relations | None enforced | 0 |
 
-**Implemented in this version: `standalone` only.** `jira`, `qity` and `notion` are a documented contract: the record shapes and approval sources an adapter must provide. No adapter ships yet, so `setup` refuses them until one exists. The author founded Qity, whose Jira apps the `qity` contract targets; that interest is why it gets no higher ceiling than `standalone`.
+**Implemented in this version: `standalone` only.** `jira`, `qity` and `notion` are a documented contract: the record shapes and approval sources an adapter must provide. No adapter ships yet, so `setup` refuses them until one exists.
 
 Level 3 needs a record system the project has validated for its intended use (audit trail, electronic signature). No backend here provides that out of the box, whoever makes it; a project that has done the validation declares `record_system_validated` with a reference to it, and only then may claim level 3.
 
