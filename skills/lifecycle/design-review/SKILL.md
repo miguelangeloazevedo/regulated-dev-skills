@@ -37,7 +37,7 @@ The development plan's review stages, the records in scope, verification results
 2. Build the pack: every record in scope, verification results on that revision, open findings, risk status, and anything stale or `BLOCKED`. *Done when:* The pack lists every item with its hash.
 3. Check the participants: representatives of each function concerned with the stage (typically quality and regulatory, software and security engineering, usability, clinical or product safety), and at least one person independent of the design. *Done when:* Each function is present or its absence is recorded.
 4. Compare user-facing behaviour against the live system or an approved reference, never against a mock the same effort wrote. *Done when:* The reference is named and is not self-authored.
-5. Draft the `REV` record: the design under review, a read-list naming every item each participant actually read, findings with owners and dates, and an explicit statement on whether the design can meet its requirements. *Done when:* A `REV` record exists with its four sections.
+5. Draft the `REV` record: the design under review, a read-list per participant, left blank for each participant to fill with what they actually read (the agent cannot know it), findings with owners and dates, and an explicit statement on whether the design can meet its requirements. *Done when:* A `REV` record exists with its four sections.
 6. Sign-off of the record is by the participants. The agent never appears as a participant or as the independent reviewer. *Done when:* The record names only people.
 
 ## AI/ML branch

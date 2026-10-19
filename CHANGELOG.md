@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.0-draft.7
+
+- `design-review` leaves each participant's read-list blank for them to fill.
+- `implement` works only under a change the configuration rules allow: the plan's change classes before the first release, an approved `CR` after it.
+- `traceability` puts the validator's output unedited into its report, above the summary.
+
 ## 0.1.0-draft.6
 
 - `validation` records the clinical evaluation report and revision behind each need that depends on clinical evidence.
