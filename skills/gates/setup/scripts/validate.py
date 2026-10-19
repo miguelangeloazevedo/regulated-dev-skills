@@ -82,6 +82,7 @@ EM_DASH = "\u2014"
 
 errors = []
 warnings = []
+RELEASE_MODE = False
 
 
 def err(code, path, msg):
@@ -613,8 +614,8 @@ def release_gate(recs, cov, project_path, disp, baseline=None):
             for typ, what in (("cls", "a classification"), ("plan", "a development plan"), ("un", "user needs"), ("sw", "software requirements"), ("rmr", "a risk management report"), ("rev", "a design review")):
                 if typ not in have:
                     err("RDS405", "records", "release blocker: device software needs %s (%s record)" % (what, TYPES[typ]))
-        if claims and "safety_class" not in proj:
-            err("RDS402", "project block", "release blocker: IEC 62304 is claimed and no safety class is decided (62304 4.3 g); a person must decide it with /intake")
+        if "safety_class" not in proj:
+            err("RDS402", "project block", "release blocker: no safety class is decided (A, B, C, or none for software that is not a device)%s; a person decides it with /intake" % (", and IEC 62304 is claimed" if claims else ""))
         for rid, r in recs.items():
             fm = r["fm"]
             if fm.get("type") == "soup" and class_for(proj, fm) in ("B", "C") and not fm.get("anomalies_evaluated"):
@@ -825,7 +826,7 @@ def render_flows(metas):
     for name, ss, review in STAGES:
         cells = ", ".join("`%s`%s" % (s.split(" ")[0], s[len(s.split(" ")[0]):]) for s in ss if s.split(" ")[0] in metas)
         out.append("| %s | %s | `design-review`: %s |" % (name, cells, review))
-    out += ["", "`traceability`, `risk`, `security-diligence` and `configuration-management` run alongside every stage. Post-market work beyond software maintenance sits outside the skills and in your QMS: the PMS plan, the PMS report (class I) or PSUR (class IIa and above), trend reports and PMCF; `maintenance` names an owner for each. `problem-resolution` takes any defect back into the chain. `impact` prices any change and sends reclassification triggers back to `intake`.", "",
+    out += ["", "`traceability`, `risk`, `security-diligence` and `configuration-management` run alongside every stage. Post-market work beyond software maintenance sits outside the skills and in your QMS: the PMS plan, the PMS report (class I) or PSUR (class IIa and above), trend reports and PMCF in the EU; medical device reports (21 CFR 803) and corrections and removals (21 CFR 806) in the US; `maintenance` names an owner for each. `problem-resolution` takes any defect back into the chain. `impact` prices any change and sends reclassification triggers back to `intake`.", "",
             "For existing code: `design-inputs-from-code`, `hazards-from-code`, `soup-from-code` -> `gap-assessment` -> `requirements`.", "",
             "## Every skill", "", "| Skill | Invoked | Role | Leading word | Hands to or from |", "| --- | --- | --- | --- | --- |"]
     for n in sorted(metas, key=lambda x: (GROUPS.index(metas[x][0]) if metas[x][0] in GROUPS else 99, x)):
@@ -944,6 +945,8 @@ def report(root):
         print("error   %s %s: %s" % (code, path, msg))
     print("%d error(s), %d warning(s)" % (len(set(errors)), len(set(warnings))))
     print("Structure check only: links, hashes, roles, sections and counts. It does not assess whether a classification, a risk judgement or a verification is correct.")
+    if RELEASE_MODE and not errors:
+        print("Release gate passed on structure. A release still needs the REL record approved by the people your QMS names.")
     return 1 if errors else 0
 
 
@@ -983,6 +986,8 @@ def main(argv=None):
         if a.report:
             print(json.dumps(cov, indent=2, sort_keys=True))
         if a.release:
+            global RELEASE_MODE
+            RELEASE_MODE = True
             release_gate(recs, cov, a.project, a.dir, a.baseline)
         return report(a.dir)
     if cmd == "project":

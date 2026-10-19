@@ -17,7 +17,7 @@ Each stage ends with a `design-review` at the boundary the development plan name
 | Validate and release | `usability` (summative), `validation` (design validation), `approve`, `package`, `release` | `design-review`: Release review |
 | After release | `maintenance`, `problem-resolution` | `design-review`: Periodic review |
 
-`traceability`, `risk`, `security-diligence` and `configuration-management` run alongside every stage. Post-market work beyond software maintenance sits outside the skills and in your QMS: the PMS plan, the PMS report (class I) or PSUR (class IIa and above), trend reports and PMCF; `maintenance` names an owner for each. `problem-resolution` takes any defect back into the chain. `impact` prices any change and sends reclassification triggers back to `intake`.
+`traceability`, `risk`, `security-diligence` and `configuration-management` run alongside every stage. Post-market work beyond software maintenance sits outside the skills and in your QMS: the PMS plan, the PMS report (class I) or PSUR (class IIa and above), trend reports and PMCF in the EU; medical device reports (21 CFR 803) and corrections and removals (21 CFR 806) in the US; `maintenance` names an owner for each. `problem-resolution` takes any defect back into the chain. `impact` prices any change and sends reclassification triggers back to `intake`.
 
 For existing code: `design-inputs-from-code`, `hazards-from-code`, `soup-from-code` -> `gap-assessment` -> `requirements`.
 

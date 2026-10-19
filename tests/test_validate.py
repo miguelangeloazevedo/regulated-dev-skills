@@ -1,3 +1,4 @@
+import re
 """Negative tests: each mutation of the worked example must be refused with its code.
 
 Run: python3 -m unittest discover -s tests
@@ -104,6 +105,16 @@ class Negative(unittest.TestCase):
         _write(fp, s)
         r = self.run_cmd(CMD + ["--release"])
         self.assertIn("RDS402", r.stdout)
+
+    def test_release_gate_needs_decided_class_without_62304_claim(self):
+        fp = self.d + "/r/" + MIN + "/AGENTS.md"
+        s = _read(fp)
+        s = re.sub(r"safety_class: [^\n]*\n", "", s)
+        s = re.sub(r"standards: \[[^\]]*\]", "standards: []", s)
+        _write(fp, s)
+        r = self.run_cmd(MINCMD)
+        self.assertIn("RDS402", r.stdout)
+        self.assertNotIn("IEC 62304 is claimed", r.stdout)
 
     def test_result_on_wrong_baseline(self):
         r = self.run_cmd(CMD + ["--release", "--baseline", "deadbeef"])

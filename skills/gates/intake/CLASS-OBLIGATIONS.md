@@ -39,7 +39,7 @@ Clauses 4.1 to 4.3, 5.1.1 to 5.1.3 and 5.1.6 to 5.1.9, 5.2 except 5.2.3, 5.5.1, 
 | B | Adds the architecture: software items, interfaces, SOUP requirements, units (5.3, 5.4.1) | Adds unit acceptance criteria and unit verification (5.5.2, 5.5.3, 5.5.5) | Adds integration testing (5.6); `release` adds 5.8.3, 5.8.5, 5.8.6 |
 | C | Adds segregation for risk controls and detailed design per unit (5.3.5, 5.4.2 to 5.4.4) | Adds the additional unit acceptance criteria (5.5.4) | As class B |
 | `none` (not a device) | The depth the `PLAN` chose, with its reasons, accepted by QA/RA | The depth the `PLAN` chose | The depth the `PLAN` chose |
-| Not decided | Asks for the class to be decided with `/intake`. A depth may be recorded in the `PLAN` for now only when the project does not claim IEC 62304 | Asks | Asks |
+| Not decided | Asks for the class to be decided with `/intake`. A depth may be recorded in the `PLAN` for now; nothing is released until the class is decided | Asks | Asks |
 
 ## Legacy software
 

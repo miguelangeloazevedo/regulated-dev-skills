@@ -31,7 +31,7 @@ Scope: EU and US rules. They support your design control work. They do not make 
 Pin a tag: clone it, then install from the clone.
 
 ```bash
-git clone --branch v0.1.0-draft.1 --depth 1 https://github.com/miguelangeloazevedo/regulated-dev-skills ~/rds
+git clone --branch v0.1.0-draft.2 --depth 1 https://github.com/miguelangeloazevedo/regulated-dev-skills ~/rds
 ```
 
 <details open>
@@ -89,7 +89,7 @@ For a first change, in this order. Typed commands you type; the others you ask f
 1. `/setup`, `/intake`, then `development-plan`.
 2. `user-needs`, `requirements`, with `risk` alongside; `/approve` the requirements.
 3. `specifications`; `/approve` them. Then `implement` and `unit-verification` per unit, and `verify`.
-4. `traceability` and `configuration-management` throughout; `validation` from the use specification onwards.
+4. `traceability` and `configuration-management` throughout; `usability` from the use specification onwards, `validation` at the end.
 5. `/approve` what remains, then `/release`.
 
 ### Words used here

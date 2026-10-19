@@ -1,7 +1,7 @@
 {
   "name": "regulated-dev-skills",
   "description": "Agent skills for building medical device software, traceable by design.",
-  "version": "0.1.0-draft.1",
+  "version": "0.1.0-draft.2",
   "license": "Apache-2.0",
   "skills": [
     "./skills/gates/setup",
