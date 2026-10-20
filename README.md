@@ -18,7 +18,7 @@ Scope: EU and US rules. They support your design control work. They do not make 
 | Software that is not itself a device: components supplied to device makers, QMS tools, health and wellness software. `intake` records that, and the skills run at the depth your plan chooses | Deciding a class for you: nothing is classified by default |
 
 > [!IMPORTANT]
-> **Draft, read before adopting.** No named person has reviewed the skills yet; they have been tested with language models. Check every regulatory statement against the source it cites before you rely on it.
+> **Draft, read before adopting.** Check every regulatory statement against the source it cites before you rely on it.
 
 ## Before you start
 
