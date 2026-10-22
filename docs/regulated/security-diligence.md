@@ -10,6 +10,7 @@ Type `/security-diligence`, or the agent reaches for it automatically when a tas
 
 | Your situation | Where to go |
 | --- | --- |
+| Needs, assets or deployment assumptions are being established, before full architecture. | `security-diligence` |
 | The architecture changes. | `security-diligence` |
 | Findings arrive from a scan, a review or a report. | `security-diligence` |
 | A release is being prepared. | `security-diligence` |
@@ -18,6 +19,13 @@ Type `/security-diligence`, or the agent reaches for it automatically when a tas
 ## Prerequisites
 
 An owned-asset list, before any active scan.
+
+## Techniques and timing
+
+Select methods for the approved plan and lifecycle stage; the guides distinguish evidence and human decisions:
+
+- [Technique selection and procedure](../../skills/regulated/security-diligence/references/threat-model-and-testing.md).
+- [Fictional worked example](../../skills/regulated/security-diligence/references/worked-example.md).
 
 ## Owned assets only
 
@@ -30,4 +38,4 @@ Threats come from the architecture: embedded, mobile, cloud and the clinical fun
 
 ## Where it fits
 
-Role: runs inside the chain. Neighbours: [`soup-from-code`](../extraction/soup-from-code.md), because its inventory feeds dependency analysis; [`risk`](../regulated/risk.md), because findings that can cause harm become hazards. For the whole map, see [FLOWS.md](../../FLOWS.md).
+Role: runs inside the chain. Neighbours: [`soup-from-code`](../extraction/soup-from-code.md), because its inventory feeds dependency analysis; [`risk`](../regulated/risk.md), because findings that can cause harm become hazards; [`specifications`](../lifecycle/specifications.md), because threat models refine the actual architecture. For the whole map, see [FLOWS.md](../../FLOWS.md).

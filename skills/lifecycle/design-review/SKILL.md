@@ -10,7 +10,7 @@ metadata:
   status: draft
   reviewed_by: "models only (Gemini, GPT, Grok, Mistral, Muse); no person"
   reviewed_on: none
-  as_of: 2026-10-19
+  as_of: 2026-10-22
   sources: ["ISO 13485:2016 7.3.5", "ISO 13485:2016 7.3.2"]
 ---
 
@@ -35,10 +35,11 @@ The development plan's review stages, the records in scope, verification results
 
 1. Name the stage, the design under review (baseline or record set with hashes) and its inputs. *Done when:* The design under review is identified by hash.
 2. Build the pack: every record in scope, verification results on that revision, open findings, risk status, and anything stale or `BLOCKED`. *Done when:* The pack lists every item with its hash.
-3. Check the participants: representatives of each function concerned with the stage (typically quality and regulatory, software and security engineering, usability, clinical or product safety), and at least one person independent of the design. *Done when:* Each function is present or its absence is recorded.
-4. Compare user-facing behaviour against the live system or an approved reference, never against a mock the same effort wrote. *Done when:* The reference is named and is not self-authored.
-5. Draft the `REV` record: the design under review, a read-list per participant, left blank for each participant to fill with what they actually read (the agent cannot know it), findings with owners and dates, and an explicit statement on whether the design can meet its requirements. *Done when:* A `REV` record exists with its four sections.
-6. Sign-off of the record is by the participants. The agent never appears as a participant or as the independent reviewer. *Done when:* The record names only people.
+3. Review whether selected methods fit the claims and were performed at the right stage: risk/use/security inputs before design approval, planned verification alongside requirements, and actual evidence before release. Assess assumptions, scope limits and control implementation/effectiveness separately; a filled matrix is not an adequacy review. *Done when:* The review records method fitness, timing and evidence gaps with owners.
+4. Check the participants: representatives of each function concerned with the stage (typically quality and regulatory, software and security engineering, usability, clinical or product safety), and at least one person independent of the design. *Done when:* Each function is present or its absence is recorded.
+5. Compare user-facing behaviour against the live system or an approved reference, never against a mock the same effort wrote. *Done when:* The reference is named and is not self-authored.
+6. Draft the `REV` record: the design under review, a read-list per participant, left blank for each participant to fill with what they actually read (the agent cannot know it), findings with owners and dates, and an explicit statement on whether the design can meet its requirements. *Done when:* A `REV` record exists with its four sections.
+7. Sign-off of the record is by the participants. The agent never appears as a participant or as the independent reviewer. *Done when:* The record names only people.
 
 ## AI/ML branch
 

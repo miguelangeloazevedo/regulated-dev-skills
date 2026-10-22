@@ -18,6 +18,10 @@ Type `/implement`, or the agent reaches for it automatically when a task fits.
 
 A ticket.
 
+## Lifecycle handoff
+
+Use the approved test-design and analysis methods with `unit-verification`. Keep implementation evidence separate from claims about clinical benefit or user-facing control effectiveness. New interfaces, dependencies, privileges and failure modes return to risk/security/design review; do not widen the authorised unit silently.
+
 ## No code without a specification
 
 There is **no code without a specification**, and no specification without requirements. `implement` builds one unit at a time, test-first through `unit-verification`, and commits with the unit, specification and requirement ids in the message.

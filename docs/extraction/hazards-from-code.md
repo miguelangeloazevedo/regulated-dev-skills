@@ -12,6 +12,10 @@ You invoke this by typing `/hazards-from-code`, and the agent won't reach for it
 
 An intended use statement, or an explicit note that the scan is unscoped.
 
+## Lifecycle handoff
+
+Hand candidates to the broader `risk` analysis, which also covers normal operation, use-related paths and external/lifecycle conditions not visible in code. Preserve distinct situation/harm paths; a code failure-mode inventory or FMEA is not a complete risk file.
+
 ## Where software reaches a person
 
 The scan looks where output reaches a care decision, a device actuator or a stored clinical record, and where fallback behaviour is decided. It proposes **hazard candidates** as sequences of events, never as conclusions.

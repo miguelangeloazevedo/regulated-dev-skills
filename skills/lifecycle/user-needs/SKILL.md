@@ -10,7 +10,7 @@ metadata:
   status: draft
   reviewed_by: "models only (Gemini, GPT, Grok, Mistral, Muse); no person"
   reviewed_on: none
-  as_of: 2026-10-19
+  as_of: 2026-10-22
   sources: ["ISO 13485:2016 7.3.3", "ISO 13485:2016 7.3.7", "IEC 62366-1:2015+A1:2020 5.1", "MDR Annex I"]
 ---
 
@@ -36,10 +36,11 @@ The approved `CLS` record (intended purpose, users, patient population, use envi
 ## Process
 
 1. Read the intended purpose, users, patient population and use environment from the approved `CLS` record. If it is not approved, stop. *Done when:* The scope of the needs is stated.
-2. Write each need as a person, a capability and the reason: what someone must be able to do, and why. Name no field, screen, algorithm or technology. *Done when:* Every `UN` has a person, a capability and a why, and names no mechanism.
-3. Give each need its validation method: how you will show, with intended users in the intended environment, that the finished product meets it. *Done when:* Every `UN` has a validation method.
-4. Cover the use specification: each user group and use environment in the intended purpose has at least one need, or a recorded reason why not. *Done when:* No user group or environment is silently missing.
-5. Mark each need `draft`. Hand open questions to the owner in the change's `decision.md`. *Done when:* Records validate and open questions are listed.
+2. Hand intended users, environment, tasks and safety-related capabilities to `usability` and preliminary `risk` analysis now; involve `security-diligence` for assets and trust assumptions. Return uncertainties as questions, not a guessed design or class. *Done when:* Early use/risk/security inputs and unresolved assumptions have owners.
+3. Write each need as a person, a capability and the reason: what someone must be able to do, and why. Name no field, screen, algorithm or technology. *Done when:* Every `UN` has a person, a capability and a why, and names no mechanism.
+4. Give each need its validation method: how you will show, with intended users in the intended environment, that the finished product meets it. *Done when:* Every `UN` has a validation method.
+5. Cover the use specification: each user group and use environment in the intended purpose has at least one need, or a recorded reason why not. *Done when:* No user group or environment is silently missing.
+6. Mark each need `draft`. Hand open questions to the owner in the change's `decision.md`. *Done when:* Records validate and open questions are listed.
 
 ## AI/ML branch
 

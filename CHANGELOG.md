@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-draft.9
+
+- All six regulated skills include selectable technique guides, evidence worksheets and fictional worked examples, with lifecycle timing and human decision boundaries.
+- Risk analysis adds FMEA and selected fault-tree guidance, estimation uncertainty and separate implementation/effectiveness evidence, linked to early usability engineering.
+- Security, verification, configuration and package guidance adds threat/test selection, vulnerability triage, baseline recovery and evidence reconciliation.
+- Traceability covers safety context and harm, control requirements, scoped coverage, incomplete connections and actual evidence; the backend contract records the Safety Risk mapping and standalone limits.
+- Lifecycle, gate and extraction handoffs keep method planning early and feedback loops explicit; packaging tests check local guidance and fictional trace examples.
+
 ## 0.1.0-draft.8
 
 - A first-change walkthrough uses the class A schedule example to draft an explicit empty-day message, inspect stale approvals and prepare a human-reviewed handoff.

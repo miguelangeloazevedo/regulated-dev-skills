@@ -11,7 +11,7 @@ metadata:
   status: draft
   reviewed_by: "models only (Gemini, GPT, Grok, Mistral, Muse); no person"
   reviewed_on: none
-  as_of: 2026-10-19
+  as_of: 2026-10-22
   sources: ["ISO 13485:2016 4.1.6"]
 ---
 
@@ -36,6 +36,7 @@ Run this only when a person types `/setup`. If you reached this skill on your ow
 7. Write the block, a roles file skeleton and the artefacts directory skeleton. Create only what the answers need. *Done when:* The validator passes on the result.
 8. Copy the validator (`scripts/validate.py` and `scripts/rds_yaml.py` and `scripts/RECORDS.md`, the record shapes, from the `scripts/` folder next to this `SKILL.md`) into the project at `tools/rds/`, so every other skill can run it. It needs only Python 3.9 or later. *Done when:* `python3 tools/rds/validate.py project AGENTS.md` runs in the project.
 9. Print the block, then tell the user to run `/intake` to classify the product. *Done when:* The user has the block and the next step.
+10. Check that the installed regulated skills carry their local references folders as well as SKILL.md. The technique guides are loaded from the owning skill, not from the project's copied validator folder. State that only standalone is implemented; configuring a Jira or app name does not install an adapter or prove its mappings. *Done when:* Local technique references are available and backend support is represented honestly.
 
 ## Lessons from practice
 

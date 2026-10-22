@@ -18,6 +18,10 @@ Type `/maintenance`, or the agent reaches for it automatically when a task fits.
 
 A released baseline.
 
+## Lifecycle handoff
+
+Reopen risk, security and usability analysis for control failures, use errors/difficulties, vulnerable or unsupported dependencies and changed operating assumptions. Identify affected released configurations and the earlier effectiveness evidence whose applicability may no longer hold; use problem/change control for corrective work.
+
 ## The clock starts at release
 
 Release is not the end of the software's regulated life. **The clock starts at release**: feedback, SOUP anomalies and field problems keep arriving, and some carry reporting deadlines counted in days.

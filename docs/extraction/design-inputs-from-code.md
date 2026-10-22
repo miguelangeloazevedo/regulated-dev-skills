@@ -12,6 +12,10 @@ You invoke this by typing `/design-inputs-from-code`, and the agent won't reach 
 
 A codebase and a pinned commit.
 
+## Lifecycle handoff
+
+Feed confirmed candidates into requirements and technique planning; attach observed boundaries, decision/state logic and interface assumptions as evidence anchors. Do not infer intended use or adequate verification merely from existing tests or code structure.
+
 ## Candidates, not conclusions
 
 The skill reads tests, schemas, configuration, strings, code and history, and proposes requirement candidates anchored to the code. Each candidate is `proposed`. The human-owned fields (rationale, the user need, safety class) are never filled; they become questions for the owner.

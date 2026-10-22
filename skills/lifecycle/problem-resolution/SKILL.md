@@ -10,7 +10,7 @@ metadata:
   status: draft
   reviewed_by: "models only (Gemini, GPT, Grok, Mistral, Muse); no person"
   reviewed_on: none
-  as_of: 2026-10-19
+  as_of: 2026-10-22
   sources: ["IEC 62304:2006+A1:2015 9", "ISO 14971:2019 10", "ISO 13485:2016 8.5"]
 ---
 
@@ -35,10 +35,11 @@ The report, logs, the code, recent changes, `HAZ` and `RC` records, earlier prob
 
 1. Write the problem report: what was observed, where, when the organisation became aware of it, the type, the scope and the criticality (62304 9.1). *Done when:* A report exists with awareness date, type, scope and criticality.
 2. Assess safety relevance with `risk` straight away, whether or not the problem can be reproduced: does it relate to a hazard, a risk control, or a new hazardous situation? If the product is on the market, flag it now for the person who decides on vigilance reporting, with the awareness date; the clocks are in `maintenance`. *Done when:* Safety relevance is recorded, and a reportability flag is raised or ruled out by a person.
-3. Build a loop: one command that goes red on this problem, as the least privileged user who can reach it. Make at most three recorded attempts. If it cannot be reproduced, record what was tried, keep the report open and stop; never close a field problem as not reproducible without a safety assessment. *Done when:* The loop goes red the same way twice, or the attempts are recorded and the report stays open.
-4. List where else the symptom could come from (a retry hiding a deterministic error, permissions that differ by user, a cache owned by another layer, timing on the target hardware), rank hypotheses and instrument the top one (9.2). *Done when:* The cause is found, or the hypotheses ruled out are recorded.
-5. Raise a change request and fix it through the normal chain (9.4). Add a regression test that failed before the fix. *Done when:* The regression test was red, then green.
-6. Verify the resolution, tell the relevant parties, and look for the same problem elsewhere and for trends across reports (9.3, 9.6, 9.7). *Done when:* Resolution is verified, parties told, and the trend check recorded.
+3. Test causal hypotheses using recorded observations, comparison with unaffected configurations, and cause/effect or event/fault-tree analysis where useful. A five-whys discussion is a prompt, not proof of cause. Route use-related findings to `usability`, security findings to `security-diligence`, and changed control assumptions to `risk`, even when reproduction fails. *Done when:* Cause claims have evidence or remain hypotheses, and safety/security/use-analysis owners are notified.
+4. Build a loop: one command that goes red on this problem, as the least privileged user who can reach it. Make at most three recorded attempts. If it cannot be reproduced, record what was tried, keep the report open and stop; never close a field problem as not reproducible without a safety assessment. *Done when:* The loop goes red the same way twice, or the attempts are recorded and the report stays open.
+5. List where else the symptom could come from (a retry hiding a deterministic error, permissions that differ by user, a cache owned by another layer, timing on the target hardware), rank hypotheses and instrument the top one (9.2). *Done when:* The cause is found, or the hypotheses ruled out are recorded.
+6. Raise a change request and fix it through the normal chain (9.4). Add a regression test that failed before the fix. *Done when:* The regression test was red, then green.
+7. Verify the resolution, tell the relevant parties, and look for the same problem elsewhere and for trends across reports (9.3, 9.6, 9.7). *Done when:* Resolution is verified, parties told, and the trend check recorded.
 
 ## AI/ML branch
 

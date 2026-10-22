@@ -12,6 +12,10 @@ You invoke this by typing `/soup-from-code`, and the agent won't reach for it on
 
 Manifests or lockfiles.
 
+## Lifecycle handoff
+
+Reconcile the inventory with built/deployed contents and mark unobserved vendored/dynamic/remote components unknown. Feed component/version deltas to configuration and security analysis, requirements/host needs to design, and anomalies to risk. SBOM presence alone does not close any of those evaluations.
+
 ## Inventory, not judgement
 
 The skill builds the list. Fitness for intended use, anomaly review and integration requirements stay with people. It is an **inventory, not judgement**.

@@ -8,6 +8,10 @@ Prices a change before you commit to it. Counts come from the link graph, never 
 
 You invoke this by typing `/impact`, and the agent won't reach for it on its own. Price a change: blast radius from the links, effort as a range.
 
+## Lifecycle handoff
+
+Assess both design and safety paths, including distinct situation/harm contexts and shared controls. State if the graph tool does not supply a complete transitive walk, or records are filtered/unreadable; use a measured export/tool or mark traversal and counts partial, never invent ring counts. Revisit control effectiveness, usability and security assumptions as well as literal hash staleness.
+
 ## Rings
 
 Impact walks the link graph ring by ring: requirements, specifications, tests, documents, baseline. Each ring has a count the validator produced. The **blast radius** is the set of records whose approvals would go stale, plus any permanent item the change touches. For released software, impact also drafts the regulatory question: notified body, new 510(k), or inside a change control plan. A person answers it.

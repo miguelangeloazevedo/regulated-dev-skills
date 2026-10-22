@@ -2,6 +2,14 @@
 
 Verification is run on the **exact revision** under test. The test result names the revision (a commit hash, or a baseline). A failed run makes the evidence from earlier runs on earlier revisions stale for the records that changed.
 
+## Method selection and control evidence
+
+Plan methods with requirements/design rather than waiting for the executable build. The `verify` skill packages test-design techniques locally, and `unit-verification` applies suitable methods at unit level. Preserve the class-specific integration/system scope and any additional approved plan activities.
+
+ISO 14971:2019 7.2 requires verification of control implementation and effectiveness as distinct claims. One activity may support both with suitable criteria and evidence; user-facing risk-reduction claims may need `usability` evaluation, while technical controls may establish effectiveness through verification. Neither a linked test nor an implementation assertion automatically proves effectiveness or intended-use validation.
+
+Retain actual commands, complete output/log references and hashes, tool/data/environment versions, discovered/executed/skipped counts and observed outcomes. The structural validator does not assess log truth, oracle quality or method adequacy. For safety/security fault injection, fuzzing, stress or attack runs, use an explicitly authorised named non-production target and synthetic/anonymised fixtures, never production or copied customer data.
+
 ## Independence and signature
 
 The verifier works from a fresh context that did not build the revision. Its kind is recorded on every test result. The kind is provenance: it says who ran the work. It is not independence in the regulatory sense; that comes from the person who signs.

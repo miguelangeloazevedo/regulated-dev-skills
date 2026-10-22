@@ -12,7 +12,7 @@ metadata:
   status: draft
   reviewed_by: "models only (Gemini, GPT, Grok, Mistral, Muse); no person"
   reviewed_on: none
-  as_of: 2026-10-19
+  as_of: 2026-10-22
   sources: ["MDCG 2019-11 rev.1", "MDR Annex IX 2.4", "MDR Annex IX 4.10", "21 CFR 807.81(a)(3)", "FDA: Deciding When to Submit a 510(k) for a Software Change to an Existing Device (2017)"]
 ---
 
@@ -33,11 +33,12 @@ The changed record, all records, the change folders.
 3. Walk the links in both directions with the validator's computed inverse, ring by ring: requirements, specifications, tests, documents, baseline. *Done when:* Each ring has a count produced by the validator.
 4. List the approvals that would become stale. *Done when:* The list is complete or marked partial.
 5. Mark every affected item that is permanent once released: stored names and descriptions, option values and their order, identifiers other systems hold. *Done when:* Permanent items are a separate list.
-6. Estimate effort per item as a range and say what it assumes. Get an independent second estimate if one is available. Label the estimate uncalibrated until estimates and actuals have been compared on at least two closed changes. *Done when:* Every estimate is a range with assumptions.
-7. Present counts, range, confidence and a recommendation: accept, split or defer. *Done when:* The user can decide.
-8. Check the change against the reclassification triggers in the `CLS` record. If one fires, tell the user to run `/intake` before anything else. *Done when:* Triggers are checked.
-9. Ask the regulatory question for every change to released software, by route, and record the answer as a person's decision. EU: can it change qualification or class (MDCG 2019-11); for a device certified by a notified body, is it a change to the approved design or quality system the notified body must be told of before it is implemented (Annex IX 2.4, 4.10, or the equivalent in Annex X and XI); a self-certified class I device updates its own technical documentation. US, by the pathway in the `CLS` record: 510(k), is a new 510(k) needed (21 CFR 807.81(a)(3) and FDA's software change guidance); PMA, which PMA supplement or report applies (21 CFR 814.39); De Novo, treated like a 510(k) for later changes once granted; exempt, check the exemption's limits still hold. For any route, is the change inside an authorised predetermined change control plan? *Done when:* The regulatory answer is drafted for the route in the `CLS` record and waits for a person's decision.
-10. Write the estimate into the change folder so it can be compared with the actual effort when the change closes. *Done when:* The estimate is saved with its assumptions.
+6. Assess both design and safety paths, including distinct situation/harm contexts and shared controls. State if the graph tool does not supply a complete transitive walk, or records are filtered/unreadable; use a measured export/tool or mark traversal and counts partial, never invent ring counts. Revisit control effectiveness, usability and security assumptions as well as literal hash staleness. *Done when:* Direct/indirect scope and unassessable areas are explicit alongside affected evidence.
+7. Estimate effort per item as a range and say what it assumes. Get an independent second estimate if one is available. Label the estimate uncalibrated until estimates and actuals have been compared on at least two closed changes. *Done when:* Every estimate is a range with assumptions.
+8. Present counts, range, confidence and a recommendation: accept, split or defer. *Done when:* The user can decide.
+9. Check the change against the reclassification triggers in the `CLS` record. If one fires, tell the user to run `/intake` before anything else. *Done when:* Triggers are checked.
+10. Ask the regulatory question for every change to released software, by route, and record the answer as a person's decision. EU: can it change qualification or class (MDCG 2019-11); for a device certified by a notified body, is it a change to the approved design or quality system the notified body must be told of before it is implemented (Annex IX 2.4, 4.10, or the equivalent in Annex X and XI); a self-certified class I device updates its own technical documentation. US, by the pathway in the `CLS` record: 510(k), is a new 510(k) needed (21 CFR 807.81(a)(3) and FDA's software change guidance); PMA, which PMA supplement or report applies (21 CFR 814.39); De Novo, treated like a 510(k) for later changes once granted; exempt, check the exemption's limits still hold. For any route, is the change inside an authorised predetermined change control plan? *Done when:* The regulatory answer is drafted for the route in the `CLS` record and waits for a person's decision.
+11. Write the estimate into the change folder so it can be compared with the actual effort when the change closes. *Done when:* The estimate is saved with its assumptions.
 
 ## AI/ML branch
 

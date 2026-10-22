@@ -12,6 +12,10 @@ You invoke this by typing `/approve`, and the agent won't reach for it on its ow
 
 A roles file, and records under the artefacts directory.
 
+## Lifecycle handoff
+
+Before the human decision, expose the source evidence and limits behind linked claims: an FMEA row is not risk acceptance, a linked case is not executed verification, and an implementation check alone may not establish effectiveness. Do not resolve those gaps by replacing hashes or approval fields.
+
 ## What an approval binds
 
 An approval records who, in which role, on what date, against which **revision hash**, with a reference to the host's own approval. Edit one word and the hash changes, so the approval goes stale on its own and visibly.
