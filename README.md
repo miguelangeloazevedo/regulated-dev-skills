@@ -84,7 +84,13 @@ See the output first: a [releasable class A example](examples/minimal-release/RE
 
 ### Your first change
 
-Follow the [guided record-change walkthrough](examples/minimal-release/FIRST-CHANGE.md): work in an isolated copy of the class A example, use copyable agent prompts, inspect stale approvals and prepare a draft handoff. It uses fictional records only, with explicit human decision stops; it does not supply product code or real verification evidence.
+Follow [Your first change: the empty-schedule message](examples/minimal-release/FIRST-CHANGE.md), a guided exercise using the fictional class A example:
+
+1. Copy the example into an isolated practice directory and check its records.
+2. Change one requirement and see the old approval become stale and the release check refuse it.
+3. Use the agent prompts to prepare connected requirement, specification and test-case drafts, stopping for human decisions.
+
+The guide includes commands, expected validator checkpoints and a handoff checklist. It supplies no product code or real verification evidence; the existing approvals, results and baseline are fictional.
 
 ### The smallest path
 
@@ -170,7 +176,11 @@ Reverse-engineer candidate records from a codebase that has none, then assess th
 
 ## Status
 
-v0.1, draft. Every skill carries `status: draft` until a named person reviews it; `reviewed_by` lists the models it was tested with, which is not a review. Releases are tagged; install a tag. The validator has its own test suite (`tests/`), which runs in CI with both examples on every push; `--report` prints the trace and coverage as JSON for import into another system. Regulatory content cites open law and official guidance by article or clause, never reproduces standard text, and carries an `as_of` date. Changes: [CHANGELOG.md](CHANGELOG.md).
+Current tagged version: **[v0.1.0-draft.8](https://github.com/miguelangeloazevedo/regulated-dev-skills/tree/v0.1.0-draft.8)**. Install the pinned tag above.
+
+Every skill remains `status: draft` until a named person reviews it. The test suite (`tests/`) runs in CI with both examples and executes the first-change walkthrough's commands, checking its expected stale-approval warnings and release blockers. These checks establish structure and documented command behaviour, not regulatory correctness or product verification.
+
+`--report` prints the trace and coverage as JSON for import into another system. Regulatory content cites open law and official guidance by article or clause, never reproduces standard text, and carries an `as_of` date. Changes: [CHANGELOG.md](CHANGELOG.md).
 
 ## Author
 
