@@ -19,6 +19,10 @@ Type `/usability`, or the agent reaches for it automatically when a task fits.
 
 User needs and a `CLS` record.
 
+## Lifecycle handoff
+
+Use task analysis to connect user goals, task sequence, potential use errors, hazardous situations and harm; feed this to `risk` before architecture approval. Return control requirements to the interface specification. Formative findings refine both design and risk analysis; summative evidence supports the specific effectiveness claims it actually addresses, not every technical control.
+
 ## Usability starts first
 
 Usability engineering is its own process (IEC 62366-1), and **usability starts first**: the use specification comes before architecture, formative evaluations run while the design can move, and the summative evaluation closes it on a production-equivalent interface. `validation` then uses its results as evidence for the needs that depend on use.

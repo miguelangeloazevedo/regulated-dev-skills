@@ -10,6 +10,7 @@ Type `/verify`, or the agent reaches for it automatically when a task fits.
 
 | Your situation | Where to go |
 | --- | --- |
+| Requirements or design are being reviewed and verification methods must be planned. | `verify` |
 | A revision is ready for verification. | `verify` |
 | Evidence has become stale after a change. | `verify` |
 | Checking a unit during build | [`unit-verification`](../lifecycle/unit-verification.md) |
@@ -17,6 +18,13 @@ Type `/verify`, or the agent reaches for it automatically when a task fits.
 ## Prerequisites
 
 A revision and test cases.
+
+## Techniques and timing
+
+Select methods for the approved plan and lifecycle stage; the guides distinguish evidence and human decisions:
+
+- [Technique selection and procedure](../../skills/regulated/verify/references/test-design.md).
+- [Fictional worked example](../../skills/regulated/verify/references/worked-example.md).
 
 ## The exact revision
 
@@ -29,4 +37,4 @@ Verification runs on the **exact revision** under test. Models may do the work. 
 
 ## Where it fits
 
-Role: chain step. Neighbours: [`unit-verification`](../lifecycle/unit-verification.md), because the builder's own checks, not independent; [`release`](../gates/release.md), because it reads verify's results. For the whole map, see [FLOWS.md](../../FLOWS.md).
+Role: chain step. Neighbours: [`unit-verification`](../lifecycle/unit-verification.md), because the builder's own checks, not independent; [`release`](../gates/release.md), because it reads verify's results; [`risk`](../regulated/risk.md), because risk-control claims determine evidence. For the whole map, see [FLOWS.md](../../FLOWS.md).

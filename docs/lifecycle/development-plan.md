@@ -18,6 +18,10 @@ Type `/development-plan`, or the agent reaches for it automatically when a task 
 
 An approved `CLS` record from `intake`.
 
+## Lifecycle handoff
+
+Select the risk, security, verification, traceability, configuration and package techniques with their owners. Plan method selection before the work, the prerequisites and review/feedback triggers, and both implementation and effectiveness evidence for risk controls. Cite the relevant skill's locally packaged technique guide; optional methods are tailored with a reason, never presented as additional clauses.
+
 ## The plan the chain runs on
 
 Every later skill reads the plan: review stages, verification levels, independence, validation, risk management, configuration management. The plan is **the plan the chain runs on**, and its depth follows the safety class.

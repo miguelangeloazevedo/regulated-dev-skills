@@ -14,6 +14,10 @@ Type `/problem-resolution`, or the agent reaches for it automatically when a tas
 | A flaky or intermittent failure. | `problem-resolution` |
 | A change to intended behaviour, not a defect | [`impact`](../gates/impact.md) |
 
+## Lifecycle handoff
+
+Test causal hypotheses using recorded observations, comparison with unaffected configurations, and cause/effect or event/fault-tree analysis where useful. A five-whys discussion is a prompt, not proof of cause. Route use-related findings to `usability`, security findings to `security-diligence`, and changed control assumptions to `risk`, even when reproduction fails.
+
 ## A tight loop
 
 One command that goes red on this problem, small and fast, before anyone theorises. A **tight loop** is the method; the problem report, safety assessment and change request are what make it regulated.

@@ -18,6 +18,10 @@ Type `/unit-verification`, or the agent reaches for it automatically when a task
 
 A specified unit and agreed seams.
 
+## Lifecycle handoff
+
+Select unit-level partitions, boundary, decision and state cases from the approved criteria; use independent expected values and appropriate static/dynamic analysis. `verify` owns the subsequent integration/system campaign, not this builder-run check. An implementation assertion does not automatically prove the control's risk reduction.
+
 ## Red first
 
 Each test is written against the unit's acceptance criteria, at an agreed seam, and goes **red first**. For the tests that guard a risk control, red is kept as evidence. Code review is a verification method here, on two axes that are never merged: the project's standards, and the specification.

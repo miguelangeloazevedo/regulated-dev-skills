@@ -12,7 +12,7 @@ metadata:
   status: draft
   reviewed_by: "models only (Gemini, GPT, Grok, Mistral, Muse); no person"
   reviewed_on: none
-  as_of: 2026-10-19
+  as_of: 2026-10-22
   sources: ["IEC 62304:2006+A1:2015 5.3.3", "IEC 62304:2006+A1:2015 8.1.2", "IEC 62304:2006+A1:2015 3.29"]
 ---
 
@@ -39,7 +39,8 @@ Manifests, lockfiles, container files, CI configuration, build files, model file
 9. Split the inventory: SOUP is software incorporated into the device that was not developed for it, or was developed without adequate records (62304 3.29). Build tools, CI actions, test frameworks and development tools are not SOUP; record them as configuration items for `configuration-management` instead. *Done when:* Every inventory item is marked SOUP or tool, with the reason.
 10. Write each `SOUP` record with its three sections: Item (filled), Requirements and Anomaly list (left as headed gaps naming the person who must fill them). At class B and C, `release` will not pass a SOUP item whose anomaly list has no evaluation. New SOUP added during development goes through `specifications` (5.3.3, 5.3.4) and `configuration-management`. *Done when:* Every SOUP record has the three sections, with the evaluation gaps named.
 11. At class B and C, and for every cyber device under FD&C 524B whatever its class, export an SBOM (CycloneDX or SPDX) for every baseline and pin it to the baseline in `configuration-management`; for a cyber device this is the SBOM 524B(b) asks for. *Done when:* Each class B or C baseline has a pinned SBOM.
-12. Head the output with the files read, the paths not read and a coverage figure (files read over files in scope). Draw no complete or ready conclusion about anything outside what was read. *Done when:* The output starts with the read list, the unread paths and the coverage figure.
+12. Reconcile the inventory with built/deployed contents and mark unobserved vendored/dynamic/remote components unknown. Feed component/version deltas to configuration and security analysis, requirements/host needs to design, and anomalies to risk. SBOM presence alone does not close any of those evaluations. *Done when:* Inventory coverage and evaluation handoffs are explicit and version-bound.
+13. Head the output with the files read, the paths not read and a coverage figure (files read over files in scope). Draw no complete or ready conclusion about anything outside what was read. *Done when:* The output starts with the read list, the unread paths and the coverage figure.
 
 ## Lessons from practice
 

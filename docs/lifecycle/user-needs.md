@@ -20,6 +20,10 @@ Type `/user-needs`, or the agent reaches for it automatically when a task fits.
 
 An approved `CLS` record from `intake`.
 
+## Lifecycle handoff
+
+Hand intended users, environment, tasks and safety-related capabilities to `usability` and preliminary `risk` analysis now; involve `security-diligence` for assets and trust assumptions. Return uncertainties as questions, not a guessed design or class.
+
 ## Who, what, why
 
 A user need names **who, what, why**: a person, a capability, and the reason it matters. It never names how. Every need carries the method that will validate it with real users in the real environment.

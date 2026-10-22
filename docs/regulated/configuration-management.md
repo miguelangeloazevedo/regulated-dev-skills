@@ -19,6 +19,13 @@ Type `/configuration-management`, or the agent reaches for it automatically when
 
 A development plan with a configuration management section.
 
+## Techniques and timing
+
+Select methods for the approved plan and lifecycle stage; the guides distinguish evidence and human decisions:
+
+- [Technique selection and procedure](../../skills/regulated/configuration-management/references/baseline-and-change-control.md).
+- [Fictional worked example](../../skills/regulated/configuration-management/references/worked-example.md).
+
 ## Nothing changes without a request
 
 Every configuration item, SOUP and tools included, has a version. **Nothing changes without a request**, and every baseline is a named set of hashes that can be rebuilt.
@@ -30,4 +37,4 @@ Every configuration item, SOUP and tools included, has a version. **Nothing chan
 
 ## Where it fits
 
-Role: runs inside the chain. Neighbours: [`impact`](../gates/impact.md), because it prices each change request; [`release`](../gates/release.md), because it releases a baseline this skill formed. For the whole map, see [FLOWS.md](../../FLOWS.md).
+Role: runs inside the chain. Neighbours: [`impact`](../gates/impact.md), because it prices each change request; [`release`](../gates/release.md), because it releases a baseline this skill formed; [`development-plan`](../lifecycle/development-plan.md), because the approved plan defines change and baseline controls. For the whole map, see [FLOWS.md](../../FLOWS.md).

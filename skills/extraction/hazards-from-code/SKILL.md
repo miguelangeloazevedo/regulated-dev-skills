@@ -12,7 +12,7 @@ metadata:
   status: draft
   reviewed_by: "models only (Gemini, GPT, Grok, Mistral, Muse); no person"
   reviewed_on: none
-  as_of: 2026-10-19
+  as_of: 2026-10-22
   sources: ["ISO 14971:2019 5", "IEC 62304:2006+A1:2015 7.1"]
 ---
 
@@ -33,8 +33,9 @@ The code, the intended use statement if one exists, existing hazard records.
 3. Find where output reaches a care decision, a device actuator or a stored clinical record, and where fallback and degraded behaviour are decided: calculations, thresholds, alarms, unit conversion, time handling, data writes, parsing of clinical data. Search with the agent's file search (for example `rg` for thresholds, alarm, unit and dose names) and open each hit; list the search terms used. *Done when:* Each location has an anchor.
 4. For each, propose four things kept apart: the hazard (potential source of harm), the foreseeable sequence of events, the hazardous situation it leads to, and a candidate harm, with the failure mode in the code. Mark all `proposed`. *Done when:* Each candidate names hazard, sequence, hazardous situation and harm separately.
 5. Cross-reference existing `HAZ` records: matched, new, unmapped. *Done when:* Each candidate has one of the three.
-6. Write a ranked list of questions on severity, probability and clinical context into the change's `decision.md` for the owner. *Done when:* The list exists.
-7. Head the output with the files read, the paths not read and a coverage figure (files read over files in scope). Draw no complete or ready conclusion about anything outside what was read. *Done when:* The output starts with the read list, the unread paths and the coverage figure.
+6. Hand candidates to the broader `risk` analysis, which also covers normal operation, use-related paths and external/lifecycle conditions not visible in code. Preserve distinct situation/harm paths; a code failure-mode inventory or FMEA is not a complete risk file. *Done when:* The risk handoff states path context and the limits of code-only coverage.
+7. Write a ranked list of questions on severity, probability and clinical context into the change's `decision.md` for the owner. *Done when:* The list exists.
+8. Head the output with the files read, the paths not read and a coverage figure (files read over files in scope). Draw no complete or ready conclusion about anything outside what was read. *Done when:* The output starts with the read list, the unread paths and the coverage figure.
 
 ## AI/ML branch
 

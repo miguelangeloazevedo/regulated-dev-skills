@@ -12,7 +12,7 @@ metadata:
   status: draft
   reviewed_by: "models only (Gemini, GPT, Grok, Mistral, Muse); no person"
   reviewed_on: none
-  as_of: 2026-10-19
+  as_of: 2026-10-22
   sources: ["IEC 62304:2006+A1:2015 5.2", "ISO 13485:2016 7.3.3"]
 ---
 
@@ -39,6 +39,7 @@ The code, tests, API schemas, configuration, schema files, user-facing strings, 
 9. Write candidate records as `proposed` and a ranked list of questions for the owner. Put the questions in the change's `decision.md` for the owner. *Done when:* Records and questions exist.
 10. Code shows what the software does, not what it was meant to do. Before any candidate becomes a requirement, the product owner confirms the intended behaviour, and each disagreement between code and intent becomes a `FIND`. *Done when:* Every promoted candidate names who confirmed its intent.
 11. Head the output with the files read, the paths not read and a coverage figure (files read over files in scope). Draw no complete or ready conclusion about anything outside what was read. *Done when:* The output starts with the read list, the unread paths and the coverage figure.
+12. Feed confirmed candidates into requirements and technique planning; attach observed boundaries, decision/state logic and interface assumptions as evidence anchors. Do not infer intended use or adequate verification merely from existing tests or code structure. *Done when:* Candidates distinguish observed behaviour, proposed intent and unverified test adequacy.
 
 ## AI/ML branch
 

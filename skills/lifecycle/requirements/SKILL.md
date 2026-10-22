@@ -10,7 +10,7 @@ metadata:
   status: draft
   reviewed_by: "models only (Gemini, GPT, Grok, Mistral, Muse); no person"
   reviewed_on: none
-  as_of: 2026-10-19
+  as_of: 2026-10-22
   sources: ["IEC 62304:2006+A1:2015 5.2", "ISO 13485:2016 7.3.3", "ISO 14971:2019 7.1"]
 ---
 
@@ -39,9 +39,10 @@ Not for:
 2. Derive software requirements: what the software shall do, each from one or more system requirements. Many-to-many derivation is allowed; `traceability` reports it so a reviewer can see where one requirement serves several parents. *Done when:* Every `SW` derives from at least one `SYS`.
 3. Check the content categories IEC 62304 5.2.2 asks for against the set (functional, inputs and outputs, interfaces, alarms, security, usability, data, installation, operation and maintenance, network, regulatory) and mark each covered or not applicable. *Done when:* Each category is covered or marked not applicable with a reason.
 4. For class B and C, write each software risk control as a requirement and link it to its `RC` (5.2.3). At every class, once the software requirements exist, ask `risk` to re-evaluate the risk analysis against them and update it where needed (5.2.4). *Done when:* Every software `RC` is implemented by a requirement, and the re-evaluation is recorded.
-5. Write one field per question: statement, rationale, acceptance criteria. Rationale is not a paraphrase of the statement. *Done when:* No two fields say the same thing.
-6. For each requirement, write the scenario that would fail. If you cannot, mark it `BLOCKED(content)`, `BLOCKED(scope)` or `BLOCKED(timing)` and name what unblocks it. *Done when:* Every requirement has a failing scenario or a typed block.
-7. Verify the set (5.2.6): every requirement implements its parent, is uniquely identified, unambiguous, testable, and contradicts no other. *Done when:* The verification is recorded with any findings.
+5. Plan verification methods while drafting acceptance criteria: partitions and boundaries for ranges, decision/state cases for conditional behaviour, and interface/negative cases where relevant. Distinguish risk-control implementation criteria from effectiveness claims; ask `usability` and `risk` what user-facing evidence is needed. Preserve the class-dependent minimum and the approved plan's additions. *Done when:* Requirements name observable criteria and planned evidence, including both control claims where applicable.
+6. Write one field per question: statement, rationale, acceptance criteria. Rationale is not a paraphrase of the statement. *Done when:* No two fields say the same thing.
+7. For each requirement, write the scenario that would fail. If you cannot, mark it `BLOCKED(content)`, `BLOCKED(scope)` or `BLOCKED(timing)` and name what unblocks it. *Done when:* Every requirement has a failing scenario or a typed block.
+8. Verify the set (5.2.6): every requirement implements its parent, is uniquely identified, unambiguous, testable, and contradicts no other. *Done when:* The verification is recorded with any findings.
 
 ## AI/ML branch
 

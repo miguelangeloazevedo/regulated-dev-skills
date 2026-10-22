@@ -12,6 +12,10 @@ You invoke this by typing `/status`, and the agent won't reach for it on its own
 
 A project block.
 
+## Lifecycle handoff
+
+Report additional evidence dimensions separately from the literal validator output: assessable scope, test association, actual execution/outcome, configuration applicability and control effectiveness. Mark unsupported backend mappings or incomplete retrieval unknown/partial. Do not present these human-reviewed assessments as extra validator fields.
+
 ## Where the numbers come from
 
 Every number in a status report comes from a validator run on a named commit. Every number is **measured, not remembered**. Where something was not measured, the report says `not run`, never zero.

@@ -31,7 +31,7 @@ Scope: EU and US rules. They support your design control work. They do not make 
 Pin a tag: clone it, then install from the clone.
 
 ```bash
-git clone --branch v0.1.0-draft.8 --depth 1 https://github.com/miguelangeloazevedo/regulated-dev-skills ~/rds
+git clone --branch v0.1.0-draft.9 --depth 1 https://github.com/miguelangeloazevedo/regulated-dev-skills ~/rds
 ```
 
 <details open>
@@ -106,6 +106,21 @@ For a first change, in this order. Typed commands you type; the others you ask f
 
 The chain is the same; the depth is smaller. At class A, `specifications` ties code to requirements without an architecture, `unit-verification` is not required, and `verify` runs system testing only (see [CLASS-OBLIGATIONS.md](skills/gates/intake/CLASS-OBLIGATIONS.md)). For software that is not a device, the development plan chooses the depth and QA/RA accepts it. The [class A example](examples/minimal-release/README.md) shows the smallest record set that passes the release gate.
 
+### Techniques, evidence and timing
+
+Each regulated skill carries local technique guides, a working worksheet and a fictional example. The approved plan selects methods and records why they fit; inclusion here does not make every technique compulsory.
+
+| Skill | Practical guidance |
+| --- | --- |
+| `risk` | [Hazard analysis, FMEA, selected fault trees and control evidence](skills/regulated/risk/references/analysis-techniques.md), connected to early usability engineering |
+| `security-diligence` | [Threat models, security-test selection, SBOM and vulnerability triage](skills/regulated/security-diligence/references/threat-model-and-testing.md) |
+| `verify` | [Partitions, boundaries, decision/state cases, robustness and regression](skills/regulated/verify/references/test-design.md) |
+| `traceability` | [Design and safety paths, scoped coverage and evidence freshness](skills/regulated/traceability/references/chain-and-coverage.md) |
+| `configuration-management` | [Change permission, baseline manifests, rebuild and recovery](skills/regulated/configuration-management/references/baseline-and-change-control.md) |
+| `package` | [Evidence indexing, completeness and export reconciliation](skills/regulated/package/references/evidence-package.md) |
+
+The [lifecycle-method map](spec/techniques.md) shows when to start, when to repeat and which skill consumes the evidence. A linked test is not an executed result, and implementation verification is not automatically proof of control effectiveness. The [backend contract](spec/backends.md#safety-risk-traceability-mapping) explains the Safety Risk traceability mapping and its limits; **only standalone is implemented**, not a Jira adapter.
+
 ### Words used here
 
 - **Typed skill**: one only a person starts, by typing `/name`. In Claude Code the agent cannot fire it; other agents may not enforce that, so each typed skill also states it must not run unprompted.
@@ -176,7 +191,7 @@ Reverse-engineer candidate records from a codebase that has none, then assess th
 
 ## Status
 
-Current tagged version: **[v0.1.0-draft.8](https://github.com/miguelangeloazevedo/regulated-dev-skills/tree/v0.1.0-draft.8)**. Install the pinned tag above.
+Current tagged version: **[v0.1.0-draft.9](https://github.com/miguelangeloazevedo/regulated-dev-skills/tree/v0.1.0-draft.9)**. Install the pinned tag above.
 
 Every skill remains `status: draft` until a named person reviews it. The test suite (`tests/`) runs in CI with both examples and executes the first-change walkthrough's commands, checking its expected stale-approval warnings and release blockers. These checks establish structure and documented command behaviour, not regulatory correctness or product verification.
 

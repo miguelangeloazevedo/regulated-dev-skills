@@ -10,13 +10,21 @@ Type `/package`, or the agent reaches for it automatically when a task fits.
 
 | Your situation | Where to go |
 | --- | --- |
+| Record/evidence requirements are being planned, or a labelled interim review snapshot is needed. | `package` |
 | A baseline passed verification and the package is needed. | `package` |
 | A submission or audit pack is being prepared. | `package` |
-| The baseline is not verified | [`verify`](../regulated/verify.md) |
+| A final release package is requested without verified baseline evidence | [`verify`](../regulated/verify.md) |
 
 ## Prerequisites
 
 An approved, verified baseline.
+
+## Techniques and timing
+
+Select methods for the approved plan and lifecycle stage; the guides distinguish evidence and human decisions:
+
+- [Technique selection and procedure](../../skills/regulated/package/references/evidence-package.md).
+- [Fictional worked example](../../skills/regulated/package/references/worked-example.md).
 
 ## Generated from records
 
@@ -29,4 +37,4 @@ Every line of the index is **generated from records** and points at its source r
 
 ## Where it fits
 
-Role: chain step. Neighbours: [`verify`](../regulated/verify.md), because its results are in the package; [`release`](../gates/release.md), because it checks the package matches the baseline. For the whole map, see [FLOWS.md](../../FLOWS.md).
+Role: chain step. Neighbours: [`verify`](../regulated/verify.md), because its results are in the package; [`release`](../gates/release.md), because it checks the package matches the baseline; [`traceability`](../regulated/traceability.md), because scope and evidence gaps must survive export. For the whole map, see [FLOWS.md](../../FLOWS.md).

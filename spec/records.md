@@ -82,6 +82,14 @@ Links are stored in one direction only, upward, as a field naming the target ids
 
 A requirement may derive from several parents. `traceability` reports requirements with several parents so a reviewer can see them; nothing forces a single parent.
 
+## Safety paths and control evidence
+
+The standalone record model has no separate Harm or Safety Risk/context record type. Preserve distinct event/situation/harm paths as labelled sections in a `HAZ` body or a controlled referenced analysis. Do not collapse separate paths into one estimate, or claim their semantics are machine-checked. A backend mapping must explicitly preserve them or report the gap.
+
+For each `RC`, record or reference both **implementation verification** and **effectiveness verification** (ISO 14971:2019 7.2): claim/criterion, method, applicable configuration and conditions, case/report, observed result or open gap. One well-designed activity may address both with a stated rationale. User-facing effectiveness may require usability evidence; not every effectiveness claim requires a user study.
+
+These are evidence-content instructions for existing record bodies, not new required frontmatter or automatic validator checks. A linked case does not establish execution or risk reduction. Use the risk skill's local `references/control-evidence.md` worksheet and traceability's local `references/chain-and-coverage.md` for the full distinction.
+
 ## SOUP records
 
 A `SOUP` record has three sections, and at class B and C an `anomalies_evaluated` date in its frontmatter before release. **Item**: name, version, supplier, how it was found. **Requirements**: the functional and performance requirements it must meet and the hardware and software it needs (IEC 62304 5.3.3, 5.3.4), required at class B and C. **Anomaly list**: where the published anomaly list is, when it was last evaluated, by whom, and the result (7.1.3). The skills draft the item; a person writes the evaluation: source of the anomaly list, version delta from the last evaluated version, applicability to this device, and the test that re-verifies the item.

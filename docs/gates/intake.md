@@ -12,6 +12,10 @@ You invoke this by typing `/intake`, and the agent won't reach for it on its own
 
 A project block from `setup`.
 
+## Lifecycle handoff
+
+Hand provisional risk/class assumptions and reclassification triggers to `risk`, early use specification to `usability`, and cyber-device/connectivity assumptions to `security-diligence`. A technique score, FMEA RPN or security score does not decide the regulatory or software class.
+
 ## What is it?
 
 Before any class there is a plainer question: **what is it?** Each module is a device, not a device, part of someone else's device, or not decided yet. Only device software gets a risk class and a software safety class, and only a person decides them. Nothing is filled in by default.

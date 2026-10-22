@@ -29,7 +29,15 @@ An adapter states, for each action, whether it is supported, and what it cannot 
 
 Level 3 needs a record system the project has validated for its intended use (audit trail, electronic signature). No backend here provides that out of the box, whoever makes it; a project that has done the validation declares `record_system_validated` with a reference to it, and only then may claim level 3.
 
-The `qity` adapter is a thin connector. It assumes the two apps are installed and maps actions to them. It contains no method of its own.
+The `qity` adapter remains conceptual: it would map actions to installed apps, not supply a second risk-management method. No adapter implementation or measured tenant configuration is provided here.
+
+## Safety Risk traceability mapping
+
+When a future Qity mapping includes Safety Risk for Jira, preserve the semantic roles of Hazard, Safety Risk context, Harm, control Requirement and linked Test. The control may be an existing Requirement issue, not a duplicate RC issue. Include linked harm/context details even when the visible matrix uses a shorter hazard-to-test path. Resolve actual project/work-type/link configuration and direction at use time; display labels and source declarations do not prove saved tenant mappings.
+
+Standalone represents the hazard/event/situation/harm detail in `HAZ` records or controlled supporting analyses, with explicit `RC` and implementing `SW`/`SPEC` links. It does not ship separate Harm/Safety Risk record types or validate those context mappings. Report these representation and adapter gaps instead of promising interchangeable records.
+
+Separate matrix association from execution, baseline applicability and effectiveness evidence. A missing external Test connection is unassessable scope, not proof that each control has no tests. An orphan list is scoped by its filters and permissions. Reconcile requested roots, returned records and retrieval errors before describing a tree/export as complete. These are mapping requirements, not a claim that a Jira/Qity adapter ships or that source inspection verifies any live site's configuration.
 
 ## Rules for every adapter
 

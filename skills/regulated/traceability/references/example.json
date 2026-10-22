@@ -1,0 +1,47 @@
+{
+  "evidence_kind": "fictional-not-executed",
+  "paths": [
+    {
+      "hazard": "HAZ-1",
+      "context": "CTX-A",
+      "harm": "HARM-A",
+      "control": "RC-1"
+    },
+    {
+      "hazard": "HAZ-1",
+      "context": "CTX-B",
+      "harm": "HARM-B",
+      "control": "RC-2"
+    }
+  ],
+  "controls": [
+    {
+      "id": "RC-1",
+      "evidence": {
+        "implementation": {
+          "planned_case": "TC-1",
+          "outcome": "not_run"
+        },
+        "effectiveness": {
+          "planned_case": "TC-2",
+          "outcome": "not_run"
+        }
+      }
+    },
+    {
+      "id": "RC-2",
+      "evidence": {
+        "implementation": {
+          "planned_case": "TC-3",
+          "outcome": "not_run"
+        },
+        "effectiveness": {
+          "planned_case": "TC-4",
+          "outcome": "not_run"
+        }
+      }
+    }
+  ],
+  "test_connection": "unconfigured",
+  "coverage_assessment": "unknown"
+}

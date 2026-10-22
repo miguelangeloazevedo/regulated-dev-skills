@@ -18,6 +18,10 @@ Type `/specifications`, or the agent reaches for it automatically when a task fi
 
 Approved software requirements.
 
+## Lifecycle handoff
+
+Before design approval, refine risk analysis/FMEA or selected fault trees and security threat models with the actual architecture, interfaces and SOUP assumptions. Reconcile control mechanisms with the user interface specification and formative findings from `usability`; send changed assumptions back to requirements and risk.
+
 ## Depth follows the class
 
 How much design a specification carries depends on the software safety class.

@@ -10,7 +10,7 @@ metadata:
   status: draft
   reviewed_by: "models only (Gemini, GPT, Grok, Mistral, Muse); no person"
   reviewed_on: none
-  as_of: 2026-10-19
+  as_of: 2026-10-22
   sources: ["IEC 62304:2006+A1:2015 5.5.2", "IEC 62304:2006+A1:2015 5.5.3", "IEC 62304:2006+A1:2015 5.5.4", "IEC 62304:2006+A1:2015 5.5.5"]
 ---
 
@@ -35,12 +35,13 @@ The unit's `SPEC`, its requirements, the safety class, the project's coding stan
 
 1. Read the safety class from the project block. A, B or C: apply what CLASS-OBLIGATIONS.md lists for it. `none` (not device software, or its class is set by another product): apply the depth the `PLAN` record chose. Not decided: ask the user to decide it through `/intake`, or to choose a depth for now and record it in the `PLAN`; never assume one. While the project claims IEC 62304 for device software, a lower depth cannot be chosen for a class that is not decided: stop and ask for the class to be decided. Read the depth only from an approved `PLAN`; a draft plan sets nothing. *Done when:* The depth applied is named.
 2. Write the unit's acceptance criteria from its specification (5.5.3). At class C add, where the design has the feature: correct sequencing of events, data and control flow, planned resource allocation, fault handling (definition, isolation, recovery), initialisation of variables, self-diagnostics, memory management and overflow, and boundary conditions (5.5.4). State the method: test, inspection or analysis. Criteria on memory management, overflow, resource allocation and initialisation are verified with static analysis and, where the language allows, dynamic analysis in the build (for example AddressSanitizer or Valgrind for C and C++), not with unit tests alone. *Done when:* Each unit has criteria, with the 5.5.4 topics addressed or marked not applicable with the reason at class C. Each memory or resource criterion names the analysis tool and its run.
-3. Agree the seams: the public boundaries the tests will observe the unit through. No test goes at an unagreed seam. *Done when:* The seams are written down.
-4. Write tests at those seams, test-first where practical: write one test, watch it fail for the right reason, then only the code that makes it pass. Test-first is recommended practice here, not a requirement of the standard. *Done when:* Each behaviour in the criteria has a test.
-5. For each test that verifies a risk control, break the control once and confirm the test goes red. Keep the red run and reference it from the unit's `TR`. *Done when:* Every risk-control test has a recorded red run.
-6. Review the code on two axes kept apart: Standards (does it follow the project's coding standards) and Specification (does it do what the `SPEC` says). *Done when:* Both axes are reported separately.
-7. Tests run in the same context that wrote the unit are builder-run. At class B and C, have a fresh context or a person re-run them against the revision before the unit verification counts, and record which. *Done when:* Each unit verification at class B and C names who or what re-ran it.
-8. Record the unit verification (5.5.5): the criteria, the method, the result, the revision. *Done when:* A `TR` exists for each unit verified.
+3. Select unit-level partitions, boundary, decision and state cases from the approved criteria; use independent expected values and appropriate static/dynamic analysis. `verify` owns the subsequent integration/system campaign, not this builder-run check. An implementation assertion does not automatically prove the control's risk reduction. *Done when:* The selected unit techniques, oracle and handoff are recorded.
+4. Agree the seams: the public boundaries the tests will observe the unit through. No test goes at an unagreed seam. *Done when:* The seams are written down.
+5. Write tests at those seams, test-first where practical: write one test, watch it fail for the right reason, then only the code that makes it pass. Test-first is recommended practice here, not a requirement of the standard. *Done when:* Each behaviour in the criteria has a test.
+6. For each test that verifies a risk control, break the control once and confirm the test goes red. Keep the red run and reference it from the unit's `TR`. *Done when:* Every risk-control test has a recorded red run.
+7. Review the code on two axes kept apart: Standards (does it follow the project's coding standards) and Specification (does it do what the `SPEC` says). *Done when:* Both axes are reported separately.
+8. Tests run in the same context that wrote the unit are builder-run. At class B and C, have a fresh context or a person re-run them against the revision before the unit verification counts, and record which. *Done when:* Each unit verification at class B and C names who or what re-ran it.
+9. Record the unit verification (5.5.5): the criteria, the method, the result, the revision. *Done when:* A `TR` exists for each unit verified.
 
 ## AI/ML branch
 

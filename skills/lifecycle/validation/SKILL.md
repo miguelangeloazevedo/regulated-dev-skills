@@ -10,7 +10,7 @@ metadata:
   status: draft
   reviewed_by: "models only (Gemini, GPT, Grok, Mistral, Muse); no person"
   reviewed_on: none
-  as_of: 2026-10-19
+  as_of: 2026-10-22
   sources: ["ISO 13485:2016 7.3.7", "MDR Art 61", "MDR Annex XIV", "MDCG 2020-1"]
 ---
 
@@ -34,10 +34,11 @@ Not for:
 
 ## Process
 
-1. Plan design validation for every user need with the method that fits it: usability testing with intended users, simulated use, clinical data through the clinical evaluation, or analysis. Take the summative usability results from `usability` as the evidence for needs that depend on use; the usability engineering file stays its own record. *Done when:* Every user need has a validation method and the representative product is named.
-2. Record results as `TR` records against the `TC` that validates each need. For use errors observed in validation sessions, hand them to `usability` for root-cause analysis; if anything new appears, return to the earlier steps; otherwise evaluate residual use-related risk (5.9, ISO 14971 7.3). Keep everything in the usability engineering file (4.2). *Done when:* Every use error has an analysis, and residual use-related risk is evaluated.
-3. Where a need depends on clinical evidence, write the interface to the clinical evaluation in the three components MDCG 2020-1 uses for software: valid clinical association (is the output associated with the clinical condition), technical performance (does it generate the intended output reliably), and clinical performance (does it yield clinically relevant output in the target population); for each, the claim, the evidence source and the owner (MDR Art 61, Annex XIV). Do not perform the clinical evaluation. *Done when:* Each clinically dependent need has its claim, endpoints, data source and owner named.
-4. For each need validated through clinical evidence, record the clinical evaluation report's identifier and revision in the Result section of the `TR` for that need, so traceability shows which report backs it. *Done when:* Every need that depends on clinical evidence names the report and revision it rests on.
+1. Plan the method with needs and the development plan even though execution needs representative product evidence. Agree with `risk` and `usability` which risk-control effectiveness claims require user-facing evaluation and which can be established by technical verification; do not equate effectiveness verification universally with validation. *Done when:* Planned validation and control-effectiveness responsibilities are distinct and traceable.
+2. Plan design validation for every user need with the method that fits it: usability testing with intended users, simulated use, clinical data through the clinical evaluation, or analysis. Take the summative usability results from `usability` as the evidence for needs that depend on use; the usability engineering file stays its own record. *Done when:* Every user need has a validation method and the representative product is named.
+3. Record results as `TR` records against the `TC` that validates each need. For use errors observed in validation sessions, hand them to `usability` for root-cause analysis; if anything new appears, return to the earlier steps; otherwise evaluate residual use-related risk (5.9, ISO 14971 7.3). Keep everything in the usability engineering file (4.2). *Done when:* Every use error has an analysis, and residual use-related risk is evaluated.
+4. Where a need depends on clinical evidence, write the interface to the clinical evaluation in the three components MDCG 2020-1 uses for software: valid clinical association (is the output associated with the clinical condition), technical performance (does it generate the intended output reliably), and clinical performance (does it yield clinically relevant output in the target population); for each, the claim, the evidence source and the owner (MDR Art 61, Annex XIV). Do not perform the clinical evaluation. *Done when:* Each clinically dependent need has its claim, endpoints, data source and owner named.
+5. For each need validated through clinical evidence, record the clinical evaluation report's identifier and revision in the Result section of the `TR` for that need, so traceability shows which report backs it. *Done when:* Every need that depends on clinical evidence names the report and revision it rests on.
 
 ## AI/ML branch
 

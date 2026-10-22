@@ -20,6 +20,10 @@ Type `/requirements`, or the agent reaches for it automatically when a task fits
 
 User needs, and risk controls where they exist.
 
+## Lifecycle handoff
+
+Plan verification methods while drafting acceptance criteria: partitions and boundaries for ranges, decision/state cases for conditional behaviour, and interface/negative cases where relevant. Distinguish risk-control implementation criteria from effectiveness claims; ask `usability` and `risk` what user-facing evidence is needed. Preserve the class-dependent minimum and the approved plan's additions.
+
 ## One field, one question
 
 Each field in a requirement answers a different question: the statement says what, the rationale says why, the criteria say how you will know. **One field, one question**. A record where two fields say the same thing has one field's worth of content.

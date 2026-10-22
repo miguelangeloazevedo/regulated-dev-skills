@@ -12,6 +12,10 @@ You invoke this by typing `/release`, and the agent won't reach for it on its ow
 
 A baseline, verification results and a package.
 
+## Lifecycle handoff
+
+Review risk-control implementation and effectiveness evidence separately, with the applicable configuration and conditions. Confirm that scope/configuration gaps, missing user-facing evidence and incomplete graph retrieval have not been counted as passing coverage. These are human evidence reviews beyond the structural validator; unresolved required evidence is not a green release.
+
 ## The checklist
 
 Release computes a checklist from the files, following IEC 62304 5.8 at the depth the class requires: verification complete and signed, residual anomalies documented and evaluated, version and build recorded, plan activities complete, risk review done, archive and delivery set. Then the person who authorises release decides (ISO 13485 8.2.6).

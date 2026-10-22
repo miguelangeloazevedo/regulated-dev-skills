@@ -19,6 +19,10 @@ Type `/validation`, or the agent reaches for it automatically when a task fits.
 
 User needs with validation methods, and a release candidate.
 
+## Lifecycle handoff
+
+Plan the method with needs and the development plan even though execution needs representative product evidence. Agree with `risk` and `usability` which risk-control effectiveness claims require user-facing evaluation and which can be established by technical verification; do not equate effectiveness verification universally with validation.
+
 ## Intended users, intended environment
 
 Validation answers a different question from verification: does the product meet the needs of **intended users, intended environment**, not does it meet its requirements. It takes the summative results from `usability` as evidence for needs that depend on use, and clinical evidence from the clinical evaluation.

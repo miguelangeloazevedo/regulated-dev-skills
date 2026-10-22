@@ -18,6 +18,10 @@ Type `/gap-assessment`, or the agent reaches for it automatically when a task fi
 
 An existing codebase or partial records.
 
+## Lifecycle handoff
+
+Assess method and evidence adequacy in addition to record presence: distinguish planned from executed cases, implementation from effectiveness, and complete scope from unreadable/unconfigured areas. Reused evidence requires applicable configuration/assumptions as well as a matching hash; do not invent missing historical runs.
+
 ## Legacy or not
 
 Two routes. Software lawfully on the market without enough evidence is legacy software (IEC 62304 3.36) and may follow 4.4: feedback, continued-use risk, gaps, a plan and a rationale. Anything else, unreleased code included, closes its gaps under clauses 5 to 9 before release. Either way, evidence is reused only by matching revision hash: **reuse by hash**, never by resemblance.
