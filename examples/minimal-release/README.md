@@ -1,6 +1,10 @@
 # Example: a releasable class A device (fictional)
 
-The smallest record set that passes the release gate: classification, plan, need, requirements, specification, verification and validation, risk management report and design review, all approved, with results on the release baseline.
+The smallest record set that passes the release gate: classification, plan, need, requirements, specification, verification and validation, risk management report and design review, with approvals and results on the release baseline as the gate requires.
+
+**Try [Your first change](FIRST-CHANGE.md):** use agent prompts and an isolated copy of these records to make the empty-day message explicit, observe stale approvals and prepare a draft handoff. No product code or real test evidence is supplied.
+
+The names, approvals, host references (`ref: example`), results and baseline in this fixture are fictional. They demonstrate record structure, not real review, host controls or product verification.
 
 ```bash
 python3 tools/validate.py records examples/minimal-release/quality \

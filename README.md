@@ -31,7 +31,7 @@ Scope: EU and US rules. They support your design control work. They do not make 
 Pin a tag: clone it, then install from the clone.
 
 ```bash
-git clone --branch v0.1.0-draft.7 --depth 1 https://github.com/miguelangeloazevedo/regulated-dev-skills ~/rds
+git clone --branch v0.1.0-draft.8 --depth 1 https://github.com/miguelangeloazevedo/regulated-dev-skills ~/rds
 ```
 
 <details open>
@@ -81,6 +81,10 @@ jurisdictions: [eu, us]
 After that the agent reaches for the lifecycle skills as the work calls for them. **Typed** skills are the ones only a person starts: `/setup`, `/intake`, `/approve`, `/release`, `/impact`, `/status`.
 
 See the output first: a [releasable class A example](examples/minimal-release/README.md) that passes the release gate, and a [class B example](examples/infusion-rate-check/README.md) that fails it and says why. The whole map is in [FLOWS.md](FLOWS.md).
+
+### Your first change
+
+Follow the [guided record-change walkthrough](examples/minimal-release/FIRST-CHANGE.md): work in an isolated copy of the class A example, use copyable agent prompts, inspect stale approvals and prepare a draft handoff. It uses fictional records only, with explicit human decision stops; it does not supply product code or real verification evidence.
 
 ### The smallest path
 
