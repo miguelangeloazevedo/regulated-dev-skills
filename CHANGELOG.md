@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.0-draft.8
+
+- A first-change walkthrough uses the class A schedule example to draft an explicit empty-day message, inspect stale approvals and prepare a human-reviewed handoff.
+- The walkthrough includes isolated practice commands, agent prompts, expected validator checkpoints and explicit boundaries between fictional records and real evidence.
+- A regression test executes the walkthrough commands and checks its stale-approval and release-blocker checkpoints without changing the source fixture.
+
 ## 0.1.0-draft.7
 
 - `design-review` leaves each participant's read-list blank for them to fill.
