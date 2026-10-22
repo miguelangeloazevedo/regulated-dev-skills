@@ -17,7 +17,7 @@ Type `/package`, or the agent reaches for it automatically when a task fits.
 
 ## Prerequisites
 
-An approved, verified baseline.
+For planning: the intended document/evidence scope and responsible owners. For execution: a named record snapshot with gaps labelled; final release assembly additionally needs the approved, verified baseline and required external evidence.
 
 ## Techniques and timing
 

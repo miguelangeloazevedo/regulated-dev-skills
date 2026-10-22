@@ -5,7 +5,7 @@ metadata:
   group: regulated
   invocation: model
   role: "runs inside the chain"
-  leading_word: "nothing changes without a request"
+  leading_word: "nothing changes without authorisation"
   neighbours: [impact, release, development-plan]
   status: draft
   reviewed_by: "models only (Gemini, GPT, Grok, Mistral, Muse); no person"
@@ -16,7 +16,7 @@ metadata:
 
 # Configuration management
 
-Keeps the software and everything that builds it identified, changed only through approved change requests, and recoverable as baselines. It runs alongside every step of the chain.
+Keeps the software and everything that builds it identified, changed only under its applicable approved authorisation, and recoverable as baselines. It runs alongside every step of the chain.
 
 ## When to use
 
@@ -59,7 +59,7 @@ Treat the model weights, the training code, and the training and evaluation data
 
 - Every SOUP item is a configuration item with a unique version. A floating version is not controlled.
 - Rebuild a baseline once from its listed items before relying on it.
-- Approve the change request before the work, and link the commits to it.
+- Establish the applicable approved authorisation before work, and link changes and verification to it.
 
 ## Anti-patterns and their tells
 

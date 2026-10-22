@@ -2,7 +2,7 @@
 
 ## What it does
 
-Keeps the software and everything that builds it identified, changed only through approved change requests, and recoverable as baselines. It runs alongside every step of the chain.
+Keeps the software and everything that builds it identified, changed only under its applicable approved authorisation, and recoverable as baselines. It runs alongside every step of the chain.
 
 ## When to reach for it
 
@@ -26,14 +26,14 @@ Select methods for the approved plan and lifecycle stage; the guides distinguish
 - [Technique selection and procedure](../../skills/regulated/configuration-management/references/baseline-and-change-control.md).
 - [Fictional worked example](../../skills/regulated/configuration-management/references/worked-example.md).
 
-## Nothing changes without a request
+## Nothing changes without authorisation
 
-Every configuration item, SOUP and tools included, has a version. **Nothing changes without a request**, and every baseline is a named set of hashes that can be rebuilt.
+Every configuration item, SOUP and tools included, has a version. Each change needs its applicable approved authorisation: a narrowly approved plan class before first release where permitted, otherwise an approved CR, and an approved CR after release. Every baseline identifies the items and evidence needed for rebuild and recovery.
 
 ## It's working if
 
-- Every commit on the release branch traces to a change request.
-- A baseline can be rebuilt on a clean machine.
+- Every baseline change traces to its applicable approved authorisation and verification.
+- A relied-on baseline has a recorded clean rebuild/recovery check with limits.
 
 ## Where it fits
 

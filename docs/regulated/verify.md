@@ -17,7 +17,7 @@ Type `/verify`, or the agent reaches for it automatically when a task fits.
 
 ## Prerequisites
 
-A revision and test cases.
+For planning: requirements/design under review, the approved plan depth and the claims to verify. For execution: approved criteria/cases, a pinned revision and the identified test environment.
 
 ## Techniques and timing
 

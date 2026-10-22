@@ -33,9 +33,21 @@ Start with the use specification and tasks. Feed foreseeable use errors and haza
 
 Information for safety is not effective merely because it exists or a user says they read it. Establish what the intended user must perceive, understand and do, in which environment and time. Avoid crediting training or labelling twice for the same assumed behaviour. Human reviewers determine the appropriate evaluation and any disclosure of residual risk.
 
-## Residual risk and feedback
+## Individual residual-risk evaluation
 
-Evaluate each residual risk against the approved plan, check risks created by controls (§7.5) and completeness of risk control (§7.6), then evaluate overall residual risk (§8). The aggregate evaluation is not an average of FMEA scores. Address interactions, uncertainty and the device's overall benefit-risk picture. For EU devices, apply the relevant MDR risk-reduction and benefit-risk requirements in addition to ISO criteria; clinical evaluation supplies the benefit evidence.
+Evaluate each residual risk against the approved plan after the controls are implemented (§7.3). Record the estimate, criteria, evidence and conclusion for that situation/harm path; do not substitute an aggregate score.
+
+## Unacceptable individual residual risk
+
+If a residual risk fails the plan's criteria, **return to control-option analysis** (§7.1) and consider further controls (§7.3). Do not skip directly to overall residual-risk acceptance.
+
+Where further control is not practicable, §7.4 permits a benefit-risk analysis for that individual residual risk, using applicable data and literature. Clinical evaluation owns the benefit evidence; the risk owner and authorised reviewers assess whether it supports benefits of the intended use outweighing this residual risk. The agent drafts the analysis, never the acceptance.
+
+If the evidence does not support that conclusion, consider modifying the device or intended use and re-enter the analysis at §5.2; otherwise the risk **remains unacceptable**. Missing benefit evidence is an unresolved gap, not an accepted risk. Proceed to the following risk-control and overall-risk reviews only with an appropriate supported disposition. This branch applies under ISO 14971 generally, not only for EU devices.
+
+## Overall residual risk and feedback
+
+Check risks created by controls (§7.5) and completeness of risk control (§7.6), then evaluate overall residual risk (§8). This aggregate evaluation is neither an average of FMEA scores nor a substitute for the individual-risk disposition above. Address interactions, uncertainty and the device's overall benefit-risk picture. For EU devices, apply the relevant MDR risk-reduction and benefit-risk requirements in addition to ISO criteria; clinical evaluation supplies the benefit evidence.
 
 Before release, the assigned person reviews the plan's execution, overall residual-risk acceptability and arrangements for production/post-production information (§9); draft the `RMR` for approval. After release, route new safety information to risk review, problem resolution and controlled change (§10). A new use problem or control failure may invalidate an earlier effectiveness assumption even if no record hash changed.
 
