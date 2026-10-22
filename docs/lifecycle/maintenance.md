@@ -20,7 +20,7 @@ A released baseline.
 
 ## Lifecycle handoff
 
-Reopen risk, security and usability analysis for control failures, use errors/difficulties, vulnerable or unsupported dependencies and changed operating assumptions. Identify affected released configurations and the earlier effectiveness evidence whose applicability may no longer hold; use problem/change control for corrective work.
+Reopen risk, security and usability analysis for control failures, use errors/difficulties, vulnerable or unsupported dependencies and changed operating assumptions. Identify affected released configurations and the earlier effectiveness evidence whose applicability may no longer hold; use problem/change control for corrective work. Keep complaint/CAPA identity and effectiveness/closure decisions distinct from the software fix; pending monitoring retains an owner.
 
 ## The clock starts at release
 

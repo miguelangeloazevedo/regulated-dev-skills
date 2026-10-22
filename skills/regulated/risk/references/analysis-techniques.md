@@ -31,6 +31,8 @@ Begin preliminary analysis with needs and use specification, before design choic
 6. Evaluate against the criteria and propose controls in priority order: inherent safety by design, protective measures, information for safety. Check each control's feasibility, enforcing mechanism and effects on other risks.
 7. Follow [control-evidence.md](control-evidence.md) for implementation, effectiveness, residual-risk and review evidence. Feed accepted control requirements into `requirements`, not directly into unapproved code.
 
+Retain the analysis origin and relevant item, process, use task or safety characteristic, without treating these as interchangeable kinds of hazard. Keep an applicability/exclusion register for scoped-out candidates: identity, reason, supporting evidence, owner/reviewer, revision and reconsideration trigger. Missing links or an empty field never mean not applicable. Revisit exclusions when intended use, design, policy or production feedback changes; disclose excluded items separately from the assessed population.
+
 ### FMEA working template
 
 One row can point to several distinct risk paths; split paths when situations, harms or estimates differ.

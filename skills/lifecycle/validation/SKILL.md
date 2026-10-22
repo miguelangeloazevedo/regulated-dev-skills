@@ -39,6 +39,7 @@ Not for:
 3. Record results as `TR` records against the `TC` that validates each need. For use errors observed in validation sessions, hand them to `usability` for root-cause analysis; if anything new appears, return to the earlier steps; otherwise evaluate residual use-related risk (5.9, ISO 14971 7.3). Keep everything in the usability engineering file (4.2). *Done when:* Every use error has an analysis, and residual use-related risk is evaluated.
 4. Where a need depends on clinical evidence, write the interface to the clinical evaluation in the three components MDCG 2020-1 uses for software: valid clinical association (is the output associated with the clinical condition), technical performance (does it generate the intended output reliably), and clinical performance (does it yield clinically relevant output in the target population); for each, the claim, the evidence source and the owner (MDR Art 61, Annex XIV). Do not perform the clinical evaluation. *Done when:* Each clinically dependent need has its claim, endpoints, data source and owner named.
 5. For each need validated through clinical evidence, record the clinical evaluation report's identifier and revision in the Result section of the `TR` for that need, so traceability shows which report backs it. *Done when:* Every need that depends on clinical evidence names the report and revision it rests on.
+6. Keep a per-need validation inventory: planned method/case, not-run or blocked activities, actual result/outcome and applicable representative baseline, with external clinical/usability report revisions where needed. Report it separately from verification metrics and literal validator output; the current routine report does not provide a separate validation inventory. No completed host execution status alone proves a passing result. *Done when:* Every need has an explicit validation evidence state and provenance or an open gap, separately from requirement verification.
 
 ## AI/ML branch
 
@@ -47,7 +48,7 @@ Validate with data from the intended population and setting, report performance 
 ## Lessons from practice
 
 - Validate needs with intended users in the intended environment; requirements tests do not stand in.
-- Every observed use error becomes a hazard link or a new hazard.
+- Assess each use-related observation for safety relevance; link an existing/new risk path or record a justified non-safety conclusion.
 
 ## Anti-patterns and their tells
 
