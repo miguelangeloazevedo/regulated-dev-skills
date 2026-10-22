@@ -119,7 +119,11 @@ Each regulated skill carries local technique guides, a working worksheet and a f
 | `configuration-management` | [Change permission, baseline manifests, rebuild and recovery](skills/regulated/configuration-management/references/baseline-and-change-control.md) |
 | `package` | [Evidence indexing, completeness and export reconciliation](skills/regulated/package/references/evidence-package.md) |
 
-The [lifecycle-method map](spec/techniques.md) shows when to start, when to repeat and which skill consumes the evidence. A linked test is not an executed result, and implementation verification is not automatically proof of control effectiveness. The [backend contract](spec/backends.md#safety-risk-traceability-mapping) explains the Safety Risk traceability mapping and its limits; **only standalone is implemented**, not a Jira adapter.
+The [lifecycle-method map](spec/techniques.md) shows when to start, when to repeat and which skill consumes the evidence. A linked test is not an executed result, and implementation verification is not automatically proof of control effectiveness. The [backend contract](spec/backends.md) explains design-control, quality-event and safety-risk mappings and their representation/approval limits; **only standalone is implemented**, not a Jira adapter.
+
+For defects and field reports, `problem-resolution` carries a [quality-event handoff guide](skills/lifecycle/problem-resolution/references/quality-event-handoff.md) and a [fictional example](skills/lifecycle/problem-resolution/references/worked-example.md). Interim protection does not wait for reproduction; a verified software fix does not close a complaint or establish CAPA effectiveness. Risk evaluations retain their policy/criteria revision, and calculated acceptability remains separate from a person's decision.
+
+Document and record controls are distinguished in the [document lifecycle and record-correction guide](skills/regulated/configuration-management/references/document-and-record-control.md): approval is not effective issue, and a completed result is preserved rather than rewritten as a new outcome. Distribution, review schedules, retention and disposition remain explicit QMS/host responsibilities.
 
 ### Words used here
 

@@ -29,6 +29,12 @@ One record is one markdown file with frontmatter. The chain from need to evidenc
 
 Identifiers are `<PREFIX>-<number>`, never reused. File path: `<artefacts_dir>/records/<type>/<ID>.md`.
 
+## Documents versus completed records
+
+The schema calls every file a record; control it according to purpose. A prescriptive document has an enduring identity and controlled revisions; a completed record preserves evidence of activities and decisions. Approval is not automatically effective issue, and a product baseline does not prove current document availability at points of use. Review, distribution, external-origin documents and obsolete-copy controls belong to named QMS/host procedures.
+
+Preserve original observations, results and signatures. Corrections identify the original revision, change, reason, author, date and required authorisation; a new execution needs a new result identity, not an edited pass over a failure. Record retention, protection, retrieval and authorised disposition have named owners. These are content/procedure instructions, not new frontmatter or validator-enforced lifecycles. Read configuration-management's local document-and-record-control guide for the full distinction.
+
 ## Frontmatter
 
 ```yaml
@@ -89,6 +95,12 @@ The standalone record model has no separate Harm or Safety Risk/context record t
 For each `RC`, record or reference both **implementation verification** and **effectiveness verification** (ISO 14971:2019 7.2): claim/criterion, method, applicable configuration and conditions, case/report, observed result or open gap. One well-designed activity may address both with a stated rationale. User-facing effectiveness may require usability evidence; not every effectiveness claim requires a user study.
 
 These are evidence-content instructions for existing record bodies, not new required frontmatter or automatic validator checks. A linked case does not establish execution or risk reduction. Use the risk skill's local `references/control-evidence.md` worksheet and traceability's local `references/chain-and-coverage.md` for the full distinction.
+
+## Quality-event handoffs
+
+Standalone has no independent complaint, nonconformity, CAPA or action-task record type or lifecycle. Retain originating identities and controlled external references in existing `PRB`, `FIND` and `CR` bodies. Preserve affected configurations, awareness date, safety/interim-protection assessment, investigation evidence, human disposition and pending actions. Unknown, not represented, not applicable with justification and confirmed absent are distinct.
+
+Record containment/correction, corrective/preventive action, implementation verification and effectiveness review separately where applicable. For CAPA handoffs include the approved plan/reference, owner, measurable criterion, scope, monitoring window, observed evidence, adverse-effect review and human closure/rework decision. A green software regression or document approval is not event closure. These are content and external-reference instructions, not new frontmatter, statuses or automatic validator checks; the validator does not establish causal validity, CAPA effectiveness or reportability.
 
 ## SOUP records
 

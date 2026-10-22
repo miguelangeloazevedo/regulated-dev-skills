@@ -14,7 +14,7 @@ A roles file, and records under the artefacts directory.
 
 ## Lifecycle handoff
 
-Before the human decision, expose the source evidence and limits behind linked claims: an FMEA row is not risk acceptance, a linked case is not executed verification, and an implementation check alone may not establish effectiveness. Do not resolve those gaps by replacing hashes or approval fields.
+Before the human decision, expose the source evidence and limits behind linked claims: an FMEA row is not risk acceptance, a linked case is not executed verification, and an implementation check alone may not establish effectiveness. Do not resolve those gaps by replacing hashes or approval fields. Confirm authority and revision binding per record/gate and reconcile decision history with actual workflow state; an approval feature is not a universal signature guarantee. Distinguish document approval from effective issue and actual point-of-use availability.
 
 ## What an approval binds
 

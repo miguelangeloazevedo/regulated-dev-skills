@@ -20,7 +20,7 @@ A development plan that names review stages.
 
 ## Lifecycle handoff
 
-Review whether selected methods fit the claims and were performed at the right stage: risk/use/security inputs before design approval, planned verification alongside requirements, and actual evidence before release. Assess assumptions, scope limits and control implementation/effectiveness separately; a filled matrix is not an adequacy review.
+Review whether selected methods fit the claims and were performed at the right stage: risk/use/security inputs before design approval, planned verification alongside requirements, and actual evidence before release. Assess assumptions, scope limits and control implementation/effectiveness separately; a filled matrix is not an adequacy review. Review coverage predicates, per-record approval capabilities and all relevant closure routes; missing enforcement remains a finding.
 
 ## The read-list
 

@@ -26,6 +26,10 @@ Select methods for the approved plan and lifecycle stage; the guides distinguish
 - [Technique selection and procedure](../../skills/regulated/package/references/evidence-package.md).
 - [Fictional worked example](../../skills/regulated/package/references/worked-example.md).
 
+## Lifecycle handoff
+
+Preserve original completed evidence and correction history; an export does not establish document issue or retention enforcement. Keep evidence scope, source reconciliation and host/QMS responsibilities explicit.
+
 ## Generated from records
 
 Every line of the index is **generated from records** and points at its source record and hash. It supports the technical documentation and is not that documentation: its first page lists the sections it does not cover. Below evidence level 3 it is stamped as an uncontrolled draft.

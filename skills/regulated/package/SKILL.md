@@ -53,6 +53,7 @@ Choose and justify the method against the approved plan; do not apply every tech
 10. Export in the formats asked for. *Done when:* The export opens and matches the index.
 11. State the single source of truth for each item and who transcribes it into the QMS or eQMS, and reconcile the two before release: every exported item carries its revision hash, and an export below evidence level 3 is stamped as an uncontrolled draft. *Done when:* Each item names its source of truth; the export is stamped as the evidence level requires.
 12. Plan document ownership early, then reconcile required/source/export sets in both directions. Distinguish planned cases, observed results, control implementation/effectiveness and external clinical/usability/security evidence. Open the real export and verify identities/readability; incomplete retrieval or an unconfigured backend stays an explicit scope limitation. *Done when:* The index/export reconciliation and external evidence gaps have owners and actual check results.
+13. Preserve completed records, raw evidence, original signatures and identifiable correction/amendment history. Name archive/access and retention/disposition owners and verify retrieval/readability; an export is not proof of effective distribution, authenticated immutability or authorised destruction. Keep external-origin document editions and controlled references in scope. *Done when:* The package preserves original evidence and correction context, with retrieval and retention controls or explicit gaps.
 
 ## AI/ML branch
 

@@ -11,21 +11,33 @@ ISO 14971:2019 §7.2 separates implementation verification from effectiveness ve
 
 Choose the effectiveness method from the control mechanism and risk-reduction claim. It may be design verification, process qualification or design validation. Not every control needs a user study, and not every user study establishes clinical benefit.
 
+## Policy, calculation and decision
+
+Bind each evaluation to the approved policy revision: risk plan, severity/probability definitions, acceptability criteria, mapping/method revision, product configuration and input/evidence revisions. Keep initial and residual evaluations distinct for each situation/harm path. A configured ordinal lookup is not numerical probability multiplication; retain its definitions and limitations rather than invent numerical precision.
+
+A calculated acceptable band is **not human acceptance**, a benefit-risk analysis or proof of supporting benefit evidence. Preserve the calculation and its criteria separately from the authored disposition, benefit evidence and authorised human approval. Neither a populated acceptance field nor a Closed status proves the decision or its revision binding.
+
+Changes to severity, scales, mapping policy, criteria, context or control assumptions trigger an impact assessment, recalculation where relevant, and explicit human reapproval or a justified reviewed applicability decision. Recalculation and reapproval are separate outcomes. A failed refresh or failed reopening is an unresolved freshness gap even if old numbers or an approval badge remain visible. Do not automatically carry earlier approval over to a new policy revision. These reviews are not automatic standalone validator features.
+
 ## Control worksheet
 
 For each `RC`, record in its body or a controlled referenced table:
 
 - Hazard and risk-path references: situation, harm and affected population.
+- Analysis origin and affected item, process, task/use scenario or safety characteristic; supporting evidence and policy revision.
 - Control option considered and priority; why a lower-priority option is necessary.
 - Enforcing mechanism and its allocation to software, hardware, process or information.
 - Implementing requirements/design and their revisions.
 - Implementation verification: criterion, method, case, result and tested configuration, or open gap.
 - Effectiveness verification: risk-reduction claim, criterion, method, case/report, result and applicable configuration/user conditions, or open gap.
 - Additional hazards/risks introduced, interactions with other controls and common dependencies.
+- Explicit causality where a control creates a secondary risk: originating control -> introduced path, with affected assumptions and evidence. Keep shared-control dependencies visible rather than averaging their risks.
 - Residual-risk estimate/evaluation, remaining uncertainty and information to be disclosed.
 - Human reviewer/decision reference; open actions and owners.
 
 This is guidance for existing records, not new mandatory frontmatter. The current validator does not enforce the two evidence claims or authenticate a user study. Describe missing evidence as a finding, not as a machine-verified pass.
+
+Standalone has no dedicated machine-traversable risk-to-risk introduction relation. Preserve these causal references in controlled bodies or supporting analyses; a general association is not proof of causality or automatic change-impact traversal.
 
 ## Risk/usability interface
 

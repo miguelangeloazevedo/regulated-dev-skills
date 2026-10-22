@@ -11,7 +11,7 @@ metadata:
   reviewed_by: "models only (Gemini, GPT, Grok, Mistral, Muse); no person"
   reviewed_on: none
   as_of: 2026-10-22
-  sources: ["IEC 62304:2006+A1:2015 8", "ISO 13485:2016 7.3.9", "ISO 13485:2016 4.2.5", "ISO 13485:2016 7.4"]
+  sources: ["IEC 62304:2006+A1:2015 8", "ISO 13485:2016 7.3.9", "ISO 13485:2016 4.2.5", "ISO 13485:2016 7.4", "ISO 13485:2016 4.2.4"]
 ---
 
 # Configuration management
@@ -38,6 +38,7 @@ Choose and justify the method against the approved plan; do not apply every tech
 
 - [Technique selection and procedure](references/baseline-and-change-control.md).
 - [Fictional worked example](references/worked-example.md).
+- [Document lifecycle and completed-record controls](references/document-and-record-control.md).
 
 ## Process
 
@@ -50,6 +51,7 @@ Choose and justify the method against the approved plan; do not apply every tech
 7. Define narrow pre-approved change classes in the approved plan only where the QMS permits; assess whether a document or test-only change affects product safety or relied-on evidence rather than assuming it cannot. Exploratory branches do not enter a baseline without the required authorisation. *Done when:* Change classes have explicit limits, impact rules and a record of each use.
 8. When a new SOUP item from a supplier with support or a contract enters the configuration, check that the supplier has a current evaluation under your purchasing process (ISO 13485 7.4) before the item reaches a baseline, and write the SOUP evaluation: source of the anomaly list, version delta from the last evaluated version, applicability to this device, and the test that re-verifies it. *Done when:* Every SOUP item in a baseline has a supplier evaluation reference where one applies, and a SOUP evaluation.
 9. Exercise clean rebuild and planned recovery using the identified manifest and environment, retaining actual logs and differences. Select byte-identical comparison only where required by the approved plan; otherwise justify artifact/behaviour comparison. Never infer a tested baseline or safe rollback from a tag alone. *Done when:* Rebuild/recovery outcomes and any unsupported inputs or rollback limits are recorded.
+10. Apply document versus completed-record controls using the local document-and-record-control guide. Preserve enduring identity, exact revision and change authority; distinguish approval from effective issue and verify the current version at points of use. Name QMS owners for review triggers, external-origin documents, obsolete copies, protection, retrieval, retention and authorised disposition. Correct completed evidence through identifiable amendments retaining the original, never replacement of an observed result or backdated approval. These host/QMS controls are not automatic validator features. *Done when:* Document issue/review and record correction/retention controls have named procedures, owners and evidence or explicit gaps.
 
 ## AI/ML branch
 

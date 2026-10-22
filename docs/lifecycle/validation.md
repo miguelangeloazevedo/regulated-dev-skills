@@ -21,7 +21,7 @@ User needs with validation methods, and a release candidate.
 
 ## Lifecycle handoff
 
-Plan the method with needs and the development plan even though execution needs representative product evidence. Agree with `risk` and `usability` which risk-control effectiveness claims require user-facing evaluation and which can be established by technical verification; do not equate effectiveness verification universally with validation.
+Plan the method with needs and the development plan even though execution needs representative product evidence. Agree with `risk` and `usability` which risk-control effectiveness claims require user-facing evaluation and which can be established by technical verification; do not equate effectiveness verification universally with validation. Keep per-need validation states separate from requirement-verification metrics and host execution statuses.
 
 ## Intended users, intended environment
 

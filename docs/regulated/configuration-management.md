@@ -25,6 +25,11 @@ Select methods for the approved plan and lifecycle stage; the guides distinguish
 
 - [Technique selection and procedure](../../skills/regulated/configuration-management/references/baseline-and-change-control.md).
 - [Fictional worked example](../../skills/regulated/configuration-management/references/worked-example.md).
+- [Document lifecycle and completed-record controls](../../skills/regulated/configuration-management/references/document-and-record-control.md).
+
+## Lifecycle handoff
+
+Control document identity/revision, approval versus effective issue, point-of-use versions and review/obsolescence separately from completed-record amendments, protection, retrieval and retention. Read the local guide; host/QMS enforcement is not supplied by the validator.
 
 ## Nothing changes without authorisation
 

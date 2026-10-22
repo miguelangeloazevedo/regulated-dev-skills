@@ -25,6 +25,10 @@ Select methods for the approved plan and lifecycle stage; the guides distinguish
 - [Technique selection and procedure](../../skills/regulated/traceability/references/chain-and-coverage.md).
 - [Fictional worked example](../../skills/regulated/traceability/references/worked-example.md).
 
+## Lifecycle handoff
+
+Preserve semantic role discriminators, unique identities versus path occurrences and separate verification/validation evidence inventories. Host metrics, policy freshness and actual evidence retain their separate meanings.
+
 ## Computed, not typed
 
 Coverage is **computed, not typed**. Links are stored upward only and the inverse is computed, so a pair can never be stored inverted. Every count in prose carries a marker the validator re-derives.

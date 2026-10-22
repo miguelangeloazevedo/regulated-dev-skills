@@ -24,7 +24,7 @@ Allocate stable identifiers when needs and hazards are drafted. Link controls as
 ## Procedure
 
 1. Define the assessment scope and snapshot/baseline. Record included projects/record types, statuses, filters, unreadable/excluded records and retrieval completeness.
-2. Map each relationship by source type, target type, semantic role, stored direction and inverse. A display name such as Requirement or Risk Control is not enough. A field showing links may be a filtered view of shared native links, not a separately stored relationship.
+2. Map each relationship by source type, target type, semantic role, configured type discriminators, relationship kind, stored direction and inverse. Requirement tiers can share one host type, and identically labelled fields may differ by record type. A display name such as Requirement or Risk Control is not enough. A field showing links may be a filtered view of shared native links, not a separately stored relationship.
 3. In standalone, author supported upward fields only: `derives_from`, `specifies`, `implements`, `mitigates`, `verifies`, `validates`, `result_of`. Preserve extra situation/harm/context detail as labelled paths in `HAZ` bodies or controlled referenced analyses; no separate Safety Risk or Harm record type ships. The validator does not parse those path semantics. Do not pretend that a lossy backend conversion preserves them.
 4. Run the installed validator with the project paths and keep its output unedited. Separate its literal report from the additional human-reviewed safety-path assessment. In a different backend an implemented adapter must expose measured completeness and mapping; there is no Jira adapter in this release.
 5. Review missing parents, missing control requirements, controls without cases, orphaned safety entities and results without usable provenance. Preserve many-to-many links and report shared controls/dependencies. Follow a link from both ends before writing or claiming it is correct.
@@ -46,9 +46,17 @@ Allocate stable identifiers when needs and hazards are drafted. Link controls as
 
 A missing Test connection means coverage cannot be assessed through that hop. It is not the same as an assessed requirement with no tests. Likewise an orphan list can exclude inactive hazards or inaccessible projects; it is not automatically the whole risk file.
 
+Preserve a host-defined structural metric under its own name, with its predicate, denominator and exclusions. A type with no configured coverage condition may count as covered without evidence. Distinguish **unique record identities** from **path occurrences**, including repeated shared requirements or tests; neither an occurrence count nor a Test-column total is automatically the number of verified requirements. Never normalise host covered into executed, passed, baseline-applicable or effective.
+
+Keep a supplementary per-need **validation inventory** alongside requirement verification: planned method/case, unexecuted/blocked activity, observed outcome, representative baseline and applicable evidence/report revision. These are human-reviewed assessment dimensions, **not extra validator fields**. The routine standalone report summarises verification relations, not a separate validation inventory; the release gate separately checks passing validation links for needs. Do not present one as the other.
+
+For problems, preserve discovery evidence, correction verification and regression coverage as separate relations/claims. A source test explains where a defect was found; a later test must establish the actual correction and applicable regression result. Review every closure route against the same evidence policy. A terminal or canceled task, or a populated closure field, does not prove the action's completion, effectiveness or justified cancellation.
+
 ### Trace-review worksheet
 
 Record scope/baseline and retrieval limits; source and target identifiers/types; relationship/direction and path; each coverage dimension; affected dependencies; gap category, owner and decision reference. Compute counts from a named tool/export and disclose denominator/scope. Do not hand-enter plausible coverage figures or create a parent simply to close a gap.
+
+Include the evaluated policy revision, scales/mapping method, input/context revisions and reviewed applicability/exclusion references. Changed policies and failed refresh/reopening attempts need explicit reassessment and approval disposition, not only new numbers. Retain introduced-risk causality and shared dependencies in controlled analyses where standalone has no dedicated machine-traversable relationship. Excluded/not-applicable items retain reason, evidence, reviewer and reconsideration trigger; absence from a filtered matrix does not approve the exclusion.
 
 ## Evidence
 

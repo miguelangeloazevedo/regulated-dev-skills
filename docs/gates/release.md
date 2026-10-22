@@ -14,7 +14,7 @@ A baseline, verification results and a package.
 
 ## Lifecycle handoff
 
-Review risk-control implementation and effectiveness evidence separately, with the applicable configuration and conditions. Confirm that scope/configuration gaps, missing user-facing evidence and incomplete graph retrieval have not been counted as passing coverage. These are human evidence reviews beyond the structural validator; unresolved required evidence is not a green release.
+Review risk-control implementation and effectiveness evidence separately, with the applicable configuration and conditions. Confirm that scope/configuration gaps, missing user-facing evidence and incomplete graph retrieval have not been counted as passing coverage. These are human evidence reviews beyond the structural validator; unresolved required evidence is not a green release. Distinguish document approval from effective issue and actual point-of-use availability.
 
 ## The checklist
 
