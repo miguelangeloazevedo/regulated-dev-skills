@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "kind": "record-system-assessment",
+  "items": [
+    {
+      "id": "standalone-files",
+      "scope": "Repository files and approval hashes alone are not an intended-use validated electronic-record or signature system.",
+      "status": "declared",
+      "assessment_status": "pending",
+      "record_system_validated": false,
+      "controls": {
+        "identity": "unassessed",
+        "authority": "unassessed",
+        "signature": "unassessed",
+        "audit_trail": "unassessed",
+        "integrity": "unassessed",
+        "correction": "unassessed",
+        "retention": "unassessed",
+        "retrieval": "unassessed"
+      },
+      "gaps": [
+        "The adopting QMS owner must assess applicability, implement controls and accept intended-use validation evidence."
+      ],
+      "review": {
+        "status": "pending"
+      }
+    }
+  ]
+}

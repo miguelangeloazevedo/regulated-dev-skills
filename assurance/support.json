@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "kind": "support",
+  "items": [
+    {
+      "id": "claude-code",
+      "scope": "Typed command invocation is not an operating-system approval permission boundary.",
+      "status": "unassessed",
+      "limitations": "No measured agent/harness configuration is claimed."
+    },
+    {
+      "id": "other-agents",
+      "scope": "Instruction-following alone does not establish host-enforced approval or release.",
+      "status": "unassessed",
+      "limitations": "No measured agent/harness configuration is claimed."
+    }
+  ]
+}

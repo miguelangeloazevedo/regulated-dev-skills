@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "kind": "claims",
+  "items": [
+    {
+      "id": "structural-validation",
+      "scope": "The validator checks record structure, role consistency and revision binding, not authentic identity or regulatory correctness.",
+      "status": "declared",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "host-authority",
+      "scope": "Controlled release requires trusted host verification beyond agent instructions or editable approval fields.",
+      "status": "unassessed",
+      "limitations": "No host support is established by this declaration."
+    }
+  ]
+}
