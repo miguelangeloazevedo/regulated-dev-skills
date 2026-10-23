@@ -4,6 +4,8 @@
 
 Inventories the software the product depends on but did not develop under its own lifecycle: third-party components and previously developed software without adequate records, which is what IEC 62304 calls SOUP. It leaves the judgements to people.
 
+Typed commands provide invocation control, not an operating-system permission boundary. An instruction or editable approval field does not establish host-enforced authority.
+
 ## When to reach for it
 
 You invoke this by typing `/soup-from-code`, and the agent won't reach for it on its own. Build a SOUP and SBOM inventory from manifests and lockfiles.

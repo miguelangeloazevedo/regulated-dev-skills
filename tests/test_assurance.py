@@ -4,6 +4,7 @@ import json
 import hashlib
 import subprocess
 import sys
+import shutil
 from pathlib import Path
 import tempfile
 import unittest
@@ -23,6 +24,29 @@ def module():
 
 
 class AssuranceStates(unittest.TestCase):
+    def test_setup_bundle_and_invocation_guidance_survive_isolated_install(self):
+        bundle = ROOT / 'skills/gates/setup/scripts'
+        for name in ('rds_assurance.py', 'rds_github.py'):
+            self.assertTrue((bundle / name).exists(), name)
+            self.assertEqual((bundle / name).read_bytes(), (ROOT / 'tools' / name).read_bytes())
+        self.assertEqual((bundle / 'ASSURANCE.md').read_bytes(), (ROOT / 'spec/assurance.md').read_bytes())
+        for name in ('setup', 'intake', 'approve', 'release', 'impact', 'status'):
+            text = (ROOT / 'skills/gates' / name / 'SKILL.md').read_text()
+            self.assertIn('invocation control', text)
+            self.assertIn('permission boundary', text)
+        with tempfile.TemporaryDirectory() as folder:
+            target = Path(folder)
+            for name in ('rds_assurance.py', 'rds_github.py'):
+                shutil.copy2(bundle / name, target / name)
+            (target / 'assurance').mkdir()
+            for kind in module().KINDS:
+                (target / 'assurance' / (kind + '.json')).write_text(json.dumps({
+                    'schema_version': 1, 'kind': kind, 'items': []}))
+            result = subprocess.run([sys.executable, str(target / 'rds_assurance.py'),
+                                     'validate', '--root', str(target)], capture_output=True, text=True, cwd=target)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertIn('structural_only', result.stdout)
+
     def test_critical_rule_register_preserves_class_and_authority_boundaries(self):
         data = json.loads((ROOT / 'assurance/regulatory-review.json').read_text())
         entries = {x['id']: x for x in data['items']}

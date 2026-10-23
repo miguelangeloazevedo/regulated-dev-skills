@@ -4,6 +4,8 @@
 
 Checks that the software release activities are done, then records the decision of the person who authorises release. A release is never inferred from passing tests.
 
+Typed commands provide invocation control, not an operating-system permission boundary. An instruction or editable approval field does not establish host-enforced authority.
+
 ## When to reach for it
 
 You invoke this by typing `/release`, and the agent won't reach for it on its own. Release a baseline after verification, package and a human decision.
@@ -21,6 +23,8 @@ Review risk-control implementation and effectiveness evidence separately, with t
 Release computes a checklist from the files, following IEC 62304 5.8 at the depth the class requires: verification complete and signed, residual anomalies documented and evaluated, version and build recorded, plan activities complete, risk review done, archive and delivery set. Then the person who authorises release decides (ISO 13485 8.2.6).
 
 A release is a decision, never an inference from green tests. Every **one-way door** is listed with its decision.
+
+Before claiming controlled release, require structural readiness and the separate trusted host-authority check for the exact requested revision and policy. Unsupported, unavailable, stale or contradicted controls hold the authorisation gate. A green validate.py --release result is structural only. Read the assurance guide bundled with setup; no private knowledge service is required.
 
 ## It's working if
 

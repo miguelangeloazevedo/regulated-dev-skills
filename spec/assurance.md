@@ -25,3 +25,9 @@ No blanket Part 11 or Annex 11 claim is made. Applicability depends on the regul
 The existing `validate.py records --release` remains a structural release-readiness check. Its historical examples do not become host-authorised releases. `rds_version: 1` is the project-block schema version, not the plugin package version. Existing evidence-level declarations remain declarations unless the relevant controls are independently established.
 
 Adopt these registers without inventing retrospective reviews. Keep unreviewed scopes pending and assess the actual tool/system configuration for intended use. `python3 tools/render_assurance.py --check` detects stale public views; omitting `--check` regenerates them without changing evidence states.
+
+## Installed projects
+
+Setup bundles `rds_assurance.py`, `rds_github.py` and this guide alongside the structural validator in `tools/rds/`. Run declaration checks with `python3 tools/rds/rds_assurance.py validate --root .` from the adopting project. Create the four version-1 registers described above only for that project's actual scope; the library's own support observations are not your validation evidence.
+
+For a trusted GitHub control repository, run `python3 tools/rds/rds_assurance.py github-preflight --repo OWNER/REPO --commit SHA --pr NUMBER --environment NAME --policy .rds-policy.json --policy-commit TRUSTED_SHA`. The policy is compared to the protected remote `.rds-policy.json`; supply the exact protected workflow source revision, not a policy's self-referential commit field. The reference currently uses `.github/workflows/release.yml` on main in an isolated trusted GitHub job. Unsupported layouts and unavailable read permissions block rather than silently weaken checks. Environment strings alone are not the security boundary; actual credentials, runner isolation and host-held human controls are.

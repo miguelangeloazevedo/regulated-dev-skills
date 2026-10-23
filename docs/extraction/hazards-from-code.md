@@ -4,6 +4,8 @@
 
 Finds places where code can affect a person's care and proposes hazard candidates. Hazard analysis needs clinical context this skill does not have, so the output is input to a human-led session, never a result.
 
+Typed commands provide invocation control, not an operating-system permission boundary. An instruction or editable approval field does not establish host-enforced authority.
+
 ## When to reach for it
 
 You invoke this by typing `/hazards-from-code`, and the agent won't reach for it on its own. Propose hazard candidates from an existing codebase.

@@ -4,6 +4,8 @@
 
 Prices a change before you commit to it. Counts come from the link graph, never from memory, and effort is a range with a stated confidence.
 
+Typed commands provide invocation control, not an operating-system permission boundary. An instruction or editable approval field does not establish host-enforced authority.
+
 ## When to reach for it
 
 You invoke this by typing `/impact`, and the agent won't reach for it on its own. Price a change: blast radius from the links, effort as a range.

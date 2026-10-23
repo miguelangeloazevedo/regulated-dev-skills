@@ -6,7 +6,7 @@
 
 Agent skills for building medical device software and SaMD, traceable by design, and for the software around it that is not a device.
 
-Software in a medical device is built under design controls, risk management, a defined software lifecycle and human accountability for every decision that matters. These skills let an AI coding agent work inside that discipline: it drafts the records, keeps them linked from user need to test result, and stops wherever a person has to decide. Claude Code enforces those stops for typed commands; other agents only read them as instructions, so pair them with host-enforced review (evidence level 1 or above).
+Software in a medical device is built under design controls, risk management, a defined software lifecycle and human accountability for every decision that matters. These skills let an AI coding agent work inside that discipline: it drafts the records, keeps them linked from user need to test result, and is instructed to stop wherever a person has to decide. Claude Code's typed-command setting controls invocation, not operating-system approval or release permissions. Actual authority needs separate host-enforced controls and a tested credential/runner boundary; an agent holding the human's credentials is not that boundary.
 
 Scope: EU and US rules. They support your design control work. They do not make you compliant, they are not a QMS, and nothing here is legal or regulatory advice.
 
@@ -24,7 +24,13 @@ Scope: EU and US rules. They support your design control work. They do not make 
 
 - **Approval to use an AI agent on this product**, under your QMS: which tool and model, where code and records are processed, how output is reviewed. Software used in the QMS is validated before use (ISO 13485 4.1.6). `/setup` asks for the reference.
 - **A person who owns QA/RA decisions.** The skills draft; that person approves.
-- **A pinned version.** Install a tag, not the moving branch, and record it in your configuration items. Moving to a new tag is a change to a tool your QMS validated: re-validate before use.
+- **A pinned version.** Install a tag, not the moving branch, and record it in your configuration items. Assess a new tag or changed intended use under your QMS change procedure and revalidate as appropriate to the risk of use (ISO 13485 4.1.6).
+
+### Assurance and support
+
+Read the [assurance contract](spec/assurance.md), [claims](docs/assurance/claims.md), [measured support inventory](docs/assurance/support.md), [regulatory review register](docs/assurance/regulatory-review.md) and [record-system assessment](docs/assurance/record-system-assessment.md). Unassessed configurations and pending human reviews remain explicit. A CV, structural test suite or package version does not establish expert review, product verification or a validated electronic-record system.
+
+The [synthetic host reference](examples/host-enforced/README.md) separates a restricted drafting job from trusted controller and human-gated release jobs. Only measured configurations have observed support; a host-token probe is not a behavioral test of every agent. `validate.py --release` checks structure, not authenticated release authority. No private research service is required to install or use these skills; citations identify the underlying standards and legal sources.
 
 ## Installation
 

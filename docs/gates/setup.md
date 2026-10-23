@@ -4,6 +4,8 @@
 
 Writes the project block and the few files the other skills need. It asks four questions about tooling and records the answers; it does not decide them. What the product is belongs to `intake`.
 
+Typed commands provide invocation control, not an operating-system permission boundary. An instruction or editable approval field does not establish host-enforced authority.
+
 ## When to reach for it
 
 You invoke this by typing `/setup`, and the agent won't reach for it on its own. Set up the project block: backend, evidence level, roles, artefacts.
@@ -21,6 +23,8 @@ Check that the installed regulated skills carry their local references folders a
 Four questions about tooling: backend, evidence level, roles file, and where artefacts live. What the product is, and which rules apply, belongs to `intake`. Each answer is a claim; where the host can confirm it, `setup` reads the control back and shows any contradiction.
 
 The leading idea is **measured controls**: an evidence level is only as strong as the controls the host actually enforces.
+
+Separate declared controls, observed host controls and agent behavior tests. Record exact scope/configuration/evidence and unassessed or stale properties; do not promote a metadata level into a measured verdict. Read the assurance guide bundled with setup; no private knowledge service is required.
 
 ## It's working if
 

@@ -26,6 +26,8 @@ This signature is this repository's rule, not a clause of IEC 62304, which requi
 
 The verifier kind and the signer are reported in the package and by `status`.
 
+These provenance fields and hashes are not authenticated signatures. Keep [regulatory review](../docs/assurance/regulatory-review.md), actual agent/harness behavior and [host-control observations](../docs/assurance/support.md) separate from structural test results. A trusted GitHub preflight evaluates only its documented repository/commit/policy scope, not the clinical or regulatory correctness of the product.
+
 ## What a verifier must not do
 
 - Read the builder's notes, plan or conversation.

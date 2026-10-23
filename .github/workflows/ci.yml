@@ -11,6 +11,10 @@ jobs:
         with:
           python-version: "3.9"
       - run: python3 tools/validate.py repo
+      - name: Assurance declarations and generated views
+        run: |
+          python3 tools/rds_assurance.py validate
+          python3 tools/render_assurance.py --check
       - name: Validator negative tests
         run: python3 -m unittest discover -s tests -v
       - name: Releasable example passes the release gate
