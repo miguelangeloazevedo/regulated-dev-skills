@@ -23,6 +23,19 @@ def module():
 
 
 class AssuranceStates(unittest.TestCase):
+    def test_critical_rule_register_preserves_class_and_authority_boundaries(self):
+        data = json.loads((ROOT / 'assurance/regulatory-review.json').read_text())
+        entries = {x['id']: x for x in data['items']}
+        self.assertIn('62304-5.2.3', entries)
+        self.assertEqual(entries['62304-5.2.3']['classes'], ['B', 'C'])
+        self.assertEqual(entries['62304-5.2.4']['classes'], ['A', 'B', 'C'])
+        self.assertEqual(entries['bc-result-signing']['basis'], 'repository_rule')
+        self.assertIn('14971-control-effectiveness', entries)
+        self.assertIn('no-automated-default', entries)
+        self.assertTrue(all(x['review']['status'] == 'pending' for x in entries.values()))
+        self.assertTrue(all(x['bindings'] for x in entries.values()))
+        self.assertTrue(data['coverage']['unreviewed'])
+
     def test_public_views_and_cli_report_structure_not_authorisation(self):
         result = subprocess.run([sys.executable, str(ROOT / 'tools/rds_assurance.py'),
                                  'validate', '--root', str(ROOT)], capture_output=True, text=True)
