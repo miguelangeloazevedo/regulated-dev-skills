@@ -2,7 +2,7 @@
 
 These are declarations, not authenticated decisions or product certification.
 
-Generated from `assurance/claims.json`. Structural checks do not authenticate the underlying evidence.
+Generated from [the source register](../../assurance/claims.json). Structural checks do not authenticate the underlying evidence.
 
 ## structural-validation
 

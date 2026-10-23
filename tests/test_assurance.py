@@ -68,6 +68,9 @@ class AssuranceStates(unittest.TestCase):
         views = module().render_summary(ROOT)
         self.assertEqual(set(views), set(module().KINDS))
         self.assertIn('not authenticated', views['claims'])
+        self.assertIn('Review coverage', views['regulatory-review'])
+        self.assertIn('**Basis:**', views['regulatory-review'])
+        self.assertIn('**Content bindings:**', views['regulatory-review'])
 
     def test_completed_human_review_needs_matching_content_not_just_a_name(self):
         item = {'id': 'synthetic-human', 'scope': 'Synthetic fixture', 'status': 'declared',

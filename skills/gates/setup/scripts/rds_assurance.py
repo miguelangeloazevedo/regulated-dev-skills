@@ -148,12 +148,25 @@ def render_summary(root):
         data = json.loads((Path(root) / 'assurance' / (kind + '.json')).read_text(encoding='utf-8'))
         lines = ['# ' + kind.replace('-', ' ').capitalize(), '',
                  'These are declarations, not authenticated decisions or product certification.', '',
-                 'Generated from `assurance/' + kind + '.json`. Structural checks do not authenticate the underlying evidence.', '']
+                 'Generated from [the source register](../../assurance/' + kind + '.json). Structural checks do not authenticate the underlying evidence.', '']
+        if data.get('coverage'):
+            lines.extend(['## Review coverage', '', '```json',
+                          json.dumps(data['coverage'], indent=2, sort_keys=True), '```', ''])
         for item in data['items']:
             lines.extend(['## ' + html.escape(item['id']), '',
                           '**State:** ' + item['status'], '', html.escape(item['scope']), ''])
             if item.get('limitations'):
                 lines.extend(['**Limits:** ' + html.escape(item['limitations']), ''])
+            for field, label in [('basis', 'Basis'), ('classes', 'Classes'), ('jurisdictions', 'Jurisdictions'),
+                                 ('skills_revision', 'Skills revision'), ('observed_on', 'Observed on'),
+                                 ('assessment_status', 'Assessment status')]:
+                if field in item:
+                    lines.extend(['**' + label + ':** ' + html.escape(str(item[field])), ''])
+            for field, label in [('configuration', 'Configuration'), ('bindings', 'Content bindings'),
+                                 ('controls', 'Controls'), ('gaps', 'Open gaps')]:
+                if field in item:
+                    lines.extend(['**' + label + ':**', '', '```json',
+                                  json.dumps(item[field], indent=2, sort_keys=True), '```', ''])
             if item.get('sources'):
                 lines.extend(['**Sources:** ' + '; '.join(html.escape(s['title'] + ' (' + s['edition'] + ') ' + s['locator'])
                                                           for s in item['sources']), ''])
