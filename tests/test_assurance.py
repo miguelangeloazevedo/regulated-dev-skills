@@ -24,6 +24,47 @@ def module():
 
 
 class AssuranceStates(unittest.TestCase):
+    def test_explicitly_stale_observation_keeps_historical_bindings_without_claiming_current_pass(self):
+        item = {'id': 'synthetic-old', 'scope': 'Historical fixture, not a current pass', 'status': 'stale',
+                'bindings': [{'path': 'sample.md', 'sha256': 'f'*64}]}
+        self.assertEqual(self.check_item(item), [])
+        item['status'] = 'declared'
+        self.assertIn('ASSURANCE_STALE', self.check_item(item))
+
+    def test_measurements_require_their_actual_configuration_identities(self):
+        base = {'id': 'synthetic-observation', 'scope': 'Synthetic fixture only',
+                'status': 'instruction_observed', 'skills_revision': 'a'*40,
+                'observed_on': '2020-01-01', 'evidence': 'https://example.org/synthetic',
+                'bindings': [{'path': 'sample.md', 'sha256': hashlib.sha256(b'Synthetic test fixture\n').hexdigest()}],
+                'configuration': {'anything': True}}
+        self.assertIn('ASSURANCE_CONFIGURATION', self.check_item(base))
+        base['configuration'] = {'harness': 'Synthetic', 'harness_version': '1.0',
+                                 'provider': 'Synthetic', 'model': 'Synthetic', 'model_version': '1.0'}
+        self.assertEqual(self.check_item(base), [])
+        base['status'] = 'host_observed'
+        self.assertIn('ASSURANCE_CONFIGURATION', self.check_item(base))
+        base['configuration'] = {'host': 'github.com', 'repository': 'synthetic-owner/synthetic-repo',
+                                 'policy_revision': 'a'*40, 'workflow_revision': 'b'*40,
+                                 'workflow': '.github/workflows/release.yml', 'credential': 'Synthetic read-only',
+                                 'runner': 'Synthetic isolated runner'}
+        self.assertEqual(self.check_item(base), [])
+        base['configuration']['policy_revision'] = 'main'
+        self.assertIn('ASSURANCE_CONFIGURATION', self.check_item(base))
+
+    def test_accepted_system_assessment_requires_immutable_revision_and_bindings(self):
+        item = {'id': 'synthetic-accepted', 'scope': 'Synthetic fixture only', 'status': 'declared',
+                'assessment_status': 'accepted', 'record_system_validated': True, 'gaps': [],
+                'controls': {k: 'assessed' for k in ('identity', 'authority', 'signature', 'audit_trail',
+                                                   'integrity', 'correction', 'retention', 'retrieval')},
+                'validation': {'intended_use': 'Synthetic test', 'revision': 'main',
+                               'accepted_by': 'Synthetic person', 'accepted_on': '2020-01-01',
+                               'evidence': 'https://example.org/synthetic'}}
+        self.assertIn('ASSURANCE_SYSTEM_VALIDATION', self.check_item(item, 'record-system-assessment'))
+        item['validation']['revision'] = 'a'*40
+        self.assertIn('ASSURANCE_SYSTEM_VALIDATION', self.check_item(item, 'record-system-assessment'))
+        item['bindings'] = [{'path': 'sample.md', 'sha256': hashlib.sha256(b'Synthetic test fixture\n').hexdigest()}]
+        self.assertEqual(self.check_item(item, 'record-system-assessment'), [])
+
     def test_setup_bundle_and_invocation_guidance_survive_isolated_install(self):
         bundle = ROOT / 'skills/gates/setup/scripts'
         for name in ('rds_assurance.py', 'rds_github.py'):

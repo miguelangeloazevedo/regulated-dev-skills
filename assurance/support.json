@@ -4,10 +4,13 @@
   "items": [
     {
       "id": "github-restricted-job-denials",
-      "scope": "The restricted synthetic probe job completed its permission-denial and unchanged-target checks successfully. This is a host credential/runner observation, not an AI agent behavior result.",
-      "status": "host_observed",
+      "scope": "Historical restricted probe job succeeded at its pinned revision. The reference workflow has since changed and requires a fresh run; this is not current support or AI agent behavior evidence.",
+      "status": "stale",
       "skills_revision": "67ed1b2d81ee4f71649b825cef099274e55d6d97",
       "configuration": {
+        "host": "github.com",
+        "policy_revision": "1d6e2d1a7fd88972336a8e8982004def88eb25b3",
+        "workflow_revision": "1d6e2d1a7fd88972336a8e8982004def88eb25b3",
         "repository": "miguelangeloazevedo/regulated-dev-skills-assurance-sandbox",
         "sandbox_commit": "1d6e2d1a7fd88972336a8e8982004def88eb25b3",
         "request_commit": "441010674c6664ff5b7135063ed464132f555cb1",
@@ -24,11 +27,11 @@
         {"path": "examples/host-enforced/probe_permissions.py", "sha256": "842b77417d9bda1cc00df5b49bee83b71c10038a63f1c1b8ed56ec6ba61d1ea9"},
         {"path": "examples/host-enforced/workflows/release.yml", "sha256": "cc3b0de35946c4507c4185f500679c2616ed80658e3c43bcf2fd744b3d834d3c"}
       ],
-      "limitations": "Only the restricted probe job succeeded. Overall workflow and authorised positive release remain pending human decisions. Detailed run logs are unavailable while the overall workflow is waiting. This does not isolate branch protection from token-scope enforcement, test an actual agent/model or establish electronic signatures."
+      "limitations": "Historical token-scope observations only, not a current pass. The old waiting release run was cancelled after a verifier credential integration gap was identified. The corrected positive path still requires a narrowly scoped verifier credential, fresh probes and genuine human decisions."
     },
     {
       "id": "github-authorised-positive-path",
-      "scope": "Bot-authored synthetic request and bot-initiated release workflow are waiting for the independent human request review and protected environment decision.",
+      "scope": "The original waiting run is cancelled. The corrected workflow requires a fresh run, configured read-only verifier and genuine independent human request/environment decisions.",
       "status": "unassessed",
       "evidence": "https://github.com/miguelangeloazevedo/regulated-dev-skills-assurance-sandbox/actions/runs/39900076036",
       "limitations": "No authorised release or completed live preflight is claimed before those real decisions and exact target read-back."

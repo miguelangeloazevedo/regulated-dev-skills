@@ -3,6 +3,7 @@ import importlib.util
 from pathlib import Path
 import unittest
 import sys
+from urllib.parse import parse_qs, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 EX = ROOT / 'examples/host-enforced'
@@ -20,6 +21,31 @@ def module():
 
 
 class ReferenceBoundary(unittest.TestCase):
+    def test_probe_detects_changed_review_beyond_the_first_page(self):
+        mod = module()
+        changed = [False]
+        repo = mod.APPROVED_SANDBOX
+
+        def transport(method, path, payload=None):
+            if method != 'GET':
+                if path.endswith('/reviews'):
+                    changed[0] = True
+                return 403, None
+            if path == 'repos/' + repo:
+                return 200, {'full_name': repo, 'visibility': 'public'}
+            if path.endswith('/pulls/1'):
+                return 200, {'head': {'sha': 'a'*40, 'repo': {'full_name': repo}}}
+            if '/reviews?' in path:
+                page = int(parse_qs(urlsplit(path).query).get('page', ['1'])[0])
+                values = [{'id': i} for i in range(101 + int(changed[0]))]
+                return 200, values[(page-1)*100:page*100]
+            if '/contents/' in path:
+                return 200, {'sha': 'b'*40, 'content': 'e30='}
+            return 200, []
+
+        with self.assertRaisesRegex(RuntimeError, 'target_changed'):
+            mod.probe(repo, 1, 'a'*40, '1', request=transport)
+
     def test_controller_creates_only_a_fixed_synthetic_request(self):
         path = EX / 'controller.py'
         self.assertTrue(path.exists(), 'Synthetic controller is missing')
@@ -90,6 +116,7 @@ class ReferenceBoundary(unittest.TestCase):
         release = (EX / 'workflows/release.yml').read_text()
         self.assertIn('environment: synthetic-release', release)
         self.assertIn('github-preflight', release)
+        self.assertEqual(release.count('RDS_HOST_READ_TOKEN: ${{ secrets.RDS_HOST_READ_TOKEN }}'), 2)
         self.assertIn('ref: ${{ github.sha }}', release)
         self.assertNotIn('ref: ${{ inputs.commit }}', release)
 

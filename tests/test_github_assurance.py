@@ -53,6 +53,26 @@ def facts():
 
 
 class HostAuthority(unittest.TestCase):
+    def test_trusted_policy_reader_uses_separate_read_credential_without_replacing_publisher(self):
+        mod = module()
+        synthetic_env = {'GH_TOKEN': 'synthetic-publish-only', 'RDS_HOST_READ_TOKEN': 'synthetic-read-only',
+                         'GITHUB_ACTIONS': 'true', 'GITHUB_REPOSITORY': 'owner/repo',
+                         'GITHUB_WORKFLOW_REF': 'owner/repo/.github/workflows/release.yml@refs/heads/main'}
+        with patch.dict(os.environ, synthetic_env, clear=True), patch.object(
+                mod.subprocess, 'run', return_value=SimpleNamespace(returncode=0, stdout='{}')) as run:
+            mod._api('repos/owner/repo')
+            self.assertIn('env', run.call_args.kwargs)
+            self.assertEqual(run.call_args.kwargs['env']['GH_TOKEN'], 'synthetic-read-only')
+            self.assertEqual(os.environ['GH_TOKEN'], 'synthetic-publish-only')
+
+    def test_unknown_later_review_state_blocks_instead_of_preserving_old_approval(self):
+        data = facts()
+        data['reviews'].append({'id': 11, 'user': {'id': 2, 'type': 'User'},
+                                'state': 'UNKNOWN_NEW_STATE', 'commit_id': SHA})
+        result = module().evaluate_github(policy(), data, SHA, 1)
+        self.assertEqual(result['status'], 'blocked')
+        self.assertIn('UNKNOWN_REVIEW_STATE', result['reasons'])
+
     def test_cli_does_not_treat_local_admin_environment_as_isolated_host(self):
         env = dict(os.environ)
         env.pop('GITHUB_ACTIONS', None)
