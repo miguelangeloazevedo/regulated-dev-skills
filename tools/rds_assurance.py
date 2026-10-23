@@ -110,7 +110,7 @@ def validate_bundle(root):
             elif review.get('status') == 'pending':
                 if any(review.get(k) for k in ('by', 'on', 'conclusion', 'evidence')):
                     issue('ASSURANCE_PENDING_REVIEW', 'Pending review must not invent completed decision fields.')
-            elif review:
+            elif 'review' in item:
                 issue('ASSURANCE_REVIEW_EVIDENCE', 'Review status is pending or completed.')
             if item.get('status') in ('host_observed', 'instruction_observed'):
                 config = item.get('configuration')

@@ -24,6 +24,15 @@ def module():
 
 
 class AssuranceStates(unittest.TestCase):
+    def test_empty_review_is_rejected_before_summary_generation(self):
+        item = {'id': 'synthetic-empty-review', 'scope': 'Synthetic fixture only',
+                'status': 'declared', 'review': {}}
+        self.assertIn('ASSURANCE_REVIEW_EVIDENCE', self.check_item(item))
+        del item['review']
+        self.assertEqual(self.check_item(item), [])
+        item['review'] = {'status': 'pending'}
+        self.assertEqual(self.check_item(item), [])
+
     def test_explicitly_stale_observation_keeps_historical_bindings_without_claiming_current_pass(self):
         item = {'id': 'synthetic-old', 'scope': 'Historical fixture, not a current pass', 'status': 'stale',
                 'bindings': [{'path': 'sample.md', 'sha256': 'f'*64}]}
