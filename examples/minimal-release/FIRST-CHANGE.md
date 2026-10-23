@@ -30,7 +30,7 @@ python3 tools/validate.py records "$RDS_WALKTHROUGH/project/quality" \
   --project "$RDS_WALKTHROUGH/project/AGENTS.md" --report
 ```
 
-**Checkpoint:** exit 0, `0 error(s), 0 warning(s)`. The JSON report describes links and coverage in the fixtures. It does not mean the classification is right, the host enforces reviews, or the product works. The validator prints that limit too.
+**Checkpoint:** exit 0, `0 error(s), 0 warning(s)`. JSON describes structural coverage only; `verification_acceptance` is `held` and `accepted_verification_results` is empty. Fictional direct signature declarations do not establish real human review, QMS competence, Part 11 controls or intended-use system validation. The validator prints its structural limit too.
 
 Read [SW-1](quality/records/sw/SW-1.md), [SPEC-1](quality/records/spec/SPEC-1.md) and [TC-1](quality/records/tc/TC-1.md). The requirement currently says the screen must indicate an empty day, but does not name the exact text. Our proposed change is:
 
@@ -81,7 +81,7 @@ python3 tools/validate.py records "$RDS_WALKTHROUGH/project/quality" \
   --release --baseline 7c2d1e0
 ```
 
-**Checkpoint:** exit 1 with `RDS401` release blockers for stale or suspect approvals. A baseline warning is also expected: `RDS411` if your temporary copy is outside a git work tree, or `RDS407` if it is inside one where the fictional baseline does not resolve. Neither authenticates the fixture's test results. Do not suppress warnings, recompute approval hashes or change status to make the exercise green.
+**Checkpoint:** exit 1 with `RDS401` for stale/suspect approvals and `RDS425` for the unestablished surrounding signing system. A/B/C verification acceptance and product release remain held even on the unchanged fixture. A baseline warning is also expected: `RDS411` outside a git work tree, or `RDS407` where the fictional baseline does not resolve. Neither authenticates results. Do not suppress the hold, recompute approvals or change status/class to make the exercise green.
 
 ## 5. Draft the connected changes with the agent
 
@@ -110,7 +110,7 @@ In your real project, continue only after the appropriate records are approved: 
 
 For approvals, **the authorised person types `/approve`** for the records they have reviewed, after seeing their content, diff and hash. The agent cannot impersonate the fixture's named people. A hash recomputation is not an approval. An approval also needs the real host reference required by your evidence level. Your own QMS and host controls must enforce the review; the validator does not authenticate those references.
 
-Once the real evidence is complete, `configuration-management`, `traceability` and `package` prepare the baseline and its record index. Run the release check from a clean checkout of the actual tested baseline, not `7c2d1e0`. Passing that check is still only structural. **A person types `/release`** and the people your QMS names authorise release.
+Use `configuration-management`, `traceability` and `package` to prepare the tested baseline and record index, not to authorise release. A/B/C require actual direct independent-human result signatures, QMS-established competence and established Part 11 system controls/intended-use validation. This backend cannot authenticate that surrounding system and its `--release` stays held with `RDS425`; it supplies no adapter that can clear the hold. The appropriate controlled QMS/system and authorised people must establish real acceptance and release. Do not fabricate evidence or treat a typed `/release` as permission to bypass the hold.
 
 ### Handoff checklist
 

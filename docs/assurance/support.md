@@ -54,13 +54,108 @@ Historical restricted probe job succeeded at its pinned revision. The reference 
 
 ## github-authorised-positive-path
 
-**State:** unassessed
+**State:** host_observed
 
-The original waiting run is cancelled. The corrected workflow requires a fresh run, configured read-only verifier and genuine independent human request/environment decisions.
+The human-gated synthetic workflow completed live host-authority checks and published exactly the independently approved synthetic request commit. This is host-predicate evidence, not medical-device release, agent behavior, electronic signatures or Part 11 system validation.
 
-**Limits:** No authorised release or completed live preflight is claimed before those real decisions and exact target read-back.
+**Limits:** Synthetic non-production records only. Logs show eligible host predicates followed by a synthetic release; human PR approval, exact release target and tag ref were read back. Bound files match the pinned sandbox source. No cross-agent behavior, production validation, QMS competence or Part 11 signing-system acceptance is established; this observation cannot clear A/B/C RDS425 holds.
 
-**Evidence:** https://github.com/miguelangeloazevedo/regulated-dev-skills-assurance-sandbox/actions/runs/39900076036
+**Skills revision:** 5898403cfe429603c95d850f8e771f5dbfb8979c
+
+**Observed on:** 2026-10-23T15:33:03Z
+
+**Configuration:**
+
+```json
+{
+  "credential": "Separate configured read-only verifier with effective GET access observed; publishing uses the protected job's contents/write GITHUB_TOKEN. Broader verifier permission inventory was not independently measured.",
+  "host": "github.com",
+  "job_id": 120453392859,
+  "policy_revision": "aec8c1ab28d547ed344d6bcff023dfdc010beee7",
+  "repository": "miguelangeloazevedo/regulated-dev-skills-assurance-sandbox",
+  "request_commit": "a99c74ca0aaf6832cf24ded10b8601d0a7bd2aef",
+  "request_number": 2,
+  "reviewer_id": 183697641,
+  "run_id": 39965250283,
+  "runner": "GitHub-hosted Ubuntu 24.04.5; runner 2.338.0, image 20261012.334.1",
+  "tag": "synthetic-approved-39965250283",
+  "workflow": ".github/workflows/release.yml",
+  "workflow_revision": "aec8c1ab28d547ed344d6bcff023dfdc010beee7"
+}
+```
+
+**Content bindings:**
+
+```json
+[
+  {
+    "path": "tools/rds_github.py",
+    "sha256": "b38ba292929d22aa3e30060d4bbc8c1843fb3715993f55a60e2faa24b7d1c10f"
+  },
+  {
+    "path": "examples/host-enforced/workflows/release.yml",
+    "sha256": "241714f7ee46bdd2c86684c6bdd5b7fd19f5ffab8bc810d02c035719a62662aa"
+  }
+]
+```
+
+**Evidence:** https://github.com/miguelangeloazevedo/regulated-dev-skills-assurance-sandbox/actions/runs/39965250283/job/120453392859
+
+## github-restricted-job-denials-current
+
+**State:** host_observed
+
+Five protected operations attempted by the restricted job token returned HTTP 403 and complete unchanged-target read-backs in the corrected synthetic reference configuration.
+
+**Limits:** Restricted host-token observations only, using named synthetic non-production fixtures. Not an agent/model run, full administrator-bypass proof, product verification or validated Part 11 system.
+
+**Skills revision:** 5898403cfe429603c95d850f8e771f5dbfb8979c
+
+**Observed on:** 2026-10-23T13:55:40Z
+
+**Configuration:**
+
+```json
+{
+  "all_http_status": 403,
+  "all_outcome": "denied",
+  "all_target_unchanged": true,
+  "credential": "Job-scoped GITHUB_TOKEN: contents/read, pull-requests/read, actions/read, metadata/read; no human credential or environment secret",
+  "host": "github.com",
+  "job_id": 120453310622,
+  "policy_revision": "aec8c1ab28d547ed344d6bcff023dfdc010beee7",
+  "probe_names": [
+    "unauthorised-approval",
+    "protected-record",
+    "protected-policy",
+    "protected-workflow",
+    "unauthorised-release"
+  ],
+  "repository": "miguelangeloazevedo/regulated-dev-skills-assurance-sandbox",
+  "request_commit": "a99c74ca0aaf6832cf24ded10b8601d0a7bd2aef",
+  "run_id": 39965250283,
+  "runner": "GitHub-hosted Ubuntu 24.04.5; runner 2.338.0, image 20261012.334.1",
+  "workflow": ".github/workflows/release.yml",
+  "workflow_revision": "aec8c1ab28d547ed344d6bcff023dfdc010beee7"
+}
+```
+
+**Content bindings:**
+
+```json
+[
+  {
+    "path": "examples/host-enforced/probe_permissions.py",
+    "sha256": "cce0a94a46e16e5bcd689446aee19cf57306011c702b4e4ac499bfc8df74e2c6"
+  },
+  {
+    "path": "examples/host-enforced/workflows/release.yml",
+    "sha256": "241714f7ee46bdd2c86684c6bdd5b7fd19f5ffab8bc810d02c035719a62662aa"
+  }
+]
+```
+
+**Evidence:** https://github.com/miguelangeloazevedo/regulated-dev-skills-assurance-sandbox/actions/runs/39965250283/job/120453310622
 
 ## claude-code
 

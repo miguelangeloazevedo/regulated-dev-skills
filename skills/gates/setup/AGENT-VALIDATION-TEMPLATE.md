@@ -3,6 +3,8 @@
 A starting point for the record your QMS keeps before an AI agent works on a regulated product (ISO 13485 4.1.6 where your procedures treat the agent as software used in the QMS). Your procedure decides the depth; this template only lists what such a record usually holds. It is not a validation.
 
 ## Intended use
+For every A/B/C project, repository policy requires direct independent-human result signatures, competence established by the QMS and established Part 11 surrounding-system controls/intended-use validation. This template, a validation reference and GitHub host-authority tests do not establish them. The shipped backend keeps verification acceptance and product release held; record unresolved system evidence rather than declaring compliance.
+
 What the agent does on this product (drafts records, writes code, runs tests), and what it never does (approves, releases, decides a class).
 
 ## Configuration under validation

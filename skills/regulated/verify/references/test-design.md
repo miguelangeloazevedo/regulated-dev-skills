@@ -32,7 +32,7 @@ Design partitions, boundaries, decision/state cases and effectiveness methods al
 4. Check the harness: show a deliberately failing case or a controlled mutation is actually detected. Record discovered/executed/skipped counts; zero tests is not a successful campaign. Use the approved plan's red-run policy and preserve its evidence.
 5. Run on the pinned configuration. Record command, full output location/hash, tools, data/corpus version, environment, revision, observed result and anomalies. A replay or inspection has its own method/result; do not present it as an executed dynamic test.
 6. Keep failures and blocked cases. Fix through problem/change control and rerun affected tests on the changed revision; do not edit the product during an independent campaign and keep claiming the old baseline.
-7. Evaluate scope/coverage and remaining gaps with the verification owner. At B/C, follow the repository's independent-human-signature rule on results or a hash-bound report. A new conversation or model is not by itself regulatory independence.
+7. Evaluate scope/coverage and remaining gaps with the verification owner. At A/B/C, require direct signatures on each result by a named human independent of the builder/author; the QMS establishes competence. A report cannot substitute. Surrounding Part 11 controls and intended-use validation are mandatory repository policy; this backend cannot authenticate them, so verification acceptance and product release remain held. A fresh conversation or model is not regulatory independence.
 
 ### Case and campaign template
 

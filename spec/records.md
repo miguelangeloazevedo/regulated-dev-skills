@@ -11,7 +11,7 @@ One record is one markdown file with frontmatter. The chain from need to evidenc
 | Problem report | `PRB` | A problem, its criticality, investigation and safety relevance |
 | Design review | `REV` | A design review record with its read-list and statement |
 | Release | `REL` | A release decision with the authorising person |
-| Verification report | `VRP` | A signed report listing results by id and revision hash; a `TR` names it in `covered_by` instead of carrying its own signature |
+| Verification report | `VRP` | A summary listing results by id and revision hash; it never substitutes for direct result signatures |
 | Risk management report | `RMR` | The risk management review and report: plan, overall residual risk, benefit-risk, production and post-production (ISO 14971 9) |
 | Classification | `CLS` | Qualification, device class, software safety class and overlays, per module and jurisdiction, with `recheck_by` (the earliest re-check date of its dated sources). Written by `intake` |
 | User need | `UN` | What someone must be able to do, and why |
@@ -108,7 +108,7 @@ A `SOUP` record has three sections, and at class B and C an `anomalies_evaluated
 
 ## Test results
 
-A `TR` names `revision`, `verifier` (kind), `outcome` and, at class B and C, `signed_by: {by, role, on, revision}` for the human who reviewed and signed it. See `spec/verification.md` in the skills repository.
+A `TR` names `revision`, `verifier` (kind), `outcome` and, at A/B/C, a direct `signed_by: {by, role, on, ref, revision}` declaration for a named human independent of the author/builder. The adopting QMS establishes competence and authority. Part 11 surrounding-system controls and intended-use validation are universal A/B/C repository policy, distinct from legal applicability. Neither a report nor editable fields establish them. Standalone structural checks do not authenticate signatures; verification acceptance and product release remain held (`RDS425` on `--release`). See `spec/verification.md` in the skills repository.
 
 ## Status and approval
 

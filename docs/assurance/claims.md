@@ -12,6 +12,14 @@ The validator checks record structure, role consistency and revision binding, no
 
 **Human review:** pending
 
+**Review declaration (completion is not acceptance):**
+
+```json
+{
+  "status": "pending"
+}
+```
+
 ## host-authority
 
 **State:** unassessed

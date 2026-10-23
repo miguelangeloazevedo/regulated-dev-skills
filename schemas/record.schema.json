@@ -113,10 +113,35 @@
       "type": "string"
     },
     "signed_by": {
+      "description": "Direct signature declaration, not authenticated identity or a QMS competence/system-validation decision",
+      "properties": {
+        "by": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "on": {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "type": "string"
+        },
+        "ref": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "revision": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "role": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
       "required": [
         "by",
         "role",
-        "on"
+        "on",
+        "ref",
+        "revision"
       ],
       "type": "object"
     },

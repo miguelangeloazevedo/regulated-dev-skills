@@ -16,7 +16,7 @@ metadata:
 
 # Verify
 
-Runs integration and system testing on the exact revision and keeps verification apart from validation. Models may do the work; under this repository's rule, at class B and C a named human independent of the build signs each result, and an unsigned result is recorded as a pre-check.
+Runs integration and system testing on the exact revision and keeps verification apart from validation. For A/B/C, require direct signatures on every result by a named human independent of the author/builder, with competence established by the QMS and established Part 11 surrounding-system controls/intended-use validation. This is stricter repository policy, not universal legal applicability. A report cannot substitute. The shipped backend checks declarations only: verification acceptance and product release remain held (RDS425), even with complete fields, level-3 declarations or GitHub preflight eligibility.
 
 ## When to use
 
@@ -47,7 +47,7 @@ Choose and justify the method against the approved plan; do not apply every tech
 4. At class B and C, run integration testing first: integrate the units per the integration plan and test the interfaces and the risk controls between items, with regression testing after each change (62304 5.6). *Done when:* Integration results exist for each integration step, or class A is recorded.
 5. Run system testing against every software requirement, by test, inspection or analysis (5.7). Do not edit code or records while testing. *Done when:* Every software requirement has a system test result or a recorded reason.
 6. Write one `TR` per test case naming the revision and the verifier kind. *Done when:* Each `TR` names its revision and verifier kind.
-7. Usually one signed verification report (`VRP`) covers the results of an integration or system test campaign; a signature on each result is the alternative. At class B and C (or wherever the `PLAN` asks for it), have a named human who did not build the revision review and sign each result, or a signed verification report listing the results (`signed_by` with name, role, date and the result's revision hash). This is this repository's rule, not a clause of the standard; an unsigned result is recorded as a pre-check. *Done when:* Every class B and C result is signed, or listed as a pre-check.
+7. For A/B/C, require direct signatures on every result by a named human independent of the author/builder, with competence established by the QMS and established Part 11 surrounding-system controls/intended-use validation. This is stricter repository policy, not universal legal applicability. A report cannot substitute. The shipped backend checks declarations only: verification acceptance and product release remain held (RDS425), even with complete fields, level-3 declarations or GitHub preflight eligibility. Keep unsigned/model-only runs as pre-checks and preserve actual failed results. *Done when:* Each result has a direct signature declaration or an explicit gap; no accepted verification is inferred.
 8. On a failure, keep the red result, mark evidence for changed records stale and send the change back to `implement`. *Done when:* Failures are kept and the change is sent back.
 9. Verification is not validation. Say which one each result is. *Done when:* Each result says which.
 10. For every risk-control claim distinguish implementation from effectiveness evidence; coordinate user-facing evaluation with `usability` and `validation` where the risk argument needs it. Retain commands, full log references/hashes, configuration, tool/data versions and actual counts/outcomes; do not claim the validator checks log truth or evidence adequacy. *Done when:* Control evidence and execution provenance are explicit; unrun or unsuitable evidence remains a gap.
@@ -73,7 +73,7 @@ Evaluate on held-out data kept separate from training, report performance by sub
 - Passing a criterion marked `BLOCKED`. *Instead:* Report it as blocked.
 - Reading the builder's reasoning. *Instead:* Work from the revision and the records only.
 - Hiding the verifier kind. *Instead:* State it in every result.
-- Counting a model-only result as verification at class B or C. *Instead:* Label it a pre-check until a named human signs it.
+- Counting a model-only result as verification at A/B/C. *Instead:* Label it a pre-check until a named human signs it.
 
 ## Writes
 

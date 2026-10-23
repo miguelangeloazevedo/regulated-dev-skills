@@ -4,7 +4,7 @@
   "items": [
     {
       "id": "standalone-files",
-      "scope": "Repository files and approval hashes alone are not an intended-use validated electronic-record or signature system.",
+      "scope": "A/B/C repository policy requires direct independent-human result signatures, QMS-established competence and established Part 11 surrounding-system controls/intended-use validation. Files, hashes and declarations alone do not establish that system; verification acceptance and product release remain held.",
       "status": "declared",
       "assessment_status": "pending",
       "record_system_validated": false,
@@ -19,7 +19,7 @@
         "retrieval": "unassessed"
       },
       "gaps": [
-        "The adopting QMS owner must assess applicability, implement controls and accept intended-use validation evidence."
+        "The adopting QMS must establish competence, controls and intended-use validation. Legal applicability is separate from universal A/B/C repository policy. No shipped backend authenticates that surrounding system; RDS425 cannot be cleared by a reference, boolean or host-authority preflight."
       ],
       "review": {
         "status": "pending"

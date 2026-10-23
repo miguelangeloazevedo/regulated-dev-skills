@@ -175,7 +175,8 @@ def render_summary(root):
                 if field in item:
                     lines.extend(['**' + label + ':** ' + html.escape(str(item[field])), ''])
             for field, label in [('configuration', 'Configuration'), ('bindings', 'Content bindings'),
-                                 ('controls', 'Controls'), ('gaps', 'Open gaps')]:
+                                 ('controls', 'Controls'), ('gaps', 'Open gaps'),
+                                 ('validation', 'Validation declaration')]:
                 if field in item:
                     lines.extend(['**' + label + ':**', '', '```json',
                                   json.dumps(item[field], indent=2, sort_keys=True), '```', ''])
@@ -183,7 +184,9 @@ def render_summary(root):
                 lines.extend(['**Sources:** ' + '; '.join(html.escape(s['title'] + ' (' + s['edition'] + ') ' + s['locator'])
                                                           for s in item['sources']), ''])
             if 'review' in item:
-                lines.extend(['**Human review:** ' + item['review']['status'], ''])
+                lines.extend(['**Human review:** ' + item['review']['status'], '',
+                              '**Review declaration (completion is not acceptance):**', '', '```json',
+                              json.dumps(item['review'], indent=2, sort_keys=True), '```', ''])
             if item.get('evidence'):
                 lines.extend(['**Evidence:** ' + html.escape(item['evidence']), ''])
         views[kind] = '\n'.join(lines)

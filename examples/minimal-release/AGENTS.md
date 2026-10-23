@@ -1,4 +1,4 @@
-# Medication schedule display (fictional, releasable example)
+# Medication schedule display (fictional structural example, release held)
 
 <!-- regulated-dev-skills:start -->
 ## Regulated dev skills

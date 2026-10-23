@@ -2,6 +2,8 @@
 
 ## 0.2.0
 
+- A/B/C verification requires direct independent-human result signatures, QMS-established competence and established Part 11 signing-system controls as repository policy; report substitution is removed and the shipped backend holds acceptance/release with RDS425.
+- Structural coverage excludes invalid signature declarations; fictional examples and the first-change guide distinguish record checks from held release authorisation.
 - Assurance registers distinguish declared controls, observed host behavior, unassessed configurations, pending human review and record-system assessment.
 - A trusted GitHub preflight checks exact revisions, independent review authority and current protected policy separately from structural validation.
 - A synthetic host reference isolates restricted drafting credentials from trusted controller and human-gated release jobs; support remains limited to recorded observations.

@@ -104,6 +104,8 @@ class AssuranceStates(unittest.TestCase):
         self.assertEqual(entries['62304-5.2.3']['classes'], ['B', 'C'])
         self.assertEqual(entries['62304-5.2.4']['classes'], ['A', 'B', 'C'])
         self.assertEqual(entries['bc-result-signing']['basis'], 'repository_rule')
+        self.assertEqual(entries['bc-result-signing']['classes'], ['A', 'B', 'C'])
+        self.assertIn('Part 11', entries['bc-result-signing']['scope'])
         self.assertIn('14971-control-effectiveness', entries)
         self.assertIn('no-automated-default', entries)
         self.assertTrue(all(x['review']['status'] == 'pending' for x in entries.values()))
@@ -121,6 +123,42 @@ class AssuranceStates(unittest.TestCase):
         self.assertIn('Review coverage', views['regulatory-review'])
         self.assertIn('**Basis:**', views['regulatory-review'])
         self.assertIn('**Content bindings:**', views['regulatory-review'])
+
+    def test_completed_negative_review_conclusion_remains_visible(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            (root / 'assurance').mkdir()
+            (root / 'sample.md').write_text('Synthetic test fixture\n')
+            review = {'status': 'completed', 'kind': 'human', 'by': 'Synthetic reviewer',
+                      'on': '2020-01-01', 'revision': 'a' * 40,
+                      'conclusion': 'REJECT THIS SYNTHETIC CLAIM',
+                      'evidence': 'https://example.org/synthetic-negative-review'}
+            for kind in module().KINDS:
+                items = ([{'id': 'synthetic-review', 'scope': 'Synthetic rejected review fixture',
+                           'status': 'declared', 'review': review,
+                           'bindings': [{'path': 'sample.md', 'sha256': hashlib.sha256(b'Synthetic test fixture\n').hexdigest()}]}]
+                         if kind == 'claims' else [])
+                (root / 'assurance' / (kind + '.json')).write_text(json.dumps({
+                    'schema_version': 1, 'kind': kind, 'items': items}))
+            text = module().render_summary(root)['claims']
+            for value in review.values():
+                self.assertIn(value, text)
+            self.assertIn('completion is not acceptance', text)
+
+    def test_validation_declaration_is_visible_in_the_public_view(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            (root / 'assurance').mkdir()
+            for kind in module().KINDS:
+                items = ([{'id': 'synthetic-pending', 'scope': 'Synthetic pending declaration only',
+                           'status': 'declared', 'assessment_status': 'pending',
+                           'validation': {'intended_use': 'Synthetic use, not established validation'}}]
+                         if kind == 'record-system-assessment' else [])
+                (root / 'assurance' / (kind + '.json')).write_text(json.dumps({
+                    'schema_version': 1, 'kind': kind, 'items': items}))
+            text = module().render_summary(root)['record-system-assessment']
+            self.assertIn('Validation declaration', text)
+            self.assertIn('Synthetic use, not established validation', text)
 
     def test_completed_human_review_needs_matching_content_not_just_a_name(self):
         item = {'id': 'synthetic-human', 'scope': 'Synthetic fixture', 'status': 'declared',

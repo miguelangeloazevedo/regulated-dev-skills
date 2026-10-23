@@ -30,7 +30,7 @@ Scope: EU and US rules. They support your design control work. They do not make 
 
 Read the [assurance contract](spec/assurance.md), [claims](docs/assurance/claims.md), [measured support inventory](docs/assurance/support.md), [regulatory review register](docs/assurance/regulatory-review.md) and [record-system assessment](docs/assurance/record-system-assessment.md). Unassessed configurations and pending human reviews remain explicit. A CV, structural test suite or package version does not establish expert review, product verification or a validated electronic-record system.
 
-The [synthetic host reference](examples/host-enforced/README.md) separates a restricted drafting job from trusted controller and human-gated release jobs. Only measured configurations have observed support; a host-token probe is not a behavioral test of every agent. `validate.py --release` checks structure, not authenticated release authority. No private research service is required to install or use these skills; citations identify the underlying standards and legal sources.
+The [synthetic host reference](examples/host-enforced/README.md) separates restricted drafting credentials from trusted controller and human-gated release jobs. Its measurements establish host-authority predicates only, not Part 11 signing-system compliance. At A/B/C, direct independent-human result signatures, QMS-established competence and established Part 11 controls/intended-use validation are universal repository policy. The shipped backend cannot authenticate the surrounding system: verification acceptance is held and `validate.py --release` returns `RDS425` even with complete declarations. Use `records --report` for structural checks. No private research service is required; citations identify underlying standards and legal sources.
 
 ## Installation
 
@@ -86,7 +86,7 @@ jurisdictions: [eu, us]
 
 After that the agent reaches for the lifecycle skills as the work calls for them. **Typed** skills are the ones only a person starts: `/setup`, `/intake`, `/approve`, `/release`, `/impact`, `/status`.
 
-See the output first: a [releasable class A example](examples/minimal-release/README.md) that passes the release gate, and a [class B example](examples/infusion-rate-check/README.md) that fails it and says why. The whole map is in [FLOWS.md](FLOWS.md).
+See the output first: a [class A structural example](examples/minimal-release/README.md) with complete fictional declarations but held release authorisation, and a [class B example](examples/infusion-rate-check/README.md) with additional structural gaps. Neither provides real signatures or product-release authority. The whole map is in [FLOWS.md](FLOWS.md).
 
 ### Your first change
 
@@ -110,7 +110,7 @@ For a first change, in this order. Typed commands you type; the others you ask f
 
 ### Class A and software that is not a device
 
-The chain is the same; the depth is smaller. At class A, `specifications` ties code to requirements without an architecture, `unit-verification` is not required, and `verify` runs system testing only (see [CLASS-OBLIGATIONS.md](skills/gates/intake/CLASS-OBLIGATIONS.md)). For software that is not a device, the development plan chooses the depth and QA/RA accepts it. The [class A example](examples/minimal-release/README.md) shows the smallest record set that passes the release gate.
+The chain is the same; the class-dependent depth is smaller. At class A, IEC 62304 does not require the B/C architecture or unit-verification activities; the approved plan and other applicable requirements still govern (see [CLASS-OBLIGATIONS.md](skills/gates/intake/CLASS-OBLIGATIONS.md)). A/B/C all require direct independent-human result signatures under repository policy. For software that is not a device, the development plan chooses the depth and QA/RA accepts it. The [class A example](examples/minimal-release/README.md) demonstrates structural completeness, not product-release authority.
 
 ### Techniques, evidence and timing
 
@@ -143,7 +143,7 @@ Document and record controls are distinguished in the [document lifecycle and re
 - **Records, linked upward.** Need, system requirement, software requirement, specification, test, result. One markdown file each. Coverage is computed from the links, never typed.
 - **Approval bound to content.** An approval names a person, a role and the revision hash of what they saw. Edit a word and the approval goes stale on its own.
 - **Agents draft, people decide.** Approve and release are typed commands. Residual-risk acceptance is a person's call.
-- **Human-signed verification (this repository's rule).** Models may run the verification; at software safety class B and C a named person independent of the build signs each result, or a report listing them, bound to the result's hash. Without it the result is a pre-check. The standard asks for verification, not this signature; the rule is stricter on purpose.
+- **Human-signed verification (stricter repository policy).** Models may run tests; at A/B/C, a named human independent of the author/builder must sign every result directly, with competence established by the QMS. Part 11 surrounding-system controls and intended-use validation are mandatory by policy even where not legally mandated. A report cannot substitute; editable declarations are not authenticated signatures. Missing or unestablished controls hold verification acceptance and product release.
 - **Evidence levels 0 to 3.** The project says what its controls prove; the skills never claim more.
 
 Details: [spec/](spec/README.md). In a project, check the records with `python3 tools/rds/validate.py records quality --report`.

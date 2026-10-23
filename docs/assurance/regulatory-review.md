@@ -44,6 +44,14 @@ Qualify each software/module by intended purpose and applicable jurisdiction bef
 
 **Human review:** pending
 
+**Review declaration (completion is not acceptance):**
+
+```json
+{
+  "status": "pending"
+}
+```
+
 ## no-automated-default
 
 **State:** declared
@@ -69,6 +77,14 @@ The tooling never assigns a default safety class. IEC 62304 4.3 g) applies class
 
 **Human review:** pending
 
+**Review declaration (completion is not acceptance):**
+
+```json
+{
+  "status": "pending"
+}
+```
+
 ## 62304-5.2.3
 
 **State:** declared
@@ -85,7 +101,7 @@ Software-implemented risk control requirements are included in requirements to t
 [
   {
     "path": "skills/gates/intake/CLASS-OBLIGATIONS.md",
-    "sha256": "5ed22d8fc4f795c2aad87d40ffcdfce8d590f6c9d17c7a6f665a4d1f58423210"
+    "sha256": "d7cfd5d1dfd824277bcd4f2e797a4a81790aa9ed149ca4a98a7581554eb5bddb"
   }
 ]
 ```
@@ -93,6 +109,14 @@ Software-implemented risk control requirements are included in requirements to t
 **Sources:** IEC 62304 (2006+A1:2015) 5.2.3
 
 **Human review:** pending
+
+**Review declaration (completion is not acceptance):**
+
+```json
+{
+  "status": "pending"
+}
+```
 
 ## 62304-5.2.4
 
@@ -110,7 +134,7 @@ Re-evaluate the medical-device risk analysis when software requirements are esta
 [
   {
     "path": "skills/gates/intake/CLASS-OBLIGATIONS.md",
-    "sha256": "5ed22d8fc4f795c2aad87d40ffcdfce8d590f6c9d17c7a6f665a4d1f58423210"
+    "sha256": "d7cfd5d1dfd824277bcd4f2e797a4a81790aa9ed149ca4a98a7581554eb5bddb"
   }
 ]
 ```
@@ -118,6 +142,14 @@ Re-evaluate the medical-device risk analysis when software requirements are esta
 **Sources:** IEC 62304 (2006+A1:2015) 5.2.4
 
 **Human review:** pending
+
+**Review declaration (completion is not acceptance):**
+
+```json
+{
+  "status": "pending"
+}
+```
 
 ## architecture-and-detailed-design
 
@@ -133,7 +165,7 @@ Architecture and architecture verification in 5.3.1-.4/.6 apply B/C; risk-depend
 [
   {
     "path": "skills/gates/intake/CLASS-OBLIGATIONS.md",
-    "sha256": "5ed22d8fc4f795c2aad87d40ffcdfce8d590f6c9d17c7a6f665a4d1f58423210"
+    "sha256": "d7cfd5d1dfd824277bcd4f2e797a4a81790aa9ed149ca4a98a7581554eb5bddb"
   }
 ]
 ```
@@ -141,6 +173,14 @@ Architecture and architecture verification in 5.3.1-.4/.6 apply B/C; risk-depend
 **Sources:** IEC 62304 (2006+A1:2015) 5.3.1-5.3.6; 5.4.1-5.4.4
 
 **Human review:** pending
+
+**Review declaration (completion is not acceptance):**
+
+```json
+{
+  "status": "pending"
+}
+```
 
 ## 14971-control-implementation
 
@@ -165,6 +205,14 @@ Implement every selected risk control and verify its implementation. Keep the ev
 
 **Human review:** pending
 
+**Review declaration (completion is not acceptance):**
+
+```json
+{
+  "status": "pending"
+}
+```
+
 ## 14971-control-effectiveness
 
 **State:** declared
@@ -187,6 +235,14 @@ Verify each risk control&#x27;s effectiveness, recording results in the risk man
 **Sources:** ISO 14971 (2019) 7.2
 
 **Human review:** pending
+
+**Review declaration (completion is not acceptance):**
+
+```json
+{
+  "status": "pending"
+}
+```
 
 ## 14971-residual-dispositions
 
@@ -211,15 +267,23 @@ Evaluate individual residual risk against planned criteria; consider more contro
 
 **Human review:** pending
 
+**Review declaration (completion is not acceptance):**
+
+```json
+{
+  "status": "pending"
+}
+```
+
 ## bc-result-signing
 
 **State:** declared
 
-The repository requires human-signed verification results for class B/C, independent from their builder. This is a stricter repository rule, not a claim that IEC 62304 mandates an independent human signature on every test result. The human&#x27;s competence, independence and actual decision remain separately established.
+A/B/C require direct signatures on each verification result by a named human independent of the author/builder, competence established by the QMS, and established Part 11 surrounding-system controls/intended-use validation. A report cannot substitute. This is stricter repository policy, not an IEC 62304 per-test-signature mandate or universal legal-applicability claim. The shipped backend cannot authenticate that system, so verification acceptance and product release remain held.
 
 **Basis:** repository_rule
 
-**Classes:** [&#x27;B&#x27;, &#x27;C&#x27;]
+**Classes:** [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;]
 
 **Content bindings:**
 
@@ -227,7 +291,7 @@ The repository requires human-signed verification results for class B/C, indepen
 [
   {
     "path": "skills/regulated/verify/SKILL.md",
-    "sha256": "8371cf5ec96c109ffd1f44e4933f9a8db3b19f338354eab8813869ca9a2aa5e0"
+    "sha256": "8995bbdcb1ce3018cf25083b0ed73e20a49954f2b244f9310c412edf50e4e41a"
   }
 ]
 ```
@@ -235,6 +299,14 @@ The repository requires human-signed verification results for class B/C, indepen
 **Sources:** IEC 62304 (2006+A1:2015) 5.1.6 and applicable verification clauses; repository policy adds the per-result signing rule
 
 **Human review:** pending
+
+**Review declaration (completion is not acceptance):**
+
+```json
+{
+  "status": "pending"
+}
+```
 
 ## software-release
 
@@ -250,7 +322,7 @@ Complete and evaluate software verification before release (all classes), docume
 [
   {
     "path": "skills/gates/intake/CLASS-OBLIGATIONS.md",
-    "sha256": "5ed22d8fc4f795c2aad87d40ffcdfce8d590f6c9d17c7a6f665a4d1f58423210"
+    "sha256": "d7cfd5d1dfd824277bcd4f2e797a4a81790aa9ed149ca4a98a7581554eb5bddb"
   }
 ]
 ```
@@ -258,6 +330,14 @@ Complete and evaluate software verification before release (all classes), docume
 **Sources:** IEC 62304 (2006+A1:2015) 5.8.1-5.8.8 with clause-specific safety-class applicability
 
 **Human review:** pending
+
+**Review declaration (completion is not acceptance):**
+
+```json
+{
+  "status": "pending"
+}
+```
 
 ## qms-tool-validation
 
@@ -273,7 +353,7 @@ For software used in an ISO 13485 QMS, document validation procedures, validate 
 [
   {
     "path": "spec/approval.md",
-    "sha256": "d95ca3014170bf4eebb49a765999eefe41e5c52259603a82e35fe66c2f8df90d"
+    "sha256": "2b691edf06d19f1ff9e51024090f15b10486c9afb627e83feb1281722b5b03c3"
   }
 ]
 ```
@@ -281,6 +361,14 @@ For software used in an ISO 13485 QMS, document validation procedures, validate 
 **Sources:** ISO 13485 (2016) 4.1.6
 
 **Human review:** pending
+
+**Review declaration (completion is not acceptance):**
+
+```json
+{
+  "status": "pending"
+}
+```
 
 ## reviewer-competence
 
@@ -296,7 +384,7 @@ Competence rests on relevant education, training, skills and experience with ret
 [
   {
     "path": "spec/approval.md",
-    "sha256": "d95ca3014170bf4eebb49a765999eefe41e5c52259603a82e35fe66c2f8df90d"
+    "sha256": "2b691edf06d19f1ff9e51024090f15b10486c9afb627e83feb1281722b5b03c3"
   }
 ]
 ```
@@ -305,11 +393,19 @@ Competence rests on relevant education, training, skills and experience with ret
 
 **Human review:** pending
 
+**Review declaration (completion is not acceptance):**
+
+```json
+{
+  "status": "pending"
+}
+```
+
 ## electronic-record-system
 
 **State:** declared
 
-Assess electronic-record/signature applicability and the actual surrounding system, including validation, access, audit trails, signature meaning, retention and corrections. Hashes, names and signed tags alone do not establish these controls. No blanket Part 11 or Annex 11 compliance claim is made.
+Assess legal applicability separately from universal A/B/C repository policy requiring established Part 11 surrounding-system controls/intended-use validation and QMS-established competence. Review actual identity, authority, signature meaning/revision binding, audit trails, integrity, corrections, retention and retrieval. Hashes, names, tags and assessment declarations alone do not establish those controls; unestablished controls hold verification acceptance/release. No system-compliance claim is made for this library or its GitHub reference.
 
 **Basis:** interpretation
 
@@ -329,3 +425,11 @@ Assess electronic-record/signature applicability and the actual surrounding syst
 **Sources:** 21 CFR Part 11 (applicable regulatory text) 11.1(b), 11.10(a)-(g), 11.50, 11.200; applicability assessed separately; ISO 13485 (2016) 4.2.4, 4.2.5
 
 **Human review:** pending
+
+**Review declaration (completion is not acceptance):**
+
+```json
+{
+  "status": "pending"
+}
+```

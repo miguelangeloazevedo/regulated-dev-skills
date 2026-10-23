@@ -24,7 +24,7 @@ Release computes a checklist from the files, following IEC 62304 5.8 at the dept
 
 A release is a decision, never an inference from green tests. Every **one-way door** is listed with its decision.
 
-Before claiming controlled release, require structural readiness and the separate trusted host-authority check for the exact requested revision and policy. Unsupported, unavailable, stale or contradicted controls hold the authorisation gate. A green validate.py --release result is structural only. Read the assurance guide bundled with setup; no private knowledge service is required.
+For A/B/C, require direct independent-human result signatures, QMS-established competence and established Part 11 signing-system controls/intended-use validation as universal repository policy. This backend cannot authenticate that system: verification acceptance and product release remain held, and --release returns RDS425. GitHub preflight is host-authority evidence only and cannot clear this hold. Read the assurance guide bundled with setup; no private knowledge service is required.
 
 ## It's working if
 

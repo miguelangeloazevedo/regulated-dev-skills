@@ -8,7 +8,7 @@ Generated from [the source register](../../assurance/record-system-assessment.js
 
 **State:** declared
 
-Repository files and approval hashes alone are not an intended-use validated electronic-record or signature system.
+A/B/C repository policy requires direct independent-human result signatures, QMS-established competence and established Part 11 surrounding-system controls/intended-use validation. Files, hashes and declarations alone do not establish that system; verification acceptance and product release remain held.
 
 **Assessment status:** pending
 
@@ -31,8 +31,16 @@ Repository files and approval hashes alone are not an intended-use validated ele
 
 ```json
 [
-  "The adopting QMS owner must assess applicability, implement controls and accept intended-use validation evidence."
+  "The adopting QMS must establish competence, controls and intended-use validation. Legal applicability is separate from universal A/B/C repository policy. No shipped backend authenticates that surrounding system; RDS425 cannot be cleared by a reference, boolean or host-authority preflight."
 ]
 ```
 
 **Human review:** pending
+
+**Review declaration (completion is not acceptance):**
+
+```json
+{
+  "status": "pending"
+}
+```
