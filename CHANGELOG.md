@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.2.0
+
+- Assurance registers distinguish declared controls, observed host behavior, unassessed configurations, pending human review and record-system assessment.
+- A trusted GitHub preflight checks exact revisions, independent review authority and current protected policy separately from structural validation.
+- A synthetic host reference isolates restricted drafting credentials from trusted controller and human-gated release jobs; support remains limited to recorded observations.
+- Regulatory review entries distinguish obligations, interpretations and stricter repository rules, with primary-source locators and content bindings.
+- Typed-command invocation is not presented as an operating-system permission boundary; setup bundles the assurance tools and intended-use assessment guidance.
+- Design, quality-event, safety-risk and document/record handoffs preserve software-resolution boundaries, policy-bound risk decisions, point-of-use controls and original evidence.
+
 ## 0.1.0-draft.9
 
 - All six regulated skills include selectable technique guides, evidence worksheets and fictional worked examples, with lifecycle timing and human decision boundaries.

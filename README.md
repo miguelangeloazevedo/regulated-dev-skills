@@ -18,7 +18,7 @@ Scope: EU and US rules. They support your design control work. They do not make 
 | Software that is not itself a device: components supplied to device makers, QMS tools, health and wellness software. `intake` records that, and the skills run at the depth your plan chooses | Deciding a class for you: nothing is classified by default |
 
 > [!IMPORTANT]
-> **Draft, read before adopting.** Check every regulatory statement against the source it cites before you rely on it.
+> **Regulatory review remains pending.** A non-prerelease package version does not complete human review of individual skills or validate your intended use. Check regulatory statements against their cited sources before relying on them.
 
 ## Before you start
 
@@ -37,7 +37,7 @@ The [synthetic host reference](examples/host-enforced/README.md) separates a res
 Pin a tag: clone it, then install from the clone.
 
 ```bash
-git clone --branch v0.1.0-draft.9 --depth 1 https://github.com/miguelangeloazevedo/regulated-dev-skills ~/rds
+git clone --branch v0.2.0 --depth 1 https://github.com/miguelangeloazevedo/regulated-dev-skills ~/rds
 ```
 
 <details open>
