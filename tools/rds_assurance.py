@@ -4,6 +4,7 @@ import argparse
 import html
 import hashlib
 import re
+import os
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -169,7 +170,37 @@ def main(argv=None):
     sub = parser.add_subparsers(dest='command', required=True)
     check = sub.add_parser('validate', help='Validate declarations, not host authorisation.')
     check.add_argument('--root', type=Path, default=Path(__file__).resolve().parents[1])
+    host = sub.add_parser('github-preflight', help='Read host authority in a trusted GitHub job, never from a supplied snapshot.')
+    host.add_argument('--repo', required=True)
+    host.add_argument('--commit', required=True)
+    host.add_argument('--pr', type=int, required=True)
+    host.add_argument('--environment', required=True)
+    host.add_argument('--policy', type=Path, required=True)
+    host.add_argument('--policy-commit', required=True)
     args = parser.parse_args(argv)
+    if args.command == 'github-preflight':
+        # These context checks prevent accidental local use, not spoofing by a privileged process.
+        # The real boundary is the isolated runner, scoped credentials and host-held human gate.
+        from rds_github import collect_github, evaluate_github, HostReadError
+        expected_ref = args.repo + '/.github/workflows/release.yml@refs/heads/main'
+        if (os.environ.get('GITHUB_ACTIONS') != 'true'
+                or os.environ.get('GITHUB_WORKFLOW_REF') != expected_ref
+                or os.environ.get('GITHUB_SHA') != args.policy_commit):
+            print(json.dumps({'status': 'blocked', 'reasons': ['HOST_CONTEXT']}))
+            return 1
+        try:
+            policy = json.loads(args.policy.read_text(encoding='utf-8'))
+            if not isinstance(policy, dict):
+                raise ValueError('Policy must be an object.')
+            policy['policy_commit'] = args.policy_commit
+            facts = collect_github(args.repo, args.pr, args.environment)
+            result = evaluate_github(policy, facts, args.commit, args.pr)
+            result.update(repository=args.repo, commit=args.commit, policy_commit=args.policy_commit,
+                          observed_on=facts['observed_on'])
+        except (OSError, ValueError, UnicodeError, HostReadError):
+            result = {'status': 'blocked', 'reasons': ['HOST_UNAVAILABLE_OR_INVALID_POLICY']}
+        print(json.dumps(result, indent=2))
+        return 0 if result['status'] == 'eligible' else 1
     findings = validate_bundle(args.root)
     print(json.dumps({'status': 'structural_only' if not findings else 'invalid', 'findings': findings}, indent=2))
     return 1 if findings else 0
