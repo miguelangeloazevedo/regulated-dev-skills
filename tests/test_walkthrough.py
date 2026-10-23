@@ -34,6 +34,8 @@ class FirstChangeWalkthrough(unittest.TestCase):
             self.assertIn("RDS222", outputs[3])
             self.assertIn("SUSPECT", outputs[3])
             self.assertIn("RDS401", outputs[4])
+            self.assertIn("RDS425", outputs[4])
+            self.assertIn('"accepted_verification_results": []', outputs[1])
             record = Path(work) / "project/quality/records/sw/SW-1.md"
             self.assertIn('"No entries scheduled for today."', record.read_text())
             self.assertIn("ref: example", record.read_text())

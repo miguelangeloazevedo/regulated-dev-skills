@@ -4,6 +4,8 @@
 
 Works out what the software is before any work starts: a medical device or not, a part of someone else's device or not, and if it is a device, its risk class, its software safety class and the rules that apply. It drafts every answer with its rule path; a person decides each one. It never assumes a class.
 
+Typed commands provide invocation control, not an operating-system permission boundary. An instruction or editable approval field does not establish host-enforced authority.
+
 ## When to reach for it
 
 You invoke this by typing `/intake`, and the agent won't reach for it on its own. Classify the product: device status, risk class, software safety class, applicable rules.

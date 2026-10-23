@@ -4,6 +4,8 @@
 
 Reads existing code and proposes design input candidates for a human to accept. It never fills rationale, safety class or the user need as fact.
 
+Typed commands provide invocation control, not an operating-system permission boundary. An instruction or editable approval field does not establish host-enforced authority.
+
 ## When to reach for it
 
 You invoke this by typing `/design-inputs-from-code`, and the agent won't reach for it on its own. Propose design input candidates from an existing codebase.

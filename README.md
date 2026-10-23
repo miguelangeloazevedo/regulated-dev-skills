@@ -6,7 +6,7 @@
 
 Agent skills for building medical device software and SaMD, traceable by design, and for the software around it that is not a device.
 
-Software in a medical device is built under design controls, risk management, a defined software lifecycle and human accountability for every decision that matters. These skills let an AI coding agent work inside that discipline: it drafts the records, keeps them linked from user need to test result, and stops wherever a person has to decide. Claude Code enforces those stops for typed commands; other agents only read them as instructions, so pair them with host-enforced review (evidence level 1 or above).
+Software in a medical device is built under design controls, risk management, a defined software lifecycle and human accountability for every decision that matters. These skills let an AI coding agent work inside that discipline: it drafts the records, keeps them linked from user need to test result, and is instructed to stop wherever a person has to decide. Claude Code's typed-command setting controls invocation, not operating-system approval or release permissions. Actual authority needs separate host-enforced controls and a tested credential/runner boundary; an agent holding the human's credentials is not that boundary.
 
 Scope: EU and US rules. They support your design control work. They do not make you compliant, they are not a QMS, and nothing here is legal or regulatory advice.
 
@@ -18,20 +18,26 @@ Scope: EU and US rules. They support your design control work. They do not make 
 | Software that is not itself a device: components supplied to device makers, QMS tools, health and wellness software. `intake` records that, and the skills run at the depth your plan chooses | Deciding a class for you: nothing is classified by default |
 
 > [!IMPORTANT]
-> **Draft, read before adopting.** Check every regulatory statement against the source it cites before you rely on it.
+> **Regulatory review remains pending.** A non-prerelease package version does not complete human review of individual skills or validate your intended use. Check regulatory statements against their cited sources before relying on them.
 
 ## Before you start
 
 - **Approval to use an AI agent on this product**, under your QMS: which tool and model, where code and records are processed, how output is reviewed. Software used in the QMS is validated before use (ISO 13485 4.1.6). `/setup` asks for the reference.
 - **A person who owns QA/RA decisions.** The skills draft; that person approves.
-- **A pinned version.** Install a tag, not the moving branch, and record it in your configuration items. Moving to a new tag is a change to a tool your QMS validated: re-validate before use.
+- **A pinned version.** Install a tag, not the moving branch, and record it in your configuration items. Assess a new tag or changed intended use under your QMS change procedure and revalidate as appropriate to the risk of use (ISO 13485 4.1.6).
+
+### Assurance and support
+
+Read the [assurance contract](spec/assurance.md), [claims](docs/assurance/claims.md), [measured support inventory](docs/assurance/support.md), [regulatory review register](docs/assurance/regulatory-review.md) and [record-system assessment](docs/assurance/record-system-assessment.md). Unassessed configurations and pending human reviews remain explicit. A CV, structural test suite or package version does not establish expert review, product verification or a validated electronic-record system.
+
+The [synthetic host reference](examples/host-enforced/README.md) separates restricted drafting credentials from trusted controller and human-gated release jobs. Its measurements establish host-authority predicates only, not Part 11 signing-system compliance. At A/B/C, direct independent-human result signatures, QMS-established competence and established Part 11 controls/intended-use validation are universal repository policy. The shipped backend cannot authenticate the surrounding system: verification acceptance is held and `validate.py --release` returns `RDS425` even with complete declarations. Use `records --report` for structural checks. No private research service is required; citations identify underlying standards and legal sources.
 
 ## Installation
 
 Pin a tag: clone it, then install from the clone.
 
 ```bash
-git clone --branch v0.1.0-draft.9 --depth 1 https://github.com/miguelangeloazevedo/regulated-dev-skills ~/rds
+git clone --branch v0.2.0 --depth 1 https://github.com/miguelangeloazevedo/regulated-dev-skills ~/rds
 ```
 
 <details open>
@@ -80,7 +86,7 @@ jurisdictions: [eu, us]
 
 After that the agent reaches for the lifecycle skills as the work calls for them. **Typed** skills are the ones only a person starts: `/setup`, `/intake`, `/approve`, `/release`, `/impact`, `/status`.
 
-See the output first: a [releasable class A example](examples/minimal-release/README.md) that passes the release gate, and a [class B example](examples/infusion-rate-check/README.md) that fails it and says why. The whole map is in [FLOWS.md](FLOWS.md).
+See the output first: a [class A structural example](examples/minimal-release/README.md) with complete fictional declarations but held release authorisation, and a [class B example](examples/infusion-rate-check/README.md) with additional structural gaps. Neither provides real signatures or product-release authority. The whole map is in [FLOWS.md](FLOWS.md).
 
 ### Your first change
 
@@ -104,7 +110,7 @@ For a first change, in this order. Typed commands you type; the others you ask f
 
 ### Class A and software that is not a device
 
-The chain is the same; the depth is smaller. At class A, `specifications` ties code to requirements without an architecture, `unit-verification` is not required, and `verify` runs system testing only (see [CLASS-OBLIGATIONS.md](skills/gates/intake/CLASS-OBLIGATIONS.md)). For software that is not a device, the development plan chooses the depth and QA/RA accepts it. The [class A example](examples/minimal-release/README.md) shows the smallest record set that passes the release gate.
+The chain is the same; the class-dependent depth is smaller. At class A, IEC 62304 does not require the B/C architecture or unit-verification activities; the approved plan and other applicable requirements still govern (see [CLASS-OBLIGATIONS.md](skills/gates/intake/CLASS-OBLIGATIONS.md)). A/B/C all require direct independent-human result signatures under repository policy. For software that is not a device, the development plan chooses the depth and QA/RA accepts it. The [class A example](examples/minimal-release/README.md) demonstrates structural completeness, not product-release authority.
 
 ### Techniques, evidence and timing
 
@@ -137,7 +143,7 @@ Document and record controls are distinguished in the [document lifecycle and re
 - **Records, linked upward.** Need, system requirement, software requirement, specification, test, result. One markdown file each. Coverage is computed from the links, never typed.
 - **Approval bound to content.** An approval names a person, a role and the revision hash of what they saw. Edit a word and the approval goes stale on its own.
 - **Agents draft, people decide.** Approve and release are typed commands. Residual-risk acceptance is a person's call.
-- **Human-signed verification (this repository's rule).** Models may run the verification; at software safety class B and C a named person independent of the build signs each result, or a report listing them, bound to the result's hash. Without it the result is a pre-check. The standard asks for verification, not this signature; the rule is stricter on purpose.
+- **Human-signed verification (stricter repository policy).** Models may run tests; at A/B/C, a named human independent of the author/builder must sign every result directly, with competence established by the QMS. Part 11 surrounding-system controls and intended-use validation are mandatory by policy even where not legally mandated. A report cannot substitute; editable declarations are not authenticated signatures. Missing or unestablished controls hold verification acceptance and product release.
 - **Evidence levels 0 to 3.** The project says what its controls prove; the skills never claim more.
 
 Details: [spec/](spec/README.md). In a project, check the records with `python3 tools/rds/validate.py records quality --report`.

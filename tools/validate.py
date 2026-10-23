@@ -156,7 +156,13 @@ def schema_docs():
                                "revision": {"type": "string", "pattern": "^[0-9a-f]{64}$"}, "ref": {"type": "string"}},
             },
             "verifier": {"enum": VERIFIER_KINDS},
-            "signed_by": {"type": "object", "required": ["by", "role", "on"]},
+            "signed_by": {"type": "object", "required": ["by", "role", "on", "ref", "revision"],
+                          "description": "Direct signature declaration, not authenticated identity or a QMS competence/system-validation decision",
+                          "properties": {"by": {"type": "string", "minLength": 1},
+                                         "role": {"type": "string", "minLength": 1},
+                                         "on": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+                                         "ref": {"type": "string", "minLength": 1},
+                                         "revision": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}},
             "outcome": {"enum": OUTCOMES},
             "revision": {"type": "string"},
             "anchor": {"type": "string"},
@@ -267,6 +273,44 @@ def class_for(project, fm):
     return sc
 
 
+def signature_problem(record, roles):
+    """Check a direct signature declaration, never authenticate a human decision."""
+    fm = record["fm"]
+    sb = fm.get("signed_by")
+    if not isinstance(sb, dict) or not all(isinstance(sb.get(k), str) and sb[k].strip()
+                                         for k in ("by", "role", "on", "ref", "revision")):
+        return "a direct result signature declaration needs nonempty by, role, on, ref and revision strings; a report cannot substitute"
+    if not all(isinstance(fm.get(k), str) and fm[k].strip() for k in ("authored_by", "built_by")):
+        return "authored_by and built_by are required to check declared independence"
+    if sb["by"] in (fm["authored_by"], fm["built_by"]):
+        return "the signer must not be the author or the builder"
+    members = (roles or {}).get("roles", {}).get(sb["role"])
+    if not isinstance(members, list) or sb["by"] not in members:
+        return "the signer must be listed under its role in a supplied roles file; competence remains a QMS decision"
+    try:
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", sb["on"]):
+            raise ValueError("date format")
+        on = datetime.date.fromisoformat(sb["on"])
+        if on > datetime.date.today() or (fm.get("as_of") and on < datetime.date.fromisoformat(str(fm["as_of"]))):
+            raise ValueError("date order")
+    except (ValueError, TypeError):
+        return "signature date must be a valid YYYY-MM-DD date, not future or before the record date"
+    if sb["revision"] != revision_hash(record["text"]):
+        return "signed_by.revision must equal the result's revision hash; the result changed after it was signed, or the hash is missing"
+    return None
+
+
+def passing_result(record, stale):
+    """Structural eligibility only; no accepted verification is inferred."""
+    fm = record["fm"]
+    return (fm.get("type") == "tr" and fm.get("outcome") == "pass"
+            and record.get("structural_valid") is True
+            and fm.get("status") not in ("superseded", "obsolete")
+            and fm.get("verifier") in VERIFIER_KINDS and bool(fm.get("revision"))
+            and fm.get("id") not in stale
+            and (not record.get("signature_required") or record.get("signature_valid") is True))
+
+
 # --------------------------------------------------------- project block
 def load_project_block(path):
     text = read(path)
@@ -371,6 +415,7 @@ def load_records(artefacts, disp_root):
             rid_ = fm.get("id", fn[:-3])
             if rid_ in recs:
                 err("RDS221", disp, "duplicate id %s (also in %s)" % (rid_, recs[rid_]["disp"]))
+                recs[rid_]["structural_valid"] = False
                 continue
             recs[rid_] = {"fm": fm, "body": body, "path": path, "disp": disp, "text": text}
     return recs
@@ -449,35 +494,11 @@ def check_records(artefacts, roles_path=None, project_path=None, disp_root=None)
             if not fm.get("revision"):
                 err("RDS213", disp, "test result must name the revision under test")
             cls = class_for(project, fm)
-            covered = False
-            if cls in ("B", "C") and fm.get("covered_by"):
-                rep_ = recs.get(fm["covered_by"])
-                mine = revision_hash(r["text"])
-                if not rep_ or rep_["fm"].get("type") != "vrp":
-                    err("RDS220", disp, "covered_by must name a VRP verification report")
-                elif not isinstance(rep_["fm"].get("signed_by"), dict) or not all(rep_["fm"]["signed_by"].get(k) for k in ("by", "role", "on")):
-                    err("RDS220", disp, "the verification report %s is not signed" % fm["covered_by"])
-                elif rep_["fm"]["signed_by"].get("revision") != revision_hash(rep_["text"]):
-                    err("RDS220", disp, "the verification report %s changed after it was signed (signed_by.revision must equal its own hash)" % fm["covered_by"])
-                elif not re.search(r"%s\s.*%s" % (re.escape(rid), mine[:12]), rep_["text"]):
-                    err("RDS220", disp, "report %s does not list this result with its current hash (%s...)" % (fm["covered_by"], mine[:12]))
-                elif roles and rep_["fm"]["signed_by"].get("by") not in (roles["roles"].get(rep_["fm"]["signed_by"].get("role")) or []):
-                    err("RDS220", disp, "report signer is not listed under its role")
-                elif rep_["fm"]["signed_by"].get("by") in (fm.get("authored_by"), fm.get("built_by")):
-                    err("RDS220", disp, "the report signer must not be the author or the builder")
-                covered = True
-            if cls in ("B", "C") and not covered:
-                sb = fm.get("signed_by")
-                if not isinstance(sb, dict) or not all(sb.get(k) for k in ("by", "role", "on")):
-                    err("RDS220", disp, "at class %s a named human independent of the build signs each result (signed_by: by, role, on); without it this is a pre-check" % cls)
-                elif sb.get("by") == fm.get("authored_by") or sb.get("by") == fm.get("built_by"):
-                    err("RDS220", disp, "the signer must not be the author or the builder")
-                elif roles and sb.get("by") not in (roles["roles"].get(sb.get("role")) or []):
-                    err("RDS220", disp, "signer %s is not listed under role %s in the roles file" % (sb.get("by"), sb.get("role")))
-                elif project and project.get("evidence_level", 0) >= 1 and not sb.get("ref"):
-                    err("RDS220", disp, "evidence level %s needs signed_by.ref (the host's own record of the signature)" % project["evidence_level"])
-                elif sb.get("revision") != revision_hash(r["text"]):
-                    err("RDS220", disp, "signed_by.revision must equal the result's revision hash (%s...); the result changed after it was signed, or the hash is missing" % revision_hash(r["text"])[:8])
+            r["signature_required"] = cls in ("A", "B", "C")
+            problem = signature_problem(r, roles)
+            r["signature_valid"] = problem is None
+            if r["signature_required"] and problem:
+                err("RDS220", disp, "at class %s: %s; verification acceptance remains held" % (cls, problem))
         ap = fm.get("approval")
         if ap and fm.get("status") not in ("approved", "obsolete"):
             err("RDS214", disp, "record carries an approval but its status is %r; an approval holds only while the record is approved" % fm.get("status"))
@@ -550,6 +571,9 @@ def check_records(artefacts, roles_path=None, project_path=None, disp_root=None)
                     suspect.append(rid)
                     warn("RDS222", r["disp"], "SUSPECT: parent %s %s; re-review this record" % (pid, why))
     SUSPECT[:] = sorted(set(suspect))
+    invalid_paths = {path for _code, path, _message in errors}
+    for record in recs.values():
+        record["structural_valid"] = record.get("structural_valid", True) and record["disp"] not in invalid_paths
     return recs, children, stale
 
 
@@ -579,6 +603,8 @@ def release_gate(recs, cov, project_path, disp, baseline=None):
             proj = load_project_block(project_path)
         except Exception:
             proj = None
+    if proj is None:
+        err("RDS402", "project block", "release blocker: a readable project block and a human-decided safety class are required")
     for k, why in (("stale_approvals", "approval is stale"), ("suspect_approvals", "approval rests on a parent that moved"),
                    ("linked_but_unverified", "has a test case but no passing current result"),
                    ("test_cases_without_result", "test case has no result"),
@@ -594,7 +620,7 @@ def release_gate(recs, cov, project_path, disp, baseline=None):
             err("RDS401", rid, "release blocker: system requirement has no user need above it")
         if fm.get("type") == "un":
             vtcs = [x for x, y in recs.items() if y["fm"].get("type") == "tc" and rid in ([y["fm"].get("validates")] if isinstance(y["fm"].get("validates"), str) else (y["fm"].get("validates") or []))]
-            passing = [x for x, y in recs.items() if y["fm"].get("type") == "tr" and y["fm"].get("outcome") == "pass" and any(tc in (y["fm"].get("result_of") or []) for tc in vtcs)]
+            passing = [x for x, y in recs.items() if passing_result(y, cov.get("stale_approvals", [])) and any(tc in (y["fm"].get("result_of") or []) for tc in vtcs)]
             if not passing:
                 err("RDS401", rid, "release blocker: user need has no passing validation result")
         if baseline and fm.get("type") == "tr" and str(fm.get("revision", "")) != str(baseline):
@@ -613,6 +639,7 @@ def release_gate(recs, cov, project_path, disp, baseline=None):
         sc = proj.get("safety_class")
         device = sc in ("A", "B", "C") or (isinstance(sc, dict) and any(v in ("A", "B", "C") for v in sc.values()))
         if device:
+            err("RDS425", "signing system", "verification acceptance and product release HELD: A/B/C require direct independent-human result signatures, QMS-established competence and established Part 11 system controls/intended-use validation. This backend cannot authenticate that surrounding system; metadata, validation references and GitHub host predicates cannot clear this hold")
             have = {r["fm"].get("type") for r in recs.values()}
             for typ, what in (("cls", "a classification"), ("plan", "a development plan"), ("un", "user needs"), ("sw", "software requirements"), ("rmr", "a risk management report"), ("rev", "a design review")):
                 if typ not in have:
@@ -638,7 +665,7 @@ def coverage_report(recs, children, stale):
     good_tc = set()
     for rid, r in recs.items():
         fm = r["fm"]
-        if fm.get("type") == "tr" and fm.get("outcome") == "pass" and rid not in stale:
+        if passing_result(r, stale):
             for tc in lst(fm.get("result_of")):
                 good_tc.add(tc)
     linked, verified = set(), set()
@@ -652,7 +679,8 @@ def coverage_report(recs, children, stale):
     linked_unver = sorted(x for x in linked if x not in verified)
     sw_orphans = [rid for rid in of("sw") if not (recs[rid]["fm"].get("derives_from") or [])]
     multi = [rid for rid in of("sw") if len(recs[rid]["fm"].get("derives_from") or []) > 1]
-    unsigned = [rid for rid in of("tr") if not isinstance(recs[rid]["fm"].get("signed_by"), dict)]
+    unsigned = [rid for rid in of("tr") if not isinstance(recs[rid]["fm"].get("signed_by"), dict) or not recs[rid]["fm"]["signed_by"].get("by")]
+    invalid_signatures = [rid for rid in of("tr") if recs[rid].get("signature_required") and not recs[rid].get("signature_valid")]
     with_result = {tid for rid in of("tr") for tid in (recs[rid]["fm"].get("result_of") or [])}
     no_result = [rid for rid in of("tc") if rid not in with_result]
     spec_orphans = [rid for rid in of("spec") if not (recs[rid]["fm"].get("specifies") or [])]
@@ -662,8 +690,11 @@ def coverage_report(recs, children, stale):
             n = len(re.findall(r"BLOCKED\(%s\)" % k, r["body"]))
             if n:
                 blocked[k] = blocked.get(k, 0) + n
-    return {"records": len(recs), "by_status": by_status, "verified": sorted(verified), "linked_but_unverified": linked_unver, "stale_approvals": sorted(stale), "suspect_approvals": list(SUSPECT),
-            "software_requirements_without_parent": sw_orphans, "software_requirements_with_several_parents": multi, "results_without_human_signature": unsigned, "test_cases_without_result": no_result, "specifications_without_requirement": spec_orphans,
+    held = any(r.get("signature_required") for r in recs.values())
+    return {"records": len(recs), "by_status": by_status, "coverage_scope": "structural_only",
+            "verification_acceptance": {"state": "held" if held else "unassessed", "reason": "surrounding signing-system controls, intended-use validation, human identity and QMS competence are not authenticated by this backend"},
+            "accepted_verification_results": [], "verified": sorted(verified), "linked_but_unverified": linked_unver, "stale_approvals": sorted(stale), "suspect_approvals": list(SUSPECT),
+            "software_requirements_without_parent": sw_orphans, "software_requirements_with_several_parents": multi, "results_without_human_signature": unsigned, "results_with_invalid_signature_declarations": invalid_signatures, "test_cases_without_result": no_result, "specifications_without_requirement": spec_orphans,
             "without_verification": no_ver, "blocked_by_kind": blocked}
 
 

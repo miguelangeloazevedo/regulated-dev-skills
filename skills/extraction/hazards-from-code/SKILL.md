@@ -20,6 +20,8 @@ metadata:
 
 Finds places where code can affect a person's care and proposes hazard candidates. Hazard analysis needs clinical context this skill does not have, so the output is input to a human-led session, never a result.
 
+Typed commands provide invocation control, not an operating-system permission boundary. An instruction or editable approval field does not establish host-enforced authority.
+
 Run this only when a person types `/hazards-from-code`. If you reached this skill on your own, stop and ask the user to type the command.
 
 ## Reads

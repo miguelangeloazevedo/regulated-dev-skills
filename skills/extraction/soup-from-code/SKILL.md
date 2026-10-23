@@ -20,6 +20,8 @@ metadata:
 
 Inventories the software the product depends on but did not develop under its own lifecycle: third-party components and previously developed software without adequate records, which is what IEC 62304 calls SOUP. It leaves the judgements to people.
 
+Typed commands provide invocation control, not an operating-system permission boundary. An instruction or editable approval field does not establish host-enforced authority.
+
 Run this only when a person types `/soup-from-code`. If you reached this skill on your own, stop and ask the user to type the command.
 
 ## Reads

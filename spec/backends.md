@@ -27,7 +27,7 @@ An adapter states, for each action, whether it is supported, and what it cannot 
 
 **Implemented in this version: `standalone` only.** `jira`, `qity` and `notion` are a documented contract: the record shapes and approval sources an adapter must provide. No adapter ships yet, so `setup` refuses them until one exists.
 
-Level 3 needs a record system the project has validated for its intended use (audit trail, electronic signature). No backend here provides that out of the box, whoever makes it; a project that has done the validation declares `record_system_validated` with a reference to it, and only then may claim level 3.
+Level 3 declares a record system's intended-use validation (audit trail, electronic signature); `record_system_validated` is a reference, not proof. No shipped backend authenticates the surrounding system. A/B/C policy requires direct independent-human result signatures, QMS-established competence and established Part 11 controls/intended-use validation at every evidence level. Verification acceptance and product release remain held; a level-3 declaration or GitHub preflight cannot unlock `RDS425`. External-system integration is not represented as shipped.
 
 The `qity` adapter remains conceptual: it would map actions to installed apps, not supply a second risk-management method. No adapter implementation or measured tenant configuration is provided here.
 

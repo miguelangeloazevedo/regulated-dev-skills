@@ -47,7 +47,9 @@ Clause 4.4 applies only to legacy software: software lawfully placed on the mark
 
 ## Signature of verification results
 
-At class B and C each verification result is signed by a named human independent of the build. This is this repository's rule, chosen because a reviewer will challenge verification done only by a model; the standard requires verification, not this specific signature.
+At A/B/C, every verification result requires a direct signature by a named human independent of its author/builder, with competence established by the adopting QMS. A signed report cannot substitute. Established Part 11 surrounding-system controls and intended-use validation are universal repository policy, not a claim that Part 11 legally applies to every project or that IEC 62304 requires this per-result signature.
+
+The shipped backend cannot authenticate that surrounding system. Verification acceptance and product release remain held; `--release` returns `RDS425` for A/B/C even with complete declarations, evidence-level metadata or GitHub authority evidence. `none` remains a separate non-device classification; an undecided class never defaults. Class-dependent test activities in the table above are unchanged by this stricter signing policy.
 
 ## Rules that do not change with class
 

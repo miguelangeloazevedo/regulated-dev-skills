@@ -20,6 +20,8 @@ metadata:
 
 Prices a change before you commit to it. Counts come from the link graph, never from memory, and effort is a range with a stated confidence.
 
+Typed commands provide invocation control, not an operating-system permission boundary. An instruction or editable approval field does not establish host-enforced authority.
+
 Run this only when a person types `/impact`. If you reached this skill on your own, stop and ask the user to type the command.
 
 ## Reads

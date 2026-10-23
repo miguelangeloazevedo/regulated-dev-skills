@@ -11,9 +11,13 @@ jobs:
         with:
           python-version: "3.9"
       - run: python3 tools/validate.py repo
+      - name: Assurance declarations and generated views
+        run: |
+          python3 tools/rds_assurance.py validate
+          python3 tools/render_assurance.py --check
       - name: Validator negative tests
         run: python3 -m unittest discover -s tests -v
-      - name: Releasable example passes the release gate
-        run: python3 tools/validate.py records examples/minimal-release/quality --roles examples/minimal-release/quality/roles.yml --project examples/minimal-release/AGENTS.md --release --baseline 7c2d1e0
+      - name: Class A structural checks (release hold is asserted by unit tests)
+        run: python3 tools/validate.py records examples/minimal-release/quality --roles examples/minimal-release/quality/roles.yml --project examples/minimal-release/AGENTS.md --report
       - name: Worked example
         run: python3 tools/validate.py records examples/infusion-rate-check/quality --roles examples/infusion-rate-check/quality/roles.yml --project examples/infusion-rate-check/AGENTS.md --report

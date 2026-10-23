@@ -20,6 +20,8 @@ metadata:
 
 Reads existing code and proposes design input candidates for a human to accept. It never fills rationale, safety class or the user need as fact.
 
+Typed commands provide invocation control, not an operating-system permission boundary. An instruction or editable approval field does not establish host-enforced authority.
+
 Run this only when a person types `/design-inputs-from-code`. If you reached this skill on your own, stop and ask the user to type the command.
 
 ## Reads

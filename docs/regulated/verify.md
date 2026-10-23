@@ -2,7 +2,7 @@
 
 ## What it does
 
-Runs integration and system testing on the exact revision and keeps verification apart from validation. Models may do the work; under this repository's rule, at class B and C a named human independent of the build signs each result, and an unsigned result is recorded as a pre-check.
+Runs integration and system testing on the exact revision and keeps verification apart from validation. For A/B/C, require direct signatures on every result by a named human independent of the author/builder, with competence established by the QMS and established Part 11 surrounding-system controls/intended-use validation. This is stricter repository policy, not universal legal applicability. A report cannot substitute. The shipped backend checks declarations only: verification acceptance and product release remain held (RDS425), even with complete fields, level-3 declarations or GitHub preflight eligibility.
 
 ## When to reach for it
 
@@ -28,7 +28,7 @@ Select methods for the approved plan and lifecycle stage; the guides distinguish
 
 ## The exact revision
 
-Verification runs on the **exact revision** under test. Models may do the work. At class B and C, a named human who did not build the revision signs each result; until then the result is a pre-check. A failed run keeps its red result and makes earlier evidence stale.
+Verification runs on the exact revision under test. Preserve actual commands, logs, outcomes and failures. For A/B/C, require direct signatures on every result by a named human independent of the author/builder, with competence established by the QMS and established Part 11 surrounding-system controls/intended-use validation. This is stricter repository policy, not universal legal applicability. A report cannot substitute. The shipped backend checks declarations only: verification acceptance and product release remain held (RDS425), even with complete fields, level-3 declarations or GitHub preflight eligibility.
 
 ## It's working if
 

@@ -30,7 +30,7 @@ standards: ["IEC 62304:2006+A1:2015", "ISO 14971:2019", "ISO 13485:2016"]
 | `safety_class` | From the approved `CLS` record, written by `/approve` when that record is approved, never while it is proposed. One value for the product, or a map of software system to value, e.g. `{pump-ui: B, dose-engine: C, admin-portal: none}`; a record names its system with `system:` and takes that value, otherwise the highest class present. Values: A, B, C for device software; `none` for software that is not a device. Software that is part of another manufacturer's product takes the class they assign, with `class_set_by`, or is left out until they say. Left out while not decided; nothing defaults it, and the validator warns that class-dependent checks are not running. |
 | `intake` | Path to the `CLS` record. Written by `intake`. |
 | `class_set_by` | For software that is part of another manufacturer's product: who assigned its class, and the reference (supplier agreement, written statement). |
-| `record_system_validated` | Optional. A reference to the validation of the record system. Required for evidence level 3. |
+| `record_system_validated` | Optional declaration/reference, required structurally for evidence level 3. It does not prove validation or clear A/B/C verification-acceptance/release holds: establish Part 11 controls, version-bound intended-use validation and QMS competence in the surrounding system. No shipped backend authenticates that evidence. |
 | `jurisdictions` | Target regulatory regions. v0.1 content covers `eu` and `us`. |
 | `standards` | Standards with the edition pinned. A skill never assumes an edition the project has not pinned. |
 

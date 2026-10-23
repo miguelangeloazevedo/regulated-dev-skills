@@ -13,6 +13,7 @@ signed_by:
   by: carol
   role: engineering
   on: 2026-10-19
+  ref: https://example.invalid/fictional-signatures/TR-2
   revision: 510882dbceb7f99d0e31b7e664f3d6f0c0873508b865272cff41cf5c17954356
 as_of: 2026-10-19
 ---

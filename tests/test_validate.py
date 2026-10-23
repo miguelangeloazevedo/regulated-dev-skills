@@ -126,9 +126,11 @@ class Negative(unittest.TestCase):
         r = self.run_cmd(CMD + ["--release", "--baseline", "deadbeef"])
         self.assertIn("RDS404", r.stdout)
 
-    def test_minimal_example_is_releasable(self):
+    def test_minimal_example_structural_success_cannot_authorise_release(self):
         r = self.run_cmd(MINCMD)
-        self.assertEqual(r.returncode, 0, r.stdout)
+        self.assertNotEqual(r.returncode, 0, r.stdout)
+        self.assertIn("RDS425", r.stdout)
+        self.assertNotIn("RDS220", r.stdout)
 
     def test_draft_record_blocks_release(self):
         fp = self.d + "/r/" + MIN + "/quality/records/sw/SW-1.md"
@@ -143,7 +145,7 @@ class Negative(unittest.TestCase):
         r = self.run_cmd(MINCMD)
         self.assertIn("RDS214", r.stdout)
 
-    def test_report_level_signature(self):
+    def test_report_cannot_substitute_direct_result_signature(self):
         import sys as _s
         _s.path.insert(0, self.d + "/r/tools")
         import importlib, validate as V
@@ -158,13 +160,7 @@ class Negative(unittest.TestCase):
         vrp = vrp.replace("  on: 2026-10-19\n", "  on: 2026-10-19\n  revision: %s\n" % vh, 1)
         _write(self.d + "/r/" + REC + "vrp/VRP-1.md", vrp)
         r = self.run_cmd(CMD)
-        self.assertNotIn("RDS220", r.stdout)
-        _write(self.d + "/r/" + REC + "vrp/VRP-1.md", vrp.replace("## Conclusion", "- TR-9 added later\n\n## Conclusion"))
-        r = self.run_cmd(CMD)
-        self.assertIn("changed after it was signed", r.stdout)
-        _write(self.d + "/r/" + REC + "vrp/VRP-1.md", vrp)
-        _write(tr, s.replace("Pass.", "Pass, edited."))
-        r = self.run_cmd(CMD)
+        self.assertNotEqual(r.returncode, 0, r.stdout)
         self.assertIn("RDS220", r.stdout)
 
     def test_level_0_blocks_release(self):

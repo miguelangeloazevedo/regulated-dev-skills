@@ -3,6 +3,8 @@
 A starting point for the record your QMS keeps before an AI agent works on a regulated product (ISO 13485 4.1.6 where your procedures treat the agent as software used in the QMS). Your procedure decides the depth; this template only lists what such a record usually holds. It is not a validation.
 
 ## Intended use
+For every A/B/C project, repository policy requires direct independent-human result signatures, competence established by the QMS and established Part 11 surrounding-system controls/intended-use validation. This template, a validation reference and GitHub host-authority tests do not establish them. The shipped backend keeps verification acceptance and product release held; record unresolved system evidence rather than declaring compliance.
+
 What the agent does on this product (drafts records, writes code, runs tests), and what it never does (approves, releases, decides a class).
 
 ## Configuration under validation
@@ -25,3 +27,31 @@ A new model or model version, a new harness version, a new tag of these skills, 
 
 ## Approval
 Name, role and date of the person who accepts this validation.
+
+## Host authority and evidence scope
+
+- Exact trusted host/control-repository, workflow/source revision and policy:
+- Drafting identity and effective permissions, distinct from the human reviewer and release job:
+- Independent authorised human identity/role, decision meaning and exact content reviewed:
+- Protected operations tested, actual denials and unchanged-target read-backs:
+- Authorised positive path and exact released synthetic/real target (identify which):
+- Agent/harness/model configurations actually exercised, distinct from host-token probes:
+- Unsupported, unavailable, failed, unassessed or stale properties:
+- Evidence references, observation dates and reconsideration triggers:
+
+An invocation setting, editable approval file, CV or a passing structural test is not a demonstrated host permission boundary or completed validation. Do not use the human's administrator credential as the agent's test identity.
+
+## Electronic-record system assessment
+
+| Property | Intended-use control and evidence reference | Owner | Assessment/gap |
+| --- | --- | --- | --- |
+| Applicable record/signature rules and intended use | | | |
+| Authenticated identity, access and approval authority | | | |
+| Signature meaning and exact content/revision binding | | | |
+| Audit trail and protected original observations | | | |
+| Integrity, availability and identifiable corrections | | | |
+| Retention, holds and authorised disposition | | | |
+| Readable retrieval/export and confidentiality | | | |
+| Version-bound validation and accepting human decision | | | |
+
+A declared `record_system_validated` value/reference is not proof. An open table or unresolved gap remains open; no blanket Part 11 or Annex 11 claim follows from the template.

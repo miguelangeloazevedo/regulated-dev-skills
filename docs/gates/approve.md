@@ -4,6 +4,8 @@
 
 Binds a person's approval to the exact content they saw. An agent may draft an approval; only the person typing the command records it.
 
+Typed commands provide invocation control, not an operating-system permission boundary. An instruction or editable approval field does not establish host-enforced authority.
+
 ## When to reach for it
 
 You invoke this by typing `/approve`, and the agent won't reach for it on its own. Record a human approval against the exact revision of a record.
@@ -25,6 +27,8 @@ An approval records who, in which role, on what date, against which **revision h
 | Approver is the author | Refuses and names the role that may approve |
 | A content or scope `BLOCKED` remains | Refuses |
 | Level needs a signature and none exists | Records the gap and what the level then proves |
+
+For a host-enforced approval claim, require a current authorised host decision bound to the exact content. Use the supported trusted preflight where applicable; never accept agent-authored facts or local human-admin credentials as an isolation boundary. If unavailable, hold that authorisation claim. Read the assurance guide bundled with setup; no private knowledge service is required.
 
 ## Common questions
 
